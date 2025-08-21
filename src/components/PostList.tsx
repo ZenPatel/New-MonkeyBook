@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabase-client";
 import { PostItem } from "./PostItem";
 
@@ -14,32 +14,41 @@ export interface Post {
 }
 
 const fetchPosts = async (): Promise<Post[]> => {
-    const { data, error } = await supabase.rpc("get_posts_with_counts")
+    // Fetch directly from the posts table
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-      if (error) throw new Error(error.message)
+    if (error) throw new Error(error.message);
 
-      return data as Post[];
+    // Brute force: add default 0 for like_count and comment_count
+    return (data as Post[]).map(post => ({
+        ...post,
+        like_count: 0,
+        comment_count: 0,
+    }));
 }
 
 export const PostList = () => {
     const { data, error, isLoading } = useQuery<Post[], Error>({
         queryKey: ["posts"], 
         queryFn: fetchPosts
-    })
+    });
 
-    if (isLoading) <div> Loading posts... </div>
+    if (isLoading) return <div>Loading posts...</div>;  // added return
 
     if (error) {
-        return <div> Error: {error.message}</div>
+        return <div>Error: {error.message}</div>;
     }
 
-    console.log(data)
+    console.log(data);
 
-    return ( 
-    <div className="flex flex-wrap gap-6 justify-center">
-        {data?.map((post, key) => ( 
-            <PostItem post={post} key={key} />
-        ))}
-    </div>
-  )
+    return (
+        <div className="flex flex-wrap gap-6 justify-center">
+            {data?.map((post, key) => (
+                <PostItem post={post} key={key} />
+            ))}
+        </div>
+    );
 };
