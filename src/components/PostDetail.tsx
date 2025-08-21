@@ -46,7 +46,13 @@ export const PostDetail = ({ postId }: Props ) => {
             className="mt-8 rounded object-cover w-full max-w-3xl h-full max-w-3xl mx-auto"
           />
         )}
-        <p className="text-gray-400"> {data?.content} </p>
+        
+        {/* Render rich HTML content */}
+        <div 
+          className="prose prose-invert max-w-none text-gray-300"
+          dangerouslySetInnerHTML={{ __html: data?.content || '' }}
+        />
+        
         <p className="text-gray-500 text-sm"> 
             Posted on: {new Date(data!.created_at).toLocaleDateString()} 
         </p>

@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabase-client";
 import { useAuth } from "../context/AuthContext";
 import { fetchCommunities, type Community } from "./CommunityList";
+import { RichTextEditor } from "./RichTextEditor";
 
 interface PostInput {
     title: string;
@@ -86,20 +87,15 @@ export const CreatePost = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full border border-white/10 bg-transparent p-2 rounded"
-              required
             />
         </div>
         <div>
             <label htmlFor="content" className="block mb-2 font-medium"> 
                 Content 
             </label> 
-            <textarea 
-              id="content" 
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              className="w-full border border-white/10 bg-transparent p-2 rounded"
-              rows={5}
-              required
+            <RichTextEditor
+              content={content}
+              onChange={setContent}
             />
         </div> 
 
