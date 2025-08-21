@@ -249,7 +249,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                 : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
-            📊
+            ┬─┬
           </button>
           {showTableOptions && (
             <div className="absolute top-8 left-0 z-20 bg-gray-800 border border-gray-600 rounded p-3 min-w-[200px]">

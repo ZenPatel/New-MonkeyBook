@@ -1,7 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "../supabase-client";
-import { PostItem } from "./PostItem";
-
 export interface Post {
     id: number;
     title: string;
@@ -61,42 +57,31 @@ export interface PollResponse {
     created_at: string;
 }
 
-const fetchPosts = async (): Promise<Post[]> => {
-    // Fetch directly from the posts table
-    const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-    if (error) throw new Error(error.message);
-
-    // Brute force: add default 0 for like_count and comment_count
-    return (data as Post[]).map(post => ({
-        ...post,
-        like_count: 0,
-        comment_count: 0,
-    }));
+export interface Community {
+    id: number;
+    name: string;
+    description: string;
+    created_at: string;
 }
 
-export const PostList = () => {
-    const { data, error, isLoading } = useQuery<Post[], Error>({
-        queryKey: ["posts"], 
-        queryFn: fetchPosts
-    });
+export interface Comment {
+    id: number;
+    post_id: number;
+    parent_comment_id: number | null;
+    content: string;
+    user_id: string;
+    created_at: string;
+    author: string;
+}
 
-    if (isLoading) return <div>Loading posts...</div>;  // added return
+// API Response types
+export interface QuizStats {
+    total_attempts: number;
+    average_score: number;
+    completion_rate: number;
+}
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
-    console.log(data);
-
-    return (
-        <div className="flex flex-wrap gap-6 justify-center">
-            {data?.map((post, key) => (
-                <PostItem post={post} key={key} />
-            ))}
-        </div>
-    );
-};
+export interface PollResults {
+    option_id: string;
+    vote_count: number;
+}
