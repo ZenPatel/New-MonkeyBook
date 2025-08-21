@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
-import { data, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { supabase } from "../supabase-client";
 
 interface CommunityInput {
@@ -9,7 +9,7 @@ interface CommunityInput {
 }
 
 const createCommunity = async (community: CommunityInput) => {
-    const {error} = await supabase.from("communities").insert(community)
+    const {data, error} = await supabase.from("communities").insert(community)
     
     if (error) throw new Error(error.message)
     return data
