@@ -2,6 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabase-client";
 import { PostItem } from "./PostItem";
 
+export interface FileMetadata {
+    name: string;
+    size: number;
+    type: string;
+    url: string;
+}
+
 export interface Post {
     id: number;
     title: string;
@@ -15,6 +22,7 @@ export interface Post {
     post_type: 'regular' | 'quiz' | 'poll';
     quiz_data?: QuizData | null;
     poll_data?: PollData | null;
+    file_attachments?: FileMetadata[] | null; // Add this field
 }
 
 export interface QuizData {

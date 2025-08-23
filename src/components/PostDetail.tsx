@@ -5,6 +5,7 @@ import { LikeButton } from "./LikeButton";
 import { CommentSection } from "./CommentSection";
 import { QuizDisplay } from "./QuizDisplay";
 import { PollDisplay } from "./PollDisplay";
+import { FileAttachments } from "./FileAttachments"; 
 
 interface Props {
     postId: number;
@@ -77,6 +78,11 @@ export const PostDetail = ({ postId }: Props) => {
                     className="prose prose-invert max-w-none text-gray-300"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
+            )}
+
+            {/* File Attachments - only show for regular posts with files */}
+            {data?.post_type === 'regular' && data.file_attachments && data.file_attachments.length > 0 && (
+                <FileAttachments files={data.file_attachments} />
             )}
 
             {/* Quiz Display */}

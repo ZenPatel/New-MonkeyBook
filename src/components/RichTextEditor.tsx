@@ -128,8 +128,9 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
 
         <div className="w-px h-6 bg-gray-600 mx-1" />
 
-        {/* Bold, Italic, Underline */}
+        {/* Bold, Italic, Underline - ALL BUTTONS NOW HAVE type="button" */}
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('bold')
@@ -141,6 +142,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('italic')
@@ -152,6 +154,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('underline')
@@ -163,6 +166,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleStrike().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('strike')
@@ -178,6 +182,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         {/* Text Color */}
         <div className="relative">
           <button
+            type="button"
             onClick={() => setShowColorPicker(!showColorPicker)}
             className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors"
           >
@@ -192,6 +197,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                 }}
               />
               <button
+                type="button"
                 onClick={() => setShowColorPicker(false)}
                 className="mt-2 w-full px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
               >
@@ -204,6 +210,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         {/* Highlight */}
         <div className="relative">
           <button
+            type="button"
             onClick={() => setShowHighlightPicker(!showHighlightPicker)}
             className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors"
           >
@@ -219,6 +226,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
               />
               <div className="flex gap-2 mt-2">
                 <button
+                  type="button"
                   onClick={() => {
                     editor.chain().focus().unsetHighlight().run()
                     setShowHighlightPicker(false)
@@ -228,6 +236,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                   Clear
                 </button>
                 <button
+                  type="button"
                   onClick={() => setShowHighlightPicker(false)}
                   className="flex-1 px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
                 >
@@ -242,6 +251,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
 
         <div className="relative">
           <button
+            type="button"
             onClick={() => setShowTableOptions(!showTableOptions)}
             className={`px-2 py-1 text-xs rounded transition-colors ${
               editor.isActive('table')
@@ -260,6 +270,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                     [2, 3, 4].map(cols => (
                       <button
                         key={`${rows}x${cols}`}
+                        type="button"
                         onClick={() => insertTable(rows, cols)}
                         className="px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
                       >
@@ -276,36 +287,42 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                   <div className="space-y-1">
                     <div className="grid grid-cols-2 gap-1">
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().addRowBefore().run()}
                         className="px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
                       >
                         + Row Above
                       </button>
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().addRowAfter().run()}
                         className="px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
                       >
                         + Row Below
                       </button>
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().addColumnBefore().run()}
                         className="px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
                       >
                         + Col Left
                       </button>
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().addColumnAfter().run()}
                         className="px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
                       >
                         + Col Right
                       </button>
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().deleteRow().run()}
                         className="px-2 py-1 text-xs bg-red-700 text-white rounded hover:bg-red-600 transition-colors"
                       >
                         - Row
                       </button>
                       <button
+                        type="button"
                         onClick={() => editor.chain().focus().deleteColumn().run()}
                         className="px-2 py-1 text-xs bg-red-700 text-white rounded hover:bg-red-600 transition-colors"
                       >
@@ -313,6 +330,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
                       </button>
                     </div>
                     <button
+                      type="button"
                       onClick={() => editor.chain().focus().deleteTable().run()}
                       className="w-full px-2 py-1 text-xs bg-red-700 text-white rounded hover:bg-red-600 transition-colors"
                     >
@@ -323,6 +341,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
               )}
 
               <button
+                type="button"
                 onClick={() => setShowTableOptions(false)}
                 className="mt-3 w-full px-2 py-1 text-xs bg-gray-600 text-white rounded hover:bg-gray-500 transition-colors"
               >
@@ -336,6 +355,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
 
         {/* Text Alignment */}
         <button
+          type="button"
           onClick={() => editor.chain().focus().setTextAlign('left').run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive({ textAlign: 'left' })
@@ -347,6 +367,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().setTextAlign('center').run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive({ textAlign: 'center' })
@@ -358,6 +379,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().setTextAlign('right').run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive({ textAlign: 'right' })
@@ -372,6 +394,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
 
         {/* Lists */}
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('bulletList')
@@ -383,6 +406,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
         </button>
 
         <button
+          type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={`px-2 py-1 text-xs rounded transition-colors ${
             editor.isActive('orderedList')

@@ -18,18 +18,73 @@ interface PostInput {
     poll_data?: PollData | null;
 }
 
-const createPost = async (post: PostInput, imageFile: File) => {
-    const filePath = `${post.title}-${Date.now()}-${imageFile.name}`;
+interface FileAttachment {
+    id: string;
+    name: string;
+    size: number;
+    type: string;
+    file: File;
+}
 
+const ALLOWED_FILE_TYPES = {
+    'application/pdf': '.pdf',
+    'text/plain': '.txt',
+    'application/rtf': '.rtf',
+    'text/rtf': '.rtf',
+    'application/msword': '.doc',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': '.docx',
+    'application/vnd.ms-excel': '.xls',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': '.xlsx',
+    'application/vnd.ms-powerpoint': '.ppt',
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation': '.pptx',
+};
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILES = 5;
+
+const uploadFiles = async (files: FileAttachment[], postTitle: string): Promise<string[]> => {
+    const uploadPromises = files.map(async (attachment) => {
+        const filePath = `${postTitle}-${Date.now()}-${attachment.file.name}`;
+        
+        const { error: uploadError } = await supabase.storage
+            .from("post-files")
+            .upload(filePath, attachment.file);
+
+        if (uploadError) throw new Error(`Failed to upload ${attachment.name}: ${uploadError.message}`);
+
+        const { data: publicURLData } = supabase.storage
+            .from("post-files")
+            .getPublicUrl(filePath);
+
+        return publicURLData.publicUrl;
+    });
+
+    return Promise.all(uploadPromises);
+};
+
+const createPost = async (post: PostInput, imageFile: File, fileAttachments: FileAttachment[]) => {
+    // Upload main image
+    const imageFilePath = `${post.title}-${Date.now()}-${imageFile.name}`;
     const { error: uploadError } = await supabase.storage
         .from("post-images")
-        .upload(filePath, imageFile);
+        .upload(imageFilePath, imageFile);
 
     if (uploadError) throw new Error(uploadError.message);
 
     const { data: publicURLData } = supabase.storage
         .from("post-images")
-        .getPublicUrl(filePath);
+        .getPublicUrl(imageFilePath);
+
+    // Upload file attachments
+    const fileUrls = fileAttachments.length > 0 ? await uploadFiles(fileAttachments, post.title) : [];
+
+    // Create file metadata
+    const fileMetadata = fileAttachments.map((attachment, index) => ({
+        name: attachment.name,
+        size: attachment.size,
+        type: attachment.type,
+        url: fileUrls[index]
+    }));
 
     const { data, error } = await supabase
         .from("posts")
@@ -41,7 +96,8 @@ const createPost = async (post: PostInput, imageFile: File) => {
             community_id: post.community_id,
             post_type: post.post_type,
             quiz_data: post.quiz_data,
-            poll_data: post.poll_data
+            poll_data: post.poll_data,
+            file_attachments: fileMetadata // Add this field to your posts table
         });
 
     if (error) throw new Error(error.message);
@@ -56,6 +112,7 @@ export const CreatePost = () => {
     const [postType, setPostType] = useState<'regular' | 'quiz' | 'poll'>('regular');
     const [quizData, setQuizData] = useState<QuizData | null>(null);
     const [pollData, setPollData] = useState<PollData | null>(null);
+    const [fileAttachments, setFileAttachments] = useState<FileAttachment[]>([]);
 
     const { user } = useAuth();
 
@@ -65,8 +122,8 @@ export const CreatePost = () => {
     });
 
     const { mutate, isPending, isError } = useMutation({
-        mutationFn: (data: { post: PostInput, imageFile: File }) => {
-            return createPost(data.post, data.imageFile);
+        mutationFn: (data: { post: PostInput, imageFile: File, fileAttachments: FileAttachment[] }) => {
+            return createPost(data.post, data.imageFile, data.fileAttachments);
         },
         onSuccess: () => {
             // Reset form
@@ -77,6 +134,7 @@ export const CreatePost = () => {
             setPostType('regular');
             setQuizData(null);
             setPollData(null);
+            setFileAttachments([]);
         }
     });
 
@@ -98,14 +156,15 @@ export const CreatePost = () => {
         mutate({ 
             post: { 
                 title, 
-                content: content || "", // Ensure content is not null
-                avatar_url: user?.user_metadata.avatar_url || "", // Ensure avatar_url is not null
+                content: content || "",
+                avatar_url: user?.user_metadata.avatar_url || "",
                 community_id: communityId,
                 post_type: postType,
                 quiz_data: postType === 'quiz' ? quizData : null,
                 poll_data: postType === 'poll' ? pollData : null
             }, 
-            imageFile: selectedFile 
+            imageFile: selectedFile,
+            fileAttachments: fileAttachments
         });
     };
 
@@ -123,9 +182,71 @@ export const CreatePost = () => {
     const handlePostTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
         const newType = e.target.value as 'regular' | 'quiz' | 'poll';
         setPostType(newType);
-        // Reset data when changing type
         if (newType !== 'quiz') setQuizData(null);
         if (newType !== 'poll') setPollData(null);
+    };
+
+    const handleFileAttachmentChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+
+        const files = Array.from(e.target.files);
+        const validFiles: FileAttachment[] = [];
+
+        files.forEach(file => {
+            // Check file type
+            if (!ALLOWED_FILE_TYPES[file.type as keyof typeof ALLOWED_FILE_TYPES]) {
+                alert(`File type ${file.type} is not supported. Supported types: PDF, TXT, RTF, DOC, DOCX, XLS, XLSX, PPT, PPTX`);
+                return;
+            }
+
+            // Check file size
+            if (file.size > MAX_FILE_SIZE) {
+                alert(`File ${file.name} is too large. Maximum size is 10MB.`);
+                return;
+            }
+
+            // Check total number of files
+            if (fileAttachments.length + validFiles.length >= MAX_FILES) {
+                alert(`Maximum ${MAX_FILES} files allowed.`);
+                return;
+            }
+
+            validFiles.push({
+                id: `${Date.now()}-${Math.random()}`,
+                name: file.name,
+                size: file.size,
+                type: file.type,
+                file: file
+            });
+        });
+
+        if (validFiles.length > 0) {
+            setFileAttachments(prev => [...prev, ...validFiles]);
+        }
+
+        // Reset input
+        e.target.value = '';
+    };
+
+    const removeFileAttachment = (id: string) => {
+        setFileAttachments(prev => prev.filter(file => file.id !== id));
+    };
+
+    const formatFileSize = (bytes: number) => {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    };
+
+    const getFileIcon = (type: string) => {
+        if (type.includes('pdf')) return '📄';
+        if (type.includes('word') || type.includes('document')) return '📝';
+        if (type.includes('excel') || type.includes('spreadsheet')) return '📊';
+        if (type.includes('powerpoint') || type.includes('presentation')) return '📈';
+        if (type.includes('text')) return '📃';
+        return '📎';
     };
 
     return (
@@ -207,6 +328,52 @@ export const CreatePost = () => {
                             onChange={setContent}
                         />
                     </div>
+                </div>
+            )}
+
+            {/* File Attachments Section - Only for regular posts */}
+            {postType === 'regular' && (
+                <div>
+                    <label htmlFor="fileAttachments" className="block mb-2 font-medium">
+                        File Attachments 
+                    </label>
+                    <div className="text-sm text-gray-400 mb-2">
+                        Supported: PDF, TXT, RTF, DOC, DOCX, XLS, XLSX, PPT, PPTX (Max 10MB each, up to {MAX_FILES} files)
+                    </div>
+                    <input
+                        type="file"
+                        id="fileAttachments"
+                        multiple
+                        accept=".pdf,.txt,.rtf,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
+                        onChange={handleFileAttachmentChange}
+                        className="w-full text-gray-200 mb-4"
+                        disabled={fileAttachments.length >= MAX_FILES}
+                    />
+
+                    {/* Display attached files */}
+                    {fileAttachments.length > 0 && (
+                        <div className="space-y-2">
+                            <h4 className="font-medium text-sm">Attached Files:</h4>
+                            {fileAttachments.map(attachment => (
+                                <div key={attachment.id} className="flex items-center justify-between p-3 bg-gray-800 rounded border border-white/10">
+                                    <div className="flex items-center space-x-3">
+                                        <span className="text-2xl">{getFileIcon(attachment.type)}</span>
+                                        <div>
+                                            <p className="text-sm font-medium text-white">{attachment.name}</p>
+                                            <p className="text-xs text-gray-400">{formatFileSize(attachment.size)}</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={() => removeFileAttachment(attachment.id)}
+                                        className="text-red-400 hover:text-red-300 text-sm px-2 py-1"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
 
