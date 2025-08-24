@@ -453,10 +453,10 @@ export const CreatePost = () => {
             {/* Thumbnail Upload */}
             <div>
                 <label htmlFor="thumbnail" className="block mb-2 font-medium">
-                    Post Thumbnail *
+                    Thumbnail *
                 </label>
                 <div className="text-sm text-gray-400 mb-2">
-                    This image will be used as the post thumbnail and preview
+                    This image will be used as the thumbnail for the post  
                 </div>
                 <input
                     type="file"

@@ -26,6 +26,10 @@
   }
 }
 
+.tiptap strong {
+  color: inherit !important; /* keep whatever TextStyle/Color sets */
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);

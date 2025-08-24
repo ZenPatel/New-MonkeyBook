@@ -1,6 +1,6 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { TextStyle } from '@tiptap/extension-text-style'
+import { FontSize, TextStyle } from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
 import FontFamily from '@tiptap/extension-font-family'
@@ -35,6 +35,7 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
       FontFamily.configure({
         types: ['textStyle'],
       }),
+      FontSize,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
@@ -86,9 +87,9 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
           onChange={(e) => {
             const size = e.target.value
             if (size) {
-              editor.chain().focus().setMark('textStyle', { fontSize: size }).run()
+              editor.chain().focus().setFontSize(size).run()
             } else {
-              editor.chain().focus().unsetMark('textStyle').run()
+              editor.chain().focus().unsetFontSize().run()
             }
           }}
           className="px-2 py-1 text-xs bg-gray-700 text-white border border-gray-600 rounded"
