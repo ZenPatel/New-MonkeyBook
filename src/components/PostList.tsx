@@ -9,12 +9,19 @@ export interface FileMetadata {
     url: string;
 }
 
+export interface MediaItem {
+    url: string;
+    type: 'image' | 'video';
+    name: string;
+    size: number;
+}
+
 export interface Post {
     id: number;
     title: string;
     content: string;
     created_at: string;
-    image_url: string;
+    image_url: string; // This is now just the thumbnail
     avatar_url: string;
     like_count?: number;
     comment_count?: number;
@@ -22,7 +29,8 @@ export interface Post {
     post_type: 'regular' | 'quiz' | 'poll';
     quiz_data?: QuizData | null;
     poll_data?: PollData | null;
-    file_attachments?: FileMetadata[] | null; // Add this field
+    file_attachments?: FileMetadata[] | null;
+    media_items?: MediaItem[] | null; // Add this field for the slideshow media
 }
 
 export interface QuizData {
@@ -70,7 +78,6 @@ export interface PollResponse {
 }
 
 const fetchPosts = async (): Promise<Post[]> => {
-    // Fetch directly from the posts table
     const { data, error } = await supabase
         .from('posts')
         .select('*')
@@ -78,7 +85,6 @@ const fetchPosts = async (): Promise<Post[]> => {
 
     if (error) throw new Error(error.message);
 
-    // Brute force: add default 0 for like_count and comment_count
     return (data as Post[]).map(post => ({
         ...post,
         like_count: 0,

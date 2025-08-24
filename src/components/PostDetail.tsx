@@ -5,7 +5,8 @@ import { LikeButton } from "./LikeButton";
 import { CommentSection } from "./CommentSection";
 import { QuizDisplay } from "./QuizDisplay";
 import { PollDisplay } from "./PollDisplay";
-import { FileAttachments } from "./FileAttachments"; 
+import { FileAttachments } from "./FileAttachments";
+import { MediaSlideshow, type MediaItem } from "./MediaSlideshow";
 
 interface Props {
     postId: number;
@@ -47,6 +48,15 @@ export const PostDetail = ({ postId }: Props) => {
         }
     };
 
+    // Convert media items to the format expected by MediaSlideshow
+    const mediaItems: MediaItem[] = data?.media_items?.map((item: any, index: number) => ({
+        id: `media-${index}`,
+        url: item.url,
+        type: item.type,
+        name: item.name,
+        size: item.size
+    })) || [];
+
     return ( 
         <div className="space-y-6">
             <div className="flex items-center justify-center gap-3">
@@ -64,20 +74,20 @@ export const PostDetail = ({ postId }: Props) => {
                 </div>
             )}
 
-            {data?.image_url && (
-                <img 
-                    src={data.image_url} 
-                    alt={data.title} 
-                    className="mt-8 rounded object-cover w-full max-w-3xl h-auto mx-auto"
-                />
-            )}
-            
-            {/* Content - only show if there is content */}
-            {data?.content && data.content.trim() !== '' && (
-                <div 
-                    className="prose prose-invert max-w-none text-gray-300"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
+            {/* Media Slideshow - only show for regular posts with media */}
+            {data?.post_type === 'regular' && mediaItems.length > 0 && (
+                <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                        <h3 className="text-xl font-semibold text-white flex items-center">
+                            <span className="mr-2">🎬</span>
+                            Media Gallery ({mediaItems.length})
+                        </h3>
+                    </div>
+                    <MediaSlideshow 
+                        media={mediaItems} 
+                        className="max-w-4xl mx-auto"
+                    />
+                </div>
             )}
 
             {/* File Attachments - only show for regular posts with files */}
@@ -90,6 +100,13 @@ export const PostDetail = ({ postId }: Props) => {
 
             {/* Poll Display */}
             {data?.post_type === 'poll' && <PollDisplay post={data} />}
+
+            {data?.content && data.content.trim() !== '' && (
+                <div 
+                    className="prose prose-invert max-w-none text-gray-300"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            )}
             
             <p className="text-gray-500 text-sm"> 
                 Posted on: {new Date(data!.created_at).toLocaleDateString()} 

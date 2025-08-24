@@ -61,7 +61,7 @@ export const PostItem = ({ post }: Props) => {
                                     )}
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2 mt-1">
+                            <div className="flex items-center gap-2 mt-1 flex-wrap">
                                 {post.post_type && post.post_type !== 'regular' && (
                                     <div className="text-xs text-blue-400 font-medium">
                                         {getPostTypeLabel(post.post_type)}
@@ -76,13 +76,19 @@ export const PostItem = ({ post }: Props) => {
                         </div>
                     </div>
 
-                    {/* Image Banner */}
-                    <div className="mt-6 flex-1">
+                    {/* Thumbnail Image - This is now just the thumbnail, not part of media gallery */}
+                    <div className="mt-6 flex-1 relative">
                         <img
                             src={post.image_url}
                             alt={post.title}
                             className="w-full rounded-[20px] object-cover max-h-[150px] mx-auto"
                         />
+                        {hasFileAttachments && (
+                            <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded flex items-center space-x-1">
+                                <span>📎</span>
+                                <span>{post.file_attachments!.length}</span>
+                            </div>
+                        )}
                     </div>
 
                     {/* Stats and Indicators */}
@@ -93,11 +99,6 @@ export const PostItem = ({ post }: Props) => {
                         <span className="cursor-pointer h-10 w-[50px] px-1 flex items-center justify-center font-extrabold rounded-lg">
                             💬 <span className="ml-2">{post.comment_count ?? 0}</span>
                         </span>
-                        {hasFileAttachments && (
-                            <span className="cursor-pointer h-10 w-[50px] px-1 flex items-center justify-center font-extrabold rounded-lg" title="Has file attachments">
-                                📎 <span className="ml-2">{post.file_attachments!.length}</span>
-                            </span>
-                        )}
                     </div>
                 </div>
             </Link>
