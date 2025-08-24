@@ -48,7 +48,6 @@ export const PostDetail = ({ postId }: Props) => {
         }
     };
 
-    // Convert media items to the format expected by MediaSlideshow
     const mediaItems: MediaItem[] = data?.media_items?.map((item: any, index: number) => ({
         id: `media-${index}`,
         url: item.url,

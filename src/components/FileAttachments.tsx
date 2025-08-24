@@ -36,6 +36,8 @@ export const FileAttachments = ({ files }: Props) => {
             // For text files, try to load and show preview
             if (file.type.includes('text/') || file.type === 'application/json') {
                 await loadTextPreview(file);
+            } else if (file.type.startsWith('audio/')) {
+                setExpandedPreview(file.url);
             } else {
                 // For PDFs, open in new tab
                 window.open(file.url, '_blank');
@@ -104,6 +106,7 @@ export const FileAttachments = ({ files }: Props) => {
                 {files.map((file, index) => {
                     const canPreview = canPreviewInBrowser(file.type);
                     const isTextFile = file.type.includes('text/') || file.type === 'application/json';
+                    const isAudioFile = file.type.startsWith('audio/');
                     const isExpanded = expandedPreview === file.url;
 
                     return (
@@ -188,6 +191,39 @@ export const FileAttachments = ({ files }: Props) => {
                                     </div>
                                 </div>
                             )}
+                            {/* Audio file preview */}
+                              {isExpanded && isAudioFile && (
+                                <div className="border-t border-white/10 bg-gray-900">
+                                  <div className="flex items-center justify-between p-3 border-b border-white/10">
+                                    <h5 className="text-sm font-medium text-white">Audio Preview</h5>
+                                      <div className="flex items-center space-x-2">
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            createFileDownloadLink(file.url, file.name);
+                                          }}
+                                          className="text-xs px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors"
+                                        >
+                                          Download
+                                        </button>
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            closePreview();
+                                          }}
+                                          className="text-xs px-2 py-1 bg-gray-600 text-white rounded hover:bg-gray-500 transition-colors"
+                                        >
+                                          Close
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <div className="p-4 flex justify-center">
+                                      <audio controls src={file.url} className="w-full max-w-md">
+                                        Your browser does not support the audio element.
+                                      </audio>
+                                    </div>
+                                  </div>
+                                )}
                         </div>
                     );
                 })}

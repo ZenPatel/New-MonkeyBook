@@ -47,6 +47,9 @@ const ALLOWED_FILE_TYPES = {
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': '.xlsx',
     'application/vnd.ms-powerpoint': '.ppt',
     'application/vnd.openxmlformats-officedocument.presentationml.presentation': '.pptx',
+    'audio/mpeg': '.mp3',
+    'audio/wav': '.wav',
+    'audio/ogg': '.ogg',
 };
 
 const ALLOWED_MEDIA_TYPES = {
@@ -544,13 +547,13 @@ export const CreatePost = () => {
                         File Attachments 
                     </label>
                     <div className="text-sm text-gray-400 mb-2">
-                        Supported: PDF, TXT, RTF, DOC, DOCX, XLS, XLSX, PPT, PPTX (Max 10MB each, up to {MAX_FILES} files)
+                        Supported: PDF, TXT, RTF, DOC, DOCX, XLS, XLSX, PPT, PPTX, MP3, WAV, OGG (Max 10MB each, up to {MAX_FILES} files)
                     </div>
                     <input
                         type="file"
                         id="fileAttachments"
                         multiple
-                        accept=".pdf,.txt,.rtf,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
+                        accept=".pdf,.txt,.rtf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.mp3,.wav,.ogg"
                         onChange={handleFileAttachmentChange}
                         className="w-full text-gray-200 mb-4"
                         disabled={fileAttachments.length >= MAX_FILES}
