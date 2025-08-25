@@ -46,7 +46,7 @@ export const CommunityList = () => {
             >
             <Link 
               to={`/community/${community.id}`}
-              className="text-2xl font-bold text-red-500 hover:underline"
+              className="text-2xl font-bold text-white hover:underline"
             >
               {community.name}
             </Link>

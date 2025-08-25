@@ -1,10 +1,11 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const {signInWithGitHub, signOut, user} = useAuth()
+    const {signOut, user} = useAuth()
+    const navigate = useNavigate();
 
     const displayName = user?.user_metadata.user_name || user?.email;
     return (
@@ -12,7 +13,7 @@ export const Navbar = () => {
             <div className="max-w-5xl mx-auto px-4"> 
                 <div className="flex justify-between items-center h-16">
                     <Link to="/" className="font-momo text-xl font-bold text-white"> 
-                      MonkeyBook<span className="text-red-500">.com</span>
+                      MonkeyBook<span className="text-yellow-300">.com</span>
                     </Link>
 
                     {/* Desktop Links*/}
@@ -61,10 +62,10 @@ export const Navbar = () => {
                         </div>
                       ) : (
                       <button 
-                        onClick={signInWithGitHub}
+                        onClick={() => navigate("/login")}
                         className="bg-yellow-300 px-3 py-1 rounded text-black hover:text-white transition-colors"
                         > 
-                        Sign In With GitHub
+                        Login
                       </button>
                       )}
                     </div>
@@ -138,6 +139,40 @@ export const Navbar = () => {
                     > 
                       Create Community
                     </Link>
+                    {/* Mobile Auth */}
+                    <div className="flex flex-col items-start space-y-2 mt-3">
+                      {user ? (
+                        <div className="flex items-center space-x-4">
+                          {user.user_metadata.avatar_url && (
+                            <img 
+                              src={user.user_metadata.avatar_url} 
+                              alt="User Avatar"
+                              className="w-8 h-8 rounded-full object-cover"
+                            />
+                          )}
+                          <span className="text-gray-300">{displayName}</span>
+                          <button 
+                            onClick={() => {
+                              signOut();
+                              setMenuOpen(false);
+                            }}
+                            className="bg-red-500 px-3 py-1 rounded text-black hover:text-white transition-colors"
+                          >
+                            Sign Out
+                          </button>
+                        </div>
+                      ) : (
+                      <button 
+                        onClick={() => {
+                          navigate("/login")
+                          setMenuOpen(false);
+                        }}
+                        className="bg-yellow-300 px-3 py-1 rounded text-black hover:text-white transition-colors"
+                        > 
+                        Login
+                      </button>
+                      )}
+                    </div>
                 </div>
             </div>
 )}

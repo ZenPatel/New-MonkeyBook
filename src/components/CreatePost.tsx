@@ -158,7 +158,7 @@ const createPost = async (post: PostInput, thumbnailFile: File, fileAttachments:
             quiz_data: post.quiz_data,
             poll_data: post.poll_data,
             file_attachments: fileMetadata,
-            media_items: mediaData // Add this field to your posts table
+            media_items: mediaData 
         });
 
     if (error) throw new Error(error.message);
