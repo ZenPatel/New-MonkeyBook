@@ -9,6 +9,7 @@ import { CommunityPage } from "./pages/CommunityPage";
 import { LoginPage } from "./pages/LoginPage";
 import { ResetPasswordPage } from "./pages/ResetPasswordPage";
 import { GamesPage } from "./pages/GamesPage";
+import { SnakeGamePage } from "./pages/SnakeGamePage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/games" element={<GamesPage />} />
+          <Route path="/games/snake" element={<SnakeGamePage />} />
         </Routes>
       </div>
     </div>

@@ -42,6 +42,12 @@ export const Navbar = () => {
                         > 
                          Create Community 
                          </Link>
+                         <Link
+                          to="/games"
+                          className="text-gray-300 hover:text-white transition-colors"
+                        > 
+                         Games
+                         </Link>
                     </div>
 
                     {/* Desktop Auth */}
