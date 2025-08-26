@@ -145,6 +145,13 @@ export const Navbar = () => {
                     > 
                       Create Community
                     </Link>
+                    <Link 
+                      to="/games"
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                    > 
+                      Games
+                    </Link>
                     {/* Mobile Auth */}
                     <div className="flex flex-col items-start space-y-2 mt-3">
                       {user ? (

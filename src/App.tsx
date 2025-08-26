@@ -10,6 +10,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { ResetPasswordPage } from "./pages/ResetPasswordPage";
 import { GamesPage } from "./pages/GamesPage";
 import { SnakeGamePage } from "./pages/SnakeGamePage";
+import { TicTacToeGamePage } from "./pages/TicTacToeGamePage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/snake" element={<SnakeGamePage />} />
+          <Route path="/games/tictactoe" element={<TicTacToeGamePage />} />
         </Routes>
       </div>
     </div>
