@@ -8,6 +8,7 @@ import { CommunitiesPage } from "./pages/CommunitiesPage";
 import { CommunityPage } from "./pages/CommunityPage";
 import { LoginPage } from "./pages/LoginPage";
 import { ResetPasswordPage } from "./pages/ResetPasswordPage";
+import { GamesPage } from "./pages/GamesPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/community/:id" element={<CommunityPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/games" element={<GamesPage />} />
         </Routes>
       </div>
     </div>
