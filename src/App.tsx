@@ -12,6 +12,7 @@ import { GamesPage } from "./pages/GamesPage";
 import { SnakeGamePage } from "./pages/SnakeGamePage";
 import { TicTacToeGamePage } from "./pages/TicTacToeGamePage";
 import { PongGamePage } from "./pages/PongGamePage";
+import { UserPage } from "./pages/UserPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/games/snake" element={<SnakeGamePage />} />
           <Route path="/games/tictactoe" element={<TicTacToeGamePage />} />
           <Route path="/games/pong" element={<PongGamePage />} />
+          <Route path="/user/:username" element={<UserPage />} />
         </Routes>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { PostItem } from "./PostItem";
 import { useAuth } from "../context/AuthContext";
 import type { Post } from "./PostList";
 import { Trash2, Shield } from 'lucide-react';
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 interface Props {
@@ -172,7 +173,15 @@ export const CommunityDisplay = ({ communityId }: Props) => {
               </div>
               
               <div className="flex items-center gap-4 text-sm text-gray-400">
-                <span>Created by {community?.author || "Unknown"}</span>
+                <span>
+                  Created by: {" "}
+                  <Link
+                      to={`/user/${community?.author}`}
+                      className="text-blue-400 hover:underline"
+                  >
+                      {community?.author}
+                  </Link>
+                </span>
                 <span>•</span>
                 <span>Created {community?.created_at ? formatDate(community.created_at) : "Unknown"}</span>
               </div>

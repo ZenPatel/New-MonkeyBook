@@ -61,7 +61,15 @@ export const Navbar = () => {
                               className="w-8 h-8 rounded-full object-cover"
                             />
                           )}
-                          <span className="text-gray-300">{displayName}</span>
+                          <span className="text-gray-300">
+                            {" "}
+                            <Link
+                              to={`/user/${displayName}`}
+                              className="text-blue-400 hover:underline"
+                            >
+                              {displayName}
+                            </Link>
+                          </span>
                           <button onClick={signOut} className="bg-red-500 px-3 py-1 rounded text-black hover:text-white transition-colors"> 
                             Sign Out
                           </button>

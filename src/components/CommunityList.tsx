@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { supabase } from "../supabase-client";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export interface Community {
     id: number;
@@ -94,7 +94,15 @@ export const CommunityList = () => {
                                 ) : (
                                     <div className="w-5 h-5 rounded-full bg-gradient-to-tl from-[#8A2BE2] to-[#491F70]" />
                                 )}
-                                <span>By {community.author}</span>
+                                <span>
+                                    Created by: {" "}
+                                    <Link
+                                        to={`/user/${community.author}`}
+                                        className="text-blue-400 hover:underline"
+                                    >
+                                        {community.author}
+                                    </Link>
+                                </span>
                             </div>
                             <span>•</span>
                             <span>Created {formatDate(community.created_at)}</span>

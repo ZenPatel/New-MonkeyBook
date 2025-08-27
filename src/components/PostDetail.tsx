@@ -7,6 +7,7 @@ import { QuizDisplay } from "./QuizDisplay";
 import { PollDisplay } from "./PollDisplay";
 import { FileAttachments } from "./FileAttachments";
 import { MediaSlideshow, type MediaItem } from "./MediaSlideshow";
+import { Link } from "react-router-dom";
 
 interface Props {
     postId: number;
@@ -111,7 +112,13 @@ export const PostDetail = ({ postId }: Props) => {
                 Posted on: {new Date(data!.created_at).toLocaleDateString()} 
             </p>
             <p className="text-gray-500 text-sm"> 
-                Created by: {data?.author} 
+                Created by: {" "} 
+                <Link
+                  to={`/user/${data?.author}`}
+                  className="text-blue-400 hover:underline"
+                >
+                  {data?.author}
+                </Link>
             </p>
 
             <LikeButton postId={postId} />
