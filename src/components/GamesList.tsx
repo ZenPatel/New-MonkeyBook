@@ -29,7 +29,7 @@ const games: Game[] = [
   {
     id: 'pong',
     title: 'Pong',
-    description: 'A clone of the classic Atari 1970s table tennis simulator.',
+    description: 'A clone of the classic 1972 Atari table tennis simulator.',
     icon: '🏓',
     difficulty: 'Easy',
     category: 'Arcade'
