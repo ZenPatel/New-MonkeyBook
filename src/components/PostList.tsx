@@ -22,6 +22,7 @@ export interface Post {
     content: string;
     created_at: string;
     image_url: string; // This is now just the thumbnail
+    author: string;
     avatar_url: string;
     like_count?: number;
     comment_count?: number;

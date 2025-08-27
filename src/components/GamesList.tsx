@@ -26,6 +26,14 @@ const games: Game[] = [
     difficulty: 'Easy',
     category: 'Board'
   },
+  {
+    id: 'pong',
+    title: 'Pong',
+    description: 'A clone of the classic Atari 1970s table tennis simulator.',
+    icon: '🏓',
+    difficulty: 'Easy',
+    category: 'Arcade'
+  }
   // Future games will be added here
 ];
 

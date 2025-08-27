@@ -13,6 +13,7 @@ interface PostInput {
     title: string;
     content: string;
     avatar_url: string;
+    author: string;
     community_id?: number | null;
     post_type: 'regular' | 'quiz' | 'poll';
     quiz_data?: QuizData | null;
@@ -153,6 +154,7 @@ const createPost = async (post: PostInput, thumbnailFile: File, fileAttachments:
             content: post.content,
             image_url: publicURLData.publicUrl,
             avatar_url: post.avatar_url,
+            author: post.author,
             community_id: post.community_id,
             post_type: post.post_type,
             quiz_data: post.quiz_data,
@@ -225,6 +227,7 @@ export const CreatePost = () => {
                     title, 
                     content: content || "",
                     avatar_url: user?.user_metadata.avatar_url || "",
+                    author: user?.user_metadata.user_name || "",
                     community_id: communityId,
                     post_type: postType,
                     quiz_data: postType === 'quiz' ? quizData : null,

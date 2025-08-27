@@ -110,6 +110,9 @@ export const PostDetail = ({ postId }: Props) => {
             <p className="text-gray-500 text-sm"> 
                 Posted on: {new Date(data!.created_at).toLocaleDateString()} 
             </p>
+            <p className="text-gray-500 text-sm"> 
+                Created by: {data?.author} 
+            </p>
 
             <LikeButton postId={postId} />
             <CommentSection postId={postId} />
