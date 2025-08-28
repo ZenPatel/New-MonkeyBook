@@ -79,19 +79,12 @@ export interface PollResponse {
 }
 
 const fetchPosts = async (): Promise<Post[]> => {
-    const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('created_at', { ascending: false });
+    const { data, error } = await supabase.rpc("get_posts_with_counts")
 
     if (error) throw new Error(error.message);
 
-    return (data as Post[]).map(post => ({
-        ...post,
-        like_count: 0,
-        comment_count: 0,
-    }));
-}
+    return data as Post[]
+};
 
 export const PostList = () => {
     const { data, error, isLoading } = useQuery<Post[], Error>({

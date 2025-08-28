@@ -10,7 +10,7 @@ export const Navbar = () => {
     const displayName = user?.user_metadata.user_name || user?.email;
     return (
         <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-            <div className="max-w-5xl mx-auto px-4"> 
+            <div className="max-w-6xl mx-auto px-4"> 
                 <div className="flex justify-between items-center h-16">
                     <Link to="/" className="font-momo text-xl font-bold text-white"> 
                       MonkeyBook<span className="text-yellow-300">.com</span>
@@ -29,6 +29,12 @@ export const Navbar = () => {
                           className="text-gray-300 hover:text-white transition-colors"
                         > 
                           Create Post 
+                        </Link>
+                        <Link
+                          to="/users"
+                          className="text-gray-300 hover:text-white transition-colors"
+                        >
+                          Users
                         </Link>
                         <Link 
                           to="/communities"
@@ -65,7 +71,7 @@ export const Navbar = () => {
                             {" "}
                             <Link
                               to={`/user/${displayName}`}
-                              className="text-blue-400 hover:underline"
+                              className="text-gray-300 hover:text-white transition-colors"
                             >
                               {displayName}
                             </Link>
@@ -138,6 +144,13 @@ export const Navbar = () => {
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
                     > 
                       Create 
+                    </Link>
+                    <Link 
+                      to="/users"
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                    > 
+                      Users 
                     </Link>
                     <Link 
                       to="/communities"
