@@ -1,9 +1,10 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabase-client";
 import { PostItem } from "./PostItem";
 import type { Post } from "./PostList";
-import { Calendar, User2 } from 'lucide-react';
+import { Calendar, User2, Settings } from 'lucide-react';
+import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 interface Props {
   username: string;
@@ -96,6 +97,8 @@ const fetchUserPosts = async (username: string): Promise<PostWithCommunity[]> =>
 };
 
 export const UserDisplay = ({ username }: Props) => {
+  const { user } = useAuth();
+
   const {
     data: userProfile,
     error: profileError,
@@ -112,6 +115,25 @@ export const UserDisplay = ({ username }: Props) => {
   } = useQuery<PostWithCommunity[], Error>({
     queryKey: ["userPosts", username],
     queryFn: () => fetchUserPosts(username),
+  });
+
+  // Additional query to check if this user belongs to the current logged-in user
+  const { data: currentUserCheck } = useQuery({
+    queryKey: ["currentUserCheck", user?.id, username],
+    queryFn: async () => {
+      if (!user) return false;
+      
+      // Check if any posts by this username belong to the current user
+      const { data } = await supabase
+        .from("posts")
+        .select("author_id")
+        .eq("author", username)
+        .eq("author_id", user.id)
+        .limit(1);
+      
+      return data && data.length > 0;
+    },
+    enabled: !!user && !!username,
   });
 
   if (profileLoading || postsLoading) {
@@ -146,6 +168,16 @@ export const UserDisplay = ({ username }: Props) => {
 
   const postStats = getPostTypeStats();
 
+  // Check if this is the current user's profile
+  const isCurrentUser = user && (
+    // Check database result first
+    currentUserCheck ||
+    // Check if the username matches the logged-in user's metadata username
+    user.user_metadata?.user_name === username ||
+    // Or check if the email prefix matches (fallback)
+    user.email?.split('@')[0] === username
+  );
+
   return (
     <div>
       {/* User Profile Header */}
@@ -177,6 +209,17 @@ export const UserDisplay = ({ username }: Props) => {
                     <User2 size={12} />
                     <span>User Profile</span>
                   </div>
+                  {/* Settings button for current user */}
+                  {isCurrentUser && (
+                    <Link
+                      to="/user/settings"
+                      className="ml-auto flex items-center gap-1 px-3 py-1 bg-yellow-300/20 text-yellow-300 text-sm rounded-full border border-yellow-300/30 hover:bg-yellow-300/30 transition-colors"
+                      title="Account Settings"
+                    >
+                      <Settings size={14} />
+                      <span>Settings</span>
+                    </Link>
+                  )}
                 </div>
               </div>
               
