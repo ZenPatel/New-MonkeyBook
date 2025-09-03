@@ -41,14 +41,35 @@ const fetchCommunityDetails = async (communityId: number): Promise<Community> =>
 const fetchCommunityPosts = async (
   communityId: number
 ): Promise<PostWithCommunity[]> => {
-  const { data, error } = await supabase
-    .from("posts")
-    .select("*, communities(name)")
-    .eq("community_id", communityId)
-    .order("created_at", { ascending: false });
+  // First get all posts with counts using the RPC function
+  const { data: allPostsData, error: allPostsError } = await supabase.rpc("get_posts_with_counts");
+  
+  if (allPostsError) throw new Error(allPostsError.message);
 
-  if (error) throw new Error(error.message);
-  return data as PostWithCommunity[];
+  // Filter posts for this community and add community info
+  const communityPosts = allPostsData
+    .filter((post: Post) => post.community_id === communityId)
+    .map((post: Post) => ({
+      ...post,
+      communities: { name: '' } // We'll get the community name separately if needed
+    }));
+
+  // Get community name for the posts
+  if (communityPosts.length > 0) {
+    const { data: communityData, error: communityError } = await supabase
+      .from("communities")
+      .select("name")
+      .eq("id", communityId)
+      .single();
+
+    if (!communityError && communityData) {
+      communityPosts.forEach((post: { communities: { name: any; }; }) => {
+        post.communities.name = communityData.name;
+      });
+    }
+  }
+
+  return communityPosts as PostWithCommunity[];
 };
 
 const removePostFromCommunity = async (postId: number): Promise<void> => {

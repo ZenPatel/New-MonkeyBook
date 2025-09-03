@@ -1,9 +1,10 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabase-client";
 import { PostItem } from "./PostItem";
 import type { Post } from "./PostList";
-import { Calendar, User2 } from 'lucide-react';
+import { Calendar, User2, Settings } from 'lucide-react';
+import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 interface Props {
   username: string;
@@ -82,20 +83,44 @@ const fetchUserProfile = async (username: string): Promise<UserProfile> => {
 };
 
 const fetchUserPosts = async (username: string): Promise<PostWithCommunity[]> => {
-  const { data, error } = await supabase
-    .from("posts")
-    .select(`
-      *,
-      communities(name, id)
-    `)
-    .eq("author", username)
-    .order("created_at", { ascending: false });
+  // Get all posts with counts using the RPC function
+  const { data: allPostsData, error: allPostsError } = await supabase.rpc("get_posts_with_counts");
+  
+  if (allPostsError) throw new Error(allPostsError.message);
 
-  if (error) throw new Error(error.message);
-  return data as PostWithCommunity[];
+  // Filter posts for this user
+  const userPosts = allPostsData.filter((post: Post) => post.author === username);
+
+  // For posts that have community_id, fetch the community info
+  const postsWithCommunities = await Promise.all(
+    userPosts.map(async (post: Post) => {
+      if (post.community_id) {
+        const { data: communityData, error: communityError } = await supabase
+          .from("communities")
+          .select("name, id")
+          .eq("id", post.community_id)
+          .single();
+
+        if (!communityError && communityData) {
+          return {
+            ...post,
+            communities: {
+              name: communityData.name,
+              id: communityData.id
+            }
+          };
+        }
+      }
+      return { ...post };
+    })
+  );
+
+  return postsWithCommunities as PostWithCommunity[];
 };
 
 export const UserDisplay = ({ username }: Props) => {
+  const { user } = useAuth();
+
   const {
     data: userProfile,
     error: profileError,
@@ -112,6 +137,25 @@ export const UserDisplay = ({ username }: Props) => {
   } = useQuery<PostWithCommunity[], Error>({
     queryKey: ["userPosts", username],
     queryFn: () => fetchUserPosts(username),
+  });
+
+  // Additional query to check if this user belongs to the current logged-in user
+  const { data: currentUserCheck } = useQuery({
+    queryKey: ["currentUserCheck", user?.id, username],
+    queryFn: async () => {
+      if (!user) return false;
+      
+      // Check if any posts by this username belong to the current user
+      const { data } = await supabase
+        .from("posts")
+        .select("author_id")
+        .eq("author", username)
+        .eq("author_id", user.id)
+        .limit(1);
+      
+      return data && data.length > 0;
+    },
+    enabled: !!user && !!username,
   });
 
   if (profileLoading || postsLoading) {
@@ -146,6 +190,16 @@ export const UserDisplay = ({ username }: Props) => {
 
   const postStats = getPostTypeStats();
 
+  // Check if this is the current user's profile
+  const isCurrentUser = user && (
+    // Check database result first
+    currentUserCheck ||
+    // Check if the username matches the logged-in user's metadata username
+    user.user_metadata?.user_name === username ||
+    // Or check if the email prefix matches (fallback)
+    user.email?.split('@')[0] === username
+  );
+
   return (
     <div>
       {/* User Profile Header */}
@@ -177,6 +231,17 @@ export const UserDisplay = ({ username }: Props) => {
                     <User2 size={12} />
                     <span>User Profile</span>
                   </div>
+                  {/* Settings button for current user */}
+                  {isCurrentUser && (
+                    <Link
+                      to="/user/settings"
+                      className="ml-auto flex items-center gap-1 px-3 py-1 bg-yellow-300/20 text-yellow-300 text-sm rounded-full border border-yellow-300/30 hover:bg-yellow-300/30 transition-colors"
+                      title="Account Settings"
+                    >
+                      <Settings size={14} />
+                      <span>Settings</span>
+                    </Link>
+                  )}
                 </div>
               </div>
               
@@ -199,7 +264,7 @@ export const UserDisplay = ({ username }: Props) => {
                 </div>
               </div>
                 <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                    <span>Bio: {userProfile?.bio || "No bio available."}</span>
+                    <span>{userProfile?.bio}</span>
                 </div>
 
               {userProfile?.created_at && (
