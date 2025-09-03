@@ -14,7 +14,6 @@ import { TicTacToeGamePage } from "./pages/TicTacToeGamePage";
 import { PongGamePage } from "./pages/PongGamePage";
 import { UserPage } from "./pages/UserPage";
 import { UserListPage } from "./pages/UserListPage";
-import { UserSettingsPage } from "./pages/UserSettingsPage";
 
 function App() {
   return (
@@ -36,7 +35,6 @@ function App() {
           <Route path="/games/pong" element={<PongGamePage />} />
           <Route path="/user/:username" element={<UserPage />} />
           <Route path="/users" element={<UserListPage />} />
-          <Route path="/user/settings" element={<UserSettingsPage />} />
         </Routes>
       </div>
     </div>

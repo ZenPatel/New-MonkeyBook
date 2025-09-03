@@ -27,58 +27,38 @@ interface UserProfile {
 }
 
 const fetchUserProfile = async (username: string): Promise<UserProfile> => {
-  // First, try to get user profile data from a users table if it exists
-  const { data: userData, error: userError } = await supabase
+  // Get all posts by this user (ascending = earliest first)
+  const { data: posts, error: postsError } = await supabase
+    .from("posts")
+    .select("author, avatar_url, created_at")
+    .eq("author", username)
+    .order("created_at", { ascending: true });
+
+  if (postsError) throw new Error(postsError.message);
+
+  const earliestPost = posts && posts.length > 0 ? posts[0] : null;
+
+  // Try to get user profile data from "users" table
+  const { data: userData } = await supabase
     .from("users")
     .select("user_name, avatar_url, bio, created_at")
     .eq("user_name", username)
     .single();
 
-  // If users table doesn't exist or user not found, fall back to posts
-  if (userError || !userData) {
-    const { data: posts, error: postsError } = await supabase
-      .from("posts")
-      .select("author, avatar_url, created_at")
-      .eq("author", username)
-      .order("created_at", { ascending: true });
-
-    if (postsError) throw new Error(postsError.message);
-
-    if (!posts || posts.length === 0) {
-      return {
-        user_name: username,
-        avatar_url: "",
-        bio: "",
-        total_posts: 0,
-        total_likes: 0
-      };
-    }
-
-    const earliestPost = posts[0];
-    
-    return {
-      user_name: username,
-      avatar_url: earliestPost.avatar_url || "",
-      bio: "",
-      created_at: earliestPost.created_at,
-      total_posts: posts.length,
-      total_likes: 0
-    };
-  }
-
-  // Get post count for this user
+  // Count posts
   const { count: postCount } = await supabase
     .from("posts")
-    .select("*", { count: 'exact', head: true })
+    .select("*", { count: "exact", head: true })
     .eq("author", username);
 
   return {
-    user_name: userData.user_name,
-    avatar_url: userData.avatar_url || "",
-    bio: userData.bio || "",
-    created_at: userData.created_at,
+    user_name: userData?.user_name || username,
+    // Always prefer earliestPost.avatar_url
+    avatar_url: earliestPost?.avatar_url || userData?.avatar_url || "",
+    bio: userData?.bio || "",
+    created_at: earliestPost?.created_at || userData?.created_at || "",
     total_posts: postCount || 0,
-    total_likes: 0
+    total_likes: 0,
   };
 };
 
@@ -264,7 +244,7 @@ export const UserDisplay = ({ username }: Props) => {
                 </div>
               </div>
                 <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                    <span>{userProfile?.bio}</span>
+                    <span>{userProfile?.bio || "No bio available."}</span>
                 </div>
 
               {userProfile?.created_at && (
