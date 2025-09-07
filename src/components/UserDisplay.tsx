@@ -4,6 +4,7 @@ import { PostItem } from "./PostItem";
 import type { Post } from "./PostList";
 import { Calendar, User2 } from 'lucide-react';
 import { useAuth } from "../context/AuthContext";
+import { DeleteAccount } from "./DeleteAccount";
 
 interface Props {
   username: string;
@@ -119,23 +120,7 @@ export const UserDisplay = ({ username }: Props) => {
   });
 
   // Additional query to check if this user belongs to the current logged-in user
-  const {} = useQuery({
-    queryKey: ["currentUserCheck", user?.id, username],
-    queryFn: async () => {
-      if (!user) return false;
-      
-      // Check if any posts by this username belong to the current user
-      const { data } = await supabase
-        .from("posts")
-        .select("author_id")
-        .eq("author", username)
-        .eq("author_id", user.id)
-        .limit(1);
-      
-      return data && data.length > 0;
-    },
-    enabled: !!user && !!username,
-  });
+  const isCurrentUser = user?.user_metadata?.user_name || user?.user_metadata?.full_name === username;
 
   if (profileLoading || postsLoading) {
     return <div className="text-center py-4">Loading user profile...</div>;
@@ -292,6 +277,16 @@ export const UserDisplay = ({ username }: Props) => {
           <div className="text-center text-gray-400 py-12">
             <div className="text-6xl mb-4">📝</div>
             <p className="text-lg mb-2">{username} hasn't created any posts yet.</p>
+          </div>
+        )}
+        {/* Delete Account Section - only for current user */}
+        {isCurrentUser && (
+          <div className="max-w-4xl mx-auto">
+            <DeleteAccount 
+              username={username}
+              currentUser={user?.user_metadata?.user_name || user?.user_metadata?.full_name}
+              isCurrentUser={isCurrentUser}
+            />
           </div>
         )}
       </div>

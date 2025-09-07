@@ -6,6 +6,7 @@ import type { Post } from "./PostList";
 import { Trash2, Shield } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { DeleteCommunity } from "./DeleteCommunity";
 
 interface Props {
   communityId: number;
@@ -179,13 +180,26 @@ export const CommunityDisplay = ({ communityId }: Props) => {
             {/* Community Info in the center */}
             <div className="flex-1">
               <div className="mb-3">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-2xl font-bold text-white">{community?.name}</h3>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-bold text-white">{community?.name}</h3>
+                    {isAuthor && (
+                      <div className="flex items-center gap-1 px-2 py-1 bg-yellow-300/20 text-yellow-300 text-xs rounded-full border border-yellow-300/30">
+                        <Shield size={12} />
+                        <span>Creator</span>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Delete Community Button */}
                   {isAuthor && (
-                    <div className="flex items-center gap-1 px-2 py-1 bg-yellow-300/20 text-yellow-300 text-xs rounded-full border border-yellow-300/30">
-                      <Shield size={12} />
-                      <span>Creator</span>
-                    </div>
+                    <DeleteCommunity 
+                      communityId={communityId}
+                      communityName={community?.name || ""}
+                      communityAuthor={community?.author || ""}
+                      currentUser={user?.user_metadata?.user_name}
+                      className="ml-4"
+                    />
                   )}
                 </div>
                 <p className="text-gray-300 text-lg leading-relaxed">

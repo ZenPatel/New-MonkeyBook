@@ -3,6 +3,7 @@ import type { Comment } from "./CommentSection"
 import { useAuth } from "../context/AuthContext";
 import { supabase } from "../supabase-client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { DeleteComment } from "./DeleteComment";
 
 interface Props {
     comment: Comment & {
@@ -76,12 +77,20 @@ export const CommentItem = ({ comment, postId }: Props) => {
                 </span>
             </div>
             <p className="text-gray-300"> {comment.content} </p>
-            <button 
-              onClick={() => setShowReply((prev) => !prev)}
-              className="text-blue-500 text-sm mt-1"
-            > 
-                {showReply ? "Cancel" : "Reply"}{" "}
-            </button>
+            <div className="flex items-center">
+                <button 
+                  onClick={() => setShowReply((prev) => !prev)}
+                  className="text-blue-500 text-sm mt-1"
+                > 
+                    {showReply ? "Cancel" : "Reply"}{" "}
+                </button>
+                <DeleteComment 
+                  commentId={comment.id}
+                  commentAuthor={comment.author}
+                  currentUser={user?.user_metadata?.user_name || user?.user_metadata?.full_name}
+                  postId={postId}
+                />
+            </div>
         </div>
         {showReply && user && (
             <form onSubmit={handleReplySubmit} className="mb-4"> 

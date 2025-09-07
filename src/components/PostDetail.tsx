@@ -7,7 +7,9 @@ import { QuizDisplay } from "./QuizDisplay";
 import { PollDisplay } from "./PollDisplay";
 import { FileAttachments } from "./FileAttachments";
 import { MediaSlideshow, type MediaItem } from "./MediaSlideshow";
+import { DeletePost } from "./DeletePost";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 interface Props {
     postId: number;
@@ -25,6 +27,7 @@ const fetchPostById = async (id: number): Promise<Post> => {
 };
 
 export const PostDetail = ({ postId }: Props) => {
+    const { user } = useAuth();
     const { data, error, isLoading } = useQuery<Post, Error>({
         queryKey: ["post", postId],
         queryFn: () => fetchPostById(postId),
@@ -121,7 +124,16 @@ export const PostDetail = ({ postId }: Props) => {
                 </Link>
             </p>
 
-            <LikeButton postId={postId} />
+            {/* Delete button - only show for post author */}
+            <div className="flex justify-between items-center">
+                <LikeButton postId={postId} />
+                <DeletePost 
+                    postId={postId}
+                    postTitle={data?.title || ""}
+                    postAuthor={data?.author || ""}
+                    currentUser={user?.user_metadata?.user_name || user?.user_metadata?.full_name}
+                />
+            </div>
             <CommentSection postId={postId} />
         </div> 
     );
