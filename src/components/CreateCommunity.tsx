@@ -94,10 +94,16 @@ export const CreateCommunity = () => {
                     type="text" 
                     id="name" 
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                        const value = e.target.value
+                        setName(value.slice(0, 25));
+                    }} 
                     className="w-full border border-white/10 bg-transparent p-2 rounded"
                     required 
                 />
+                <p className="text-sm text-gray-400 mt-1">
+                    {name.length}/25 
+                </p>
             </div>
 
             <div>

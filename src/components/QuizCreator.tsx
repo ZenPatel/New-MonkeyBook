@@ -16,7 +16,7 @@ export const QuizCreator = ({ onQuizChange }: Props) => {
             explanation: ''
         }
     ]);
-    const [allowRetake, setAllowRetake] = useState(true);
+    const [allowRetake] = useState(true);
     const [showResults, setShowResults] = useState(true);
 
     const updateQuestion = (index: number, field: keyof QuizQuestion, value: any) => {
@@ -101,26 +101,28 @@ export const QuizCreator = ({ onQuizChange }: Props) => {
                         className="w-full border border-white/10 bg-transparent p-2 rounded"
                     />
 
-                    <div className="space-y-2">
+                    <div>
                         <label className="text-sm font-medium">Answer Options:</label>
-                        {question.options.map((option, optionIndex) => (
-                            <div key={optionIndex} className="flex items-center space-x-2">
-                                <input
-                                    type="radio"
-                                    name={`correct-${questionIndex}`}
-                                    checked={question.correct_answer === optionIndex}
-                                    onChange={() => updateQuestion(questionIndex, 'correct_answer', optionIndex)}
-                                    className="text-green-500"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder={`Option ${optionIndex + 1}`}
-                                    value={option}
-                                    onChange={(e) => updateOption(questionIndex, optionIndex, e.target.value)}
-                                    className="flex-1 border border-white/10 bg-transparent p-2 rounded"
-                                />
-                            </div>
-                        ))}
+                        <div className="mt-3 space-y-2">
+                          {question.options.map((option, optionIndex) => (
+                              <div key={optionIndex} className="flex items-center space-x-2">
+                                  <input
+                                      type="radio"
+                                      name={`correct-${questionIndex}`}
+                                      checked={question.correct_answer === optionIndex}
+                                      onChange={() => updateQuestion(questionIndex, 'correct_answer', optionIndex)}
+                                      className="text-green-500"
+                                  />
+                                  <input
+                                      type="text"
+                                      placeholder={`Option ${optionIndex + 1}`}
+                                      value={option}
+                                      onChange={(e) => updateOption(questionIndex, optionIndex, e.target.value)}
+                                      className="flex-1 border border-white/10 bg-transparent p-2 rounded"
+                                  />
+                              </div>
+                          ))}
+                        </div>
                     </div>
 
                     <textarea
