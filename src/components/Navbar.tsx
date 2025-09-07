@@ -13,7 +13,7 @@ export const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4"> 
                 <div className="flex justify-between items-center h-16">
                     <Link to="/" className="font-momo text-xl font-bold text-white"> 
-                      MonkeyBook<span className="text-yellow-300">.com</span>
+                      MonkeyBook<span className="text-yellow-300">.net</span>
                     </Link>
 
                     {/* Desktop Links*/}
