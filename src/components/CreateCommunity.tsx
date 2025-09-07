@@ -67,7 +67,7 @@ export const CreateCommunity = () => {
             community: { 
                 name, 
                 description,
-                author: user?.user_metadata.user_name || "Anonymous",
+                author: user?.user_metadata.user_name || user?.user_metadata.full_name || "Anonymous",
                 avatar_url: user?.user_metadata.avatar_url || ""
             }, 
             iconFile: selectedIcon 

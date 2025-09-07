@@ -7,10 +7,10 @@ export const Navbar = () => {
     const {signOut, user} = useAuth()
     const navigate = useNavigate();
 
-    const displayName = user?.user_metadata.user_name || user?.email;
+    const displayName = user?.user_metadata.user_name || user?.user_metadata.full_name || user?.email;
     return (
         <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-            <div className="max-w-6xl mx-auto px-4"> 
+            <div className="max-w-7xl mx-auto px-4"> 
                 <div className="flex justify-between items-center h-16">
                     <Link to="/" className="font-momo text-xl font-bold text-white"> 
                       MonkeyBook<span className="text-yellow-300">.com</span>
@@ -47,6 +47,12 @@ export const Navbar = () => {
                           className="text-gray-300 hover:text-white transition-colors"
                         > 
                          Create Community 
+                         </Link>
+                         <Link
+                          to="/chatroom"
+                          className="text-gray-300 hover:text-white transition-colors"
+                        > 
+                         Chatroom
                          </Link>
                          <Link
                           to="/games"
@@ -165,6 +171,13 @@ export const Navbar = () => {
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
                     > 
                       Create Community
+                    </Link>
+                    <Link 
+                      to="/chatroom"
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                    > 
+                      Chatroom
                     </Link>
                     <Link 
                       to="/games"

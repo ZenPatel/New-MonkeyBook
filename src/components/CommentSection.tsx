@@ -76,7 +76,7 @@ export const CommentSection = ({postId}: Props) => {
                 newComment, 
                 postId, 
                 user?.id, 
-                user?.user_metadata?.user_name
+                user?.user_metadata?.user_name || user?.user_metadata?.full_name
             ),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["comments", postId] })

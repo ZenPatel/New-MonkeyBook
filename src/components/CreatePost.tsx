@@ -227,7 +227,7 @@ export const CreatePost = () => {
                     title, 
                     content: content || "",
                     avatar_url: user?.user_metadata.avatar_url || "",
-                    author: user?.user_metadata.user_name || "",
+                    author: user?.user_metadata.user_name || user?.user_metadata.full_name || "",
                     community_id: communityId,
                     post_type: postType,
                     quiz_data: postType === 'quiz' ? quizData : null,
