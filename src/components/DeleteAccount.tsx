@@ -128,7 +128,6 @@ export const DeleteAccount = ({ username, currentUser, isCurrentUser }: Props) =
                 <li>• All your posts and their comments</li>
                 <li>• All your comments on other posts</li>
                 <li>• All communities you created</li>
-                <li>• Your user profile and account data</li>
               </ul>
               <p className="text-sm text-red-400 font-medium mt-2">
                 This action cannot be undone!

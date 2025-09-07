@@ -155,64 +155,70 @@ export const UserDisplay = ({ username }: Props) => {
   const postStats = getPostTypeStats();
 
   return (
-    <div>
+    <div className="px-4 sm:px-6 lg:px-8">
       {/* User Profile Header */}
-      <div className="mb-12">
+      <div className="mb-8 sm:mb-12">
         {/* User Profile Card */}
-        <div className="max-w-4xl mx-auto bg-gray-900/50 border border-white/10 rounded-2xl p-6 mb-8">
-          <div className="flex items-start gap-6">
-            {/* User Avatar on the left */}
-            <div className="flex-shrink-0">
+        <div className="max-w-4xl mx-auto bg-gray-900/50 border border-white/10 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8">
+          {/* Mobile Layout: Stack vertically on small screens */}
+          <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+            {/* User Avatar - centered on mobile */}
+            <div className="flex-shrink-0 self-center sm:self-start">
               {userProfile?.avatar_url ? (
                 <img 
                   src={userProfile.avatar_url} 
                   alt={`${username} avatar`}
-                  className="w-24 h-24 rounded-full object-cover border-2 border-yellow-300/30" 
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-yellow-300/30" 
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-yellow-300 to-pink-700 flex items-center justify-center text-3xl font-bold text-black">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-yellow-300 to-pink-700 flex items-center justify-center text-2xl sm:text-3xl font-bold text-black">
                   {username?.[0]?.toUpperCase() || "U"}
                 </div>
               )}
             </div>
 
-            {/* User Info in the center */}
-            <div className="flex-1">
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-3xl font-bold text-white">{username}</h3>
-                  <div className="flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full border border-blue-500/30">
+            {/* User Info */}
+            <div className="flex-1 text-center sm:text-left">
+              <div className="mb-3 sm:mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">{username}</h3>
+                  <div className="flex items-center justify-center sm:justify-start gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full border border-blue-500/30 w-fit mx-auto sm:mx-0">
                     <User2 size={12} />
                     <span>User Profile</span>
                   </div>
-                  {/* Settings button for current user */}
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+              {/* Stats Grid - Responsive columns */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-3 sm:mb-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-yellow-300">{posts?.length || 0}</div>
-                  <div className="text-sm text-gray-400">Total Posts</div>
+                  <div className="text-xl sm:text-2xl font-bold text-yellow-300">{posts?.length || 0}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">Total Posts</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-400">{postStats.regular}</div>
-                  <div className="text-sm text-gray-400">Regular Posts</div>
+                  <div className="text-xl sm:text-2xl font-bold text-green-400">{postStats.regular}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">Regular Posts</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">{postStats.quiz}</div>
-                  <div className="text-sm text-gray-400">Quizzes</div>
+                  <div className="text-xl sm:text-2xl font-bold text-purple-400">{postStats.quiz}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">Quizzes</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-pink-400">{postStats.poll}</div>
-                  <div className="text-sm text-gray-400">Polls</div>
+                  <div className="text-xl sm:text-2xl font-bold text-pink-400">{postStats.poll}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">Polls</div>
                 </div>
               </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                    <span>{userProfile?.bio}</span>
-                </div>
 
+              {/* Bio */}
+              {userProfile?.bio && (
+                <div className="text-sm text-gray-400 mb-2">
+                  <span>{userProfile.bio}</span>
+                </div>
+              )}
+
+              {/* Join Date */}
               {userProfile?.created_at && (
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-gray-400">
                   <Calendar size={16} />
                   <span>First post: {formatDate(userProfile.created_at)}</span>
                 </div>
@@ -221,11 +227,11 @@ export const UserDisplay = ({ username }: Props) => {
           </div>
         </div>
 
-        {/* Communities this user has posted in */}
+        {/* Communities Section */}
         {posts && posts.length > 0 && (
-          <div className="max-w-4xl mx-auto mb-6">
-            <h4 className="text-lg font-semibold text-white mb-3">Communities Active In</h4>
-            <div className="flex flex-wrap gap-2">
+          <div className="max-w-4xl mx-auto mb-4 sm:mb-6">
+            <h4 className="text-lg font-semibold text-white mb-3 text-center sm:text-left">Communities Active In</h4>
+            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               {Array.from(new Set(posts
                 .filter(post => post.communities)
                 .map(post => JSON.stringify({ id: post.communities!.id, name: post.communities!.name }))))
@@ -235,7 +241,7 @@ export const UserDisplay = ({ username }: Props) => {
                     <a
                       key={community.id}
                       href={`/community/${community.id}`}
-                      className="px-3 py-1 bg-gray-800/50 border border-white/10 rounded-full text-sm text-gray-300 hover:text-yellow-300 hover:border-yellow-300/30 transition-colors"
+                      className="px-3 py-1 bg-gray-800/50 border border-white/10 rounded-full text-xs sm:text-sm text-gray-300 hover:text-yellow-300 hover:border-yellow-300/30 transition-colors"
                     >
                       {community.name}
                     </a>
@@ -248,12 +254,12 @@ export const UserDisplay = ({ username }: Props) => {
 
       {/* Posts Section */}
       <div>
-        <h3 className="text-2xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-300 to-pink-700 bg-clip-text text-transparent leading-tight pb-1">
+        <h3 className="text-xl sm:text-2xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-yellow-300 to-pink-700 bg-clip-text text-transparent leading-tight pb-1">
           {username}'s Posts
         </h3>
         
         {posts && posts.length > 0 ? (
-          <div className="flex flex-wrap gap-6 justify-center">
+          <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
             {posts.map((post) => (
               <div key={post.id} className="relative">
                 <PostItem post={post} />
@@ -275,13 +281,14 @@ export const UserDisplay = ({ username }: Props) => {
           </div>
         ) : (
           <div className="text-center text-gray-400 py-12">
-            <div className="text-6xl mb-4">📝</div>
-            <p className="text-lg mb-2">{username} hasn't created any posts yet.</p>
+            <div className="text-4xl sm:text-6xl mb-4">📝</div>
+            <p className="text-base sm:text-lg mb-2">{username} hasn't created any posts yet.</p>
           </div>
         )}
+        
         {/* Delete Account Section - only for current user */}
         {isCurrentUser && (
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto mt-8">
             <DeleteAccount 
               username={username}
               currentUser={user?.user_metadata?.user_name || user?.user_metadata?.full_name}

@@ -156,33 +156,33 @@ export const CommunityDisplay = ({ communityId }: Props) => {
   };
 
   return (
-    <div>
+    <div className="px-2 sm:px-4">
       {/* Community Header */}
       <div className="mb-12">
         {/* Community Details Card */}
-        <div className="max-w-4xl mx-auto bg-gray-900/50 border border-white/10 rounded-2xl p-6 mb-8">
-          <div className="flex items-start gap-6">
+        <div className="max-w-4xl mx-auto bg-gray-900/50 border border-white/10 rounded-2xl p-4 sm:p-6 mb-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
             {/* Community Icon on the left */}
             <div className="flex-shrink-0">
               {community?.icon_url ? (
                 <img 
                   src={community.icon_url} 
                   alt={`${community.name} icon`}
-                  className="w-20 h-20 rounded-full object-cover border-2 border-yellow-300/30" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-yellow-300/30" 
                 />
               ) : (
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-300 to-pink-700 flex items-center justify-center text-2xl font-bold text-black">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-yellow-300 to-pink-700 flex items-center justify-center text-xl sm:text-2xl font-bold text-black">
                   {community?.name?.[0] || "C"}
                 </div>
               )}
             </div>
 
             {/* Community Info in the center */}
-            <div className="flex-1">
+            <div className="flex-1 text-center sm:text-left">
               <div className="mb-3">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 mb-2">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-2xl font-bold text-white">{community?.name}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">{community?.name}</h3>
                     {isAuthor && (
                       <div className="flex items-center gap-1 px-2 py-1 bg-yellow-300/20 text-yellow-300 text-xs rounded-full border border-yellow-300/30">
                         <Shield size={12} />
@@ -202,12 +202,12 @@ export const CommunityDisplay = ({ communityId }: Props) => {
                     />
                   )}
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed">
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                   {community?.description}
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 text-sm text-gray-400">
+              <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-xs sm:text-sm text-gray-400">
                 <span>
                   Created by: {" "}
                   <Link
@@ -217,21 +217,21 @@ export const CommunityDisplay = ({ communityId }: Props) => {
                       {community?.author}
                   </Link>
                 </span>
-                <span>•</span>
+                <span className="hidden sm:inline">•</span>
                 <span>Created {community?.created_at ? formatDate(community.created_at) : "Unknown"}</span>
               </div>
             </div>
 
             {/* Author Avatar on the right */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 hidden sm:block">
               {community?.avatar_url ? (
                 <img 
                   src={community.avatar_url} 
                   alt={`${community.author} avatar`}
-                  className="w-12 h-12 rounded-full object-cover" 
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
                 />
               ) : (
-                <div className="w-12 h-12 rounded-full bg-gradient-to-tl from-[#8A2BE2] to-[#491F70] flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tl from-[#8A2BE2] to-[#491F70] flex items-center justify-center text-white font-semibold">
                   {community?.author?.[0] || "U"}
                 </div>
               )}
@@ -239,15 +239,15 @@ export const CommunityDisplay = ({ communityId }: Props) => {
           </div>
         </div>
 
-        {/* Moderation Notice for Authors */}
+        {/* Moderation Notice */}
         {isAuthor && (
-          <div className="max-w-4xl mx-auto mb-6 p-4 bg-yellow-300/10 border border-yellow-300/30 rounded-lg">
+          <div className="max-w-4xl mx-auto mb-6 p-3 sm:p-4 bg-yellow-300/10 border border-yellow-300/30 rounded-lg">
             <div className="flex items-center gap-2 text-yellow-300">
               <Shield size={16} />
-              <span className="font-medium">Community Moderation</span>
+              <span className="font-medium text-sm sm:text-base">Community Moderation</span>
             </div>
-            <p className="text-gray-300 text-sm mt-1">
-              As the community creator, you can remove posts from this community. Removed posts won't be deleted but will no longer appear here.
+            <p className="text-gray-300 text-xs sm:text-sm mt-1">
+              As the community creator, you can remove posts from this community. Removed posts won’t be deleted but will no longer appear here.
             </p>
           </div>
         )}
@@ -255,23 +255,20 @@ export const CommunityDisplay = ({ communityId }: Props) => {
 
       {/* Posts Section */}
       <div>
-        <h3 className="text-2xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-300 to-pink-700 bg-clip-text text-transparent leading-tight pb-1">
+        <h3 className="text-xl sm:text-2xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-yellow-300 to-pink-700 bg-clip-text text-transparent leading-tight pb-1">
           Community Posts
         </h3>
         
         {posts && posts.length > 0 ? (
-          <div className="flex flex-wrap gap-6 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {posts.map((post) => (
-              <div key={post.id} className="relative z-10">
-
+              <div key={post.id} className="relative">
                 <PostItem post={post} />
-
-                {/* Remove button for community authors */}
                 {isAuthor && (
                   <button
                     onClick={() => handleRemovePost(post.id, post.title)}
                     disabled={removingPostId === post.id}
-                    className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 shadow-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed group z-20"
+                    className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 shadow-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Remove post from community"
                   >
                     {removingPostId === post.id ? (
@@ -286,12 +283,11 @@ export const CommunityDisplay = ({ communityId }: Props) => {
           </div>
         ) : (
           <div className="text-center text-gray-400 py-12">
-            <p className="text-lg mb-2">No posts in this community yet.</p>
+            <p className="text-base sm:text-lg mb-2">No posts in this community yet.</p>
           </div>
         )}
       </div>
 
-      {/* Error handling for post removal */}
       {removePostMutation.isError && (
         <div className="fixed bottom-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg">
           <p className="font-medium">Error removing post</p>

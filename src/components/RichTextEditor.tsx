@@ -10,7 +10,7 @@ import { Table } from '@tiptap/extension-table'
 import TableRow from '@tiptap/extension-table-row'
 import TableHeader from '@tiptap/extension-table-header'
 import TableCell from '@tiptap/extension-table-cell'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { HexColorPicker } from 'react-colorful'
 
 interface Props {
@@ -23,6 +23,8 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
   const [showColorPicker, setShowColorPicker] = useState(false)
   const [showHighlightPicker, setShowHighlightPicker] = useState(false)
   const [showTableOptions, setShowTableOptions] = useState(false)
+  const colorPickerRef = useRef<HTMLDivElement>(null)
+  const highlightPickerRef = useRef<HTMLDivElement>(null)
 
   const editor = useEditor({
     extensions: [
@@ -64,10 +66,25 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-invert max-w-none min-h-[300px] p-4 rounded border border-white/10 bg-transparent text-gray-100 focus:outline-none',
+        class: 'prose prose-invert max-w-none min-h-[400px] p-4 rounded border border-white/10 bg-transparent text-gray-100 focus:outline-none',
       },
     },
   })
+
+  // Close color pickers when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (colorPickerRef.current && !colorPickerRef.current.contains(event.target as Node)) {
+        setShowColorPicker(false)
+      }
+      if (highlightPickerRef.current && !highlightPickerRef.current.contains(event.target as Node)) {
+        setShowHighlightPicker(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   if (!editor) {
     return null
@@ -77,6 +94,16 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
     editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()
     setShowTableOptions(false)
   }
+
+  // Common color options for quick selection
+  const commonColors = [
+    '#000000', '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF',
+    '#808080', '#C0C0C0', '#800000', '#008000', '#000080', '#808000', '#800080', '#008080'
+  ]
+
+  const commonHighlightColors = [
+    '#FFFF00', '#FFD700', '#98FB98', '#87CEEB', '#DDA0DD', '#F0E68C', '#FFA07A', '#20B2AA'
+  ]
 
   return (
     <div className="border border-white/10 rounded-lg overflow-hidden bg-gray-900 relative">
@@ -125,11 +152,12 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
           <option value="Helvetica">Helvetica</option>
           <option value="Courier New">Courier</option>
           <option value="Verdana">Verdana</option>
+          <option value="Comic Sans MS, Comic Sans, cursive">Comic Sans</option>
         </select>
 
         <div className="w-px h-6 bg-gray-600 mx-1" />
 
-        {/* Bold, Italic, Underline - ALL BUTTONS NOW HAVE type="button" */}
+        {/* Bold, Italic, Underline */}
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -180,69 +208,145 @@ export const RichTextEditor = ({ content, onChange, placeholder }: Props) => {
 
         <div className="w-px h-6 bg-gray-600 mx-1" />
 
-        {/* Text Color */}
-        <div className="relative">
+        {/* Text Color - Mobile Optimized */}
+        <div className="relative" ref={colorPickerRef}>
           <button
             type="button"
-            onClick={() => setShowColorPicker(!showColorPicker)}
-            className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors"
+            onClick={() => {
+              setShowColorPicker(!showColorPicker)
+              setShowHighlightPicker(false)
+            }}
+            className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors min-w-[32px] h-[28px] flex items-center justify-center"
           >
             A
           </button>
           {showColorPicker && (
-            <div className="absolute top-8 left-0 z-20 bg-gray-800 border border-gray-600 rounded p-3">
-              <HexColorPicker
-                color={editor.getAttributes('textStyle').color || '#000000'}
-                onChange={(newColor) => {
-                  editor.chain().focus().setColor(newColor).run()
-                }}
-              />
-              <button
-                type="button"
-                onClick={() => setShowColorPicker(false)}
-                className="mt-2 w-full px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
-              >
-                Close
-              </button>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 sm:absolute sm:inset-auto sm:top-8 sm:left-0 sm:bg-transparent">
+              <div className="bg-gray-800 border border-gray-600 rounded-lg p-4 max-w-[90vw] sm:max-w-none mx-4 sm:mx-0">
+                <h4 className="text-sm font-medium text-white mb-3">Text Color</h4>
+                
+                {/* Quick Color Palette */}
+                <div className="grid grid-cols-8 gap-2 mb-4">
+                  {commonColors.map((color) => (
+                    <button
+                      key={color}
+                      type="button"
+                      onClick={() => {
+                        editor.chain().focus().setColor(color).run()
+                        setShowColorPicker(false)
+                      }}
+                      className="w-8 h-8 rounded border-2 border-gray-600 hover:border-white transition-colors"
+                      style={{ backgroundColor: color }}
+                      title={color}
+                    />
+                  ))}
+                </div>
+
+                {/* Custom Color Picker */}
+                <div className="mb-4">
+                  <h5 className="text-xs text-gray-300 mb-2">Custom Color</h5>
+                  <div className="flex justify-center">
+                    <HexColorPicker
+                      color={editor.getAttributes('textStyle').color || '#000000'}
+                      onChange={(newColor) => {
+                        editor.chain().focus().setColor(newColor).run()
+                      }}
+                      style={{ width: '200px', height: '150px' }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      editor.chain().focus().unsetColor().run()
+                      setShowColorPicker(false)
+                    }}
+                    className="flex-1 px-3 py-2 text-sm bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
+                  >
+                    Clear
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowColorPicker(false)}
+                    className="flex-1 px-3 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
             </div>
           )}
         </div>
 
-        {/* Highlight */}
-        <div className="relative">
+        {/* Highlight - Mobile Optimized */}
+        <div className="relative" ref={highlightPickerRef}>
           <button
             type="button"
-            onClick={() => setShowHighlightPicker(!showHighlightPicker)}
-            className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors"
+            onClick={() => {
+              setShowHighlightPicker(!showHighlightPicker)
+              setShowColorPicker(false)
+            }}
+            className="px-2 py-1 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded transition-colors min-w-[32px] h-[28px] flex items-center justify-center"
           >
             ⚡
           </button>
           {showHighlightPicker && (
-            <div className="absolute top-8 left-0 z-20 bg-gray-800 border border-gray-600 rounded p-3">
-              <HexColorPicker
-                color={editor.getAttributes('highlight').color || '#ffff00'}
-                onChange={(newColor) => {
-                  editor.chain().focus().toggleHighlight({ color: newColor }).run()
-                }}
-              />
-              <div className="flex gap-2 mt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    editor.chain().focus().unsetHighlight().run()
-                    setShowHighlightPicker(false)
-                  }}
-                  className="flex-1 px-2 py-1 text-xs bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
-                >
-                  Clear
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowHighlightPicker(false)}
-                  className="flex-1 px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
-                >
-                  Close
-                </button>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 sm:absolute sm:inset-auto sm:top-8 sm:left-0 sm:bg-transparent">
+              <div className="bg-gray-800 border border-gray-600 rounded-lg p-4 max-w-[90vw] sm:max-w-none mx-4 sm:mx-0">
+                <h4 className="text-sm font-medium text-white mb-3">Highlight Color</h4>
+                
+                {/* Quick Highlight Palette */}
+                <div className="grid grid-cols-4 gap-2 mb-4">
+                  {commonHighlightColors.map((color) => (
+                    <button
+                      key={color}
+                      type="button"
+                      onClick={() => {
+                        editor.chain().focus().toggleHighlight({ color }).run()
+                        setShowHighlightPicker(false)
+                      }}
+                      className="w-10 h-8 rounded border-2 border-gray-600 hover:border-white transition-colors"
+                      style={{ backgroundColor: color }}
+                      title={color}
+                    />
+                  ))}
+                </div>
+
+                {/* Custom Highlight Color Picker */}
+                <div className="mb-4">
+                  <h5 className="text-xs text-gray-300 mb-2">Custom Highlight</h5>
+                  <div className="flex justify-center">
+                    <HexColorPicker
+                      color={editor.getAttributes('highlight').color || '#ffff00'}
+                      onChange={(newColor) => {
+                        editor.chain().focus().toggleHighlight({ color: newColor }).run()
+                      }}
+                      style={{ width: '200px', height: '150px' }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      editor.chain().focus().unsetHighlight().run()
+                      setShowHighlightPicker(false)
+                    }}
+                    className="flex-1 px-3 py-2 text-sm bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors"
+                  >
+                    Clear
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowHighlightPicker(false)}
+                    className="flex-1 px-3 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           )}
