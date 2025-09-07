@@ -3,6 +3,7 @@ import { supabase } from "../supabase-client";
 import { Trash2, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 interface Props {
   username: string;
@@ -10,7 +11,7 @@ interface Props {
   isCurrentUser?: boolean;
 }
 
-const deleteUserAccount = async (username: string): Promise<void> => {
+const deleteUserAccount = async (username: string, user_id: string): Promise<void> => {
   // Delete all comments by this user
   const { error: commentsError } = await supabase
     .from("comments")
@@ -43,6 +44,14 @@ const deleteUserAccount = async (username: string): Promise<void> => {
 
   if (messagesError) throw new Error(`Failed to delete chat messages: ${messagesError.message}`);
 
+  // Delete all votes by this user
+  const { error: votesError } = await supabase
+    .from("votes")
+    .delete()
+    .eq("user_id", user_id);
+
+  if (votesError) throw new Error(`Failed to delete posts: ${votesError.message}`);
+
   // Delete user profile data if it exists
   await supabase
     .from("users")
@@ -57,9 +66,10 @@ export const DeleteAccount = ({ username, currentUser, isCurrentUser }: Props) =
   const [confirmationText, setConfirmationText] = useState("");
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const { mutate: deleteAccountMutation, isPending } = useMutation({
-    mutationFn: () => deleteUserAccount(username),
+    mutationFn: () => deleteUserAccount(username, user?.id || ""),
     onSuccess: () => {
       // Clear all caches
       queryClient.clear();

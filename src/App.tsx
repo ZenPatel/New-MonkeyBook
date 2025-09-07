@@ -36,7 +36,7 @@ function App() {
           <Route path="/games/pong" element={<PongGamePage />} />
           <Route path="/user/:username" element={<UserPage />} />
           <Route path="/users" element={<UserListPage />} />
-          <Route path="/chatroom" element={<ChatRoomPage />} />
+          <Route path="/raproom" element={<ChatRoomPage />} />
         </Routes>
       </div>
     </div>

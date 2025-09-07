@@ -330,7 +330,7 @@ export const Login = () => {
                 className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-yellow-300 text-black rounded hover:text-white transition-colors"
               >
                 <img src={github} alt="GitHub" className="w-5 h-5" />
-                Continue with GitHub
+                Continue with the GeetHub
               </button>
             </div>
             <div className="mt-4">
@@ -339,7 +339,7 @@ export const Login = () => {
                 className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-yellow-300 text-black rounded hover:text-white transition-colors"
               >
                 <img src={google} alt="Google" className="w-5 h-5" />
-                Continue with Google
+                Continue with the Google
               </button>
             </div>
             <div className="mt-4">
@@ -348,7 +348,7 @@ export const Login = () => {
                 className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-yellow-300 text-black rounded hover:text-white transition-colors"
               >
                 <img src={discord} alt="Discord" className="w-5 h-5" />
-                Continue with Discord
+                Continue with the Deescord
               </button>
             </div>
           </>

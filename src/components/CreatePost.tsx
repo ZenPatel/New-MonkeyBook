@@ -388,13 +388,13 @@ export const CreatePost = () => {
                     value={title}
                     onChange={(e) => {
                         const value = e.target.value
-                        setTitle(value.slice(0, 25));
+                        setTitle(value.slice(0, 20));
                     }}
                     className="w-full border border-white/10 bg-transparent p-2 rounded"
                     required
                 />
                 <p className="text-sm text-gray-400 mt-1">
-                    {title.length}/25
+                    {title.length}/20
                 </p>
             </div>
 

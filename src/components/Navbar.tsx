@@ -49,10 +49,10 @@ export const Navbar = () => {
                          Create Community 
                          </Link>
                          <Link
-                          to="/chatroom"
+                          to="/raproom"
                           className="text-gray-300 hover:text-white transition-colors"
                         > 
-                         Chatroom
+                         Rap Room
                          </Link>
                          <Link
                           to="/games"
@@ -173,11 +173,11 @@ export const Navbar = () => {
                       Create Community
                     </Link>
                     <Link 
-                      to="/chatroom"
+                      to="/raproom"
                       onClick={() => setMenuOpen(false)}
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
                     > 
-                      Chatroom
+                      Rap room
                     </Link>
                     <Link 
                       to="/games"

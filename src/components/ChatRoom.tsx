@@ -194,9 +194,9 @@ export const ChatRoom = () => {
                 <div className="bg-gray-800/50 border-b border-white/10 p-4">
                     <div className="flex items-center gap-2">
                         <MessageCircle size={24} className="text-yellow-300" />
-                        <h3 className="text-xl font-semibold text-white">Community Chat</h3>
+                        <h3 className="text-xl font-semibold text-white">The Rap Mill</h3>
                         <div className="ml-auto text-sm text-gray-400">
-                            {messages.length} messages
+                            {messages.length} raps
                         </div>
                     </div>
                 </div>
@@ -205,12 +205,12 @@ export const ChatRoom = () => {
                 <div className="h-96 overflow-y-auto p-4 space-y-4">
                     {isLoading ? (
                         <div className="text-center text-gray-400 py-8">
-                            Loading messages...
+                            Loading raps...
                         </div>
                     ) : messages.length === 0 ? (
                         <div className="text-center text-gray-400 py-8">
                             <MessageCircle size={48} className="mx-auto mb-2 opacity-50" />
-                            <p>No messages yet. Be the first to say hello! 👋</p>
+                            <p>No raps yet. Be the first to do brutal rap!</p>
                         </div>
                     ) : (
                         Object.entries(groupedMessages).map(([date, dateMessages]) => (
