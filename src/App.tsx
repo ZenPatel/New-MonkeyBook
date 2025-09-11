@@ -16,6 +16,7 @@ import { UserPage } from "./pages/UserPage";
 import { UserListPage } from "./pages/UserListPage";
 import { ChatRoomPage } from "./pages/ChatRoomPage";
 import { SuperMarioBrosPage } from "./pages/SuperMarioBrosPage";
+import { OcarinaPage } from "./pages/OcarinaPage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/users" element={<UserListPage />} />
           <Route path="/raproom" element={<ChatRoomPage />} />
           <Route path="/games/mario" element={<SuperMarioBrosPage />} />
+          <Route path="/games/ocarina" element={<OcarinaPage />} />
         </Routes>
       </div>
     </div>
