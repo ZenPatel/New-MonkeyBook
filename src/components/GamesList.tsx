@@ -16,7 +16,7 @@ const games: Game[] = [
     description: 'Classic snake game - eat food, grow longer, avoid walls and yourself!',
     icon: '🐍',
     difficulty: 'Easy',
-    category: 'Arcade'
+    category: 'JS'
   },
   {
     id: 'tictactoe',
@@ -24,7 +24,7 @@ const games: Game[] = [
     description: 'Get three Xs or Os in a row before the other player does!',
     icon: '#',
     difficulty: 'Easy',
-    category: 'Board'
+    category: 'JS'
   },
   {
     id: 'pong',
@@ -32,7 +32,7 @@ const games: Game[] = [
     description: 'A clone of the classic 1972 Atari table tennis simulator.',
     icon: '🏓',
     difficulty: 'Easy',
-    category: 'Arcade'
+    category: 'JS'
   },
   {
     id: 'mario',
@@ -40,7 +40,15 @@ const games: Game[] = [
     description: 'The OG platformer made for the NES in 1985.',
     icon: '🍄',
     difficulty: 'Medium',
-    category: 'Arcade'
+    category: 'NES'
+  },
+  {
+    id: 'ocarina',
+    title: 'LoZ Ocarina of Time',
+    description: 'The release of the 3D Legend of Zelda series.',
+    icon: '🪈',
+    difficulty: 'Medium',
+    category: 'N64'
   }
 ];
 
