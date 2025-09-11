@@ -33,6 +33,14 @@ const games: Game[] = [
     icon: '🏓',
     difficulty: 'Easy',
     category: 'Arcade'
+  },
+  {
+    id: 'mario',
+    title: 'Super Mario',
+    description: 'OG Mario for the NES',
+    icon: 'M',
+    difficulty: 'Medium',
+    category: 'Arcade'
   }
   // Future games will be added here
 ];
