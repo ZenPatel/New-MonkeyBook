@@ -45,7 +45,7 @@ const games: Game[] = [
   {
     id: 'ocarina',
     title: 'LoZ Ocarina of Time',
-    description: 'The release of the 3D Legend of Zelda series.',
+    description: 'The first release of the 3D Legend of Zelda series.',
     icon: '🪈',
     difficulty: 'Medium',
     category: 'N64'
