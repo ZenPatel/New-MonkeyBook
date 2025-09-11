@@ -45,7 +45,7 @@ const games: Game[] = [
   {
     id: 'ocarina',
     title: 'LoZ Ocarina of Time',
-    description: 'The release of the 3D Legend of Zelda series.',
+    description: 'The first release in the 3D Legend of Zelda series.',
     icon: '🪈',
     difficulty: 'Medium',
     category: 'N64'
@@ -54,7 +54,7 @@ const games: Game[] = [
     id: 'punchout',
     title: 'Punch Out',
     description: 'The original punch out game released in 1984 featuring Mike Tyson.',
-    icon: 'P',
+    icon: '🥊',
     difficulty: 'Hard',
     category: 'NES'
   }
