@@ -11,36 +11,12 @@ interface Game {
 
 const games: Game[] = [
   {
-    id: 'snake',
-    title: 'Snake',
-    description: 'Classic snake game - eat food, grow longer, avoid walls and yourself!',
-    icon: '🐍',
-    difficulty: 'Easy',
-    category: 'JS'
-  },
-  {
-    id: 'tictactoe',
-    title: 'TicTacToe',
-    description: 'Get three Xs or Os in a row before the other player does!',
-    icon: '#',
-    difficulty: 'Easy',
-    category: 'JS'
-  },
-  {
-    id: 'pong',
-    title: 'Pong',
-    description: 'A clone of the classic 1972 Atari table tennis simulator.',
-    icon: '🏓',
-    difficulty: 'Easy',
-    category: 'JS'
-  },
-  {
-    id: 'mario',
-    title: 'Super Mario Bros',
-    description: 'The OG platformer made for the NES in 1985.',
-    icon: '🍄',
+    id: 'hnids',
+    title: 'Hajime No Ippo DS',
+    description: 'Play as and take on your favourite characters from Hajime No Ippo!',
+    icon: '🥊',
     difficulty: 'Medium',
-    category: 'NES'
+    category: 'DS'
   },
   {
     id: 'ocarina',
@@ -51,26 +27,10 @@ const games: Game[] = [
     category: 'N64'
   },
   {
-    id: 'punchout',
-    title: 'Punch Out',
-    description: 'The original punch out game released in 1984 featuring Mike Tyson.',
-    icon: '🥊',
-    difficulty: 'Hard',
-    category: 'NES'
-  },
-  {
     id: 'mariokartds',
     title: 'Mario Kart DS',
     description: 'The hit mario racing game for the Nintendo DS from 2005.',
     icon: '🏎️',
-    difficulty: 'Medium',
-    category: 'DS'
-  },
-  {
-    id: 'hnids',
-    title: 'Hajime No Ippo DS',
-    description: 'Play as and take on your favourite characters from Hajime No Ippo!',
-    icon: '🥊',
     difficulty: 'Medium',
     category: 'DS'
   },
@@ -89,7 +49,47 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Easy',
     category: 'GBA'
-  }
+  },
+  {
+    id: 'pong',
+    title: 'Pong',
+    description: 'A clone of the classic 1972 Atari table tennis simulator.',
+    icon: '🏓',
+    difficulty: 'Easy',
+    category: 'JS'
+  },
+  {
+    id: 'punchout',
+    title: 'Punch Out',
+    description: 'The original punch out game released in 1984 featuring Mike Tyson.',
+    icon: '🥊',
+    difficulty: 'Hard',
+    category: 'NES'
+  },
+  {
+    id: 'snake',
+    title: 'Snake',
+    description: 'Classic snake game - eat food, grow longer, avoid walls and yourself!',
+    icon: '🐍',
+    difficulty: 'Easy',
+    category: 'JS'
+  },
+  {
+    id: 'mario',
+    title: 'Super Mario Bros',
+    description: 'The OG platformer made for the NES in 1985.',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'NES'
+  },
+  {
+    id: 'tictactoe',
+    title: 'TicTacToe',
+    description: 'Get three Xs or Os in a row before the other player does!',
+    icon: '#',
+    difficulty: 'Easy',
+    category: 'JS'
+  },
 ];
 
 export const GamesList = () => {
