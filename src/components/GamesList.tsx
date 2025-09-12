@@ -81,6 +81,7 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Easy',
     category: 'GBA'
+  }
 ];
 
 export const GamesList = () => {
