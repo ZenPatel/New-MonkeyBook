@@ -13,7 +13,7 @@ const NarutoNinjaCouncil: React.FC = () => {
       <iframe
         src="/narutonc1.html"
         style={{ width: "800px", height: "600px", border: "none" }}
-        title="HNI DS"
+        title="Naruto Ninja Council"
       />
     </div>
   );
