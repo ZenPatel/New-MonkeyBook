@@ -65,6 +65,14 @@ const games: Game[] = [
     icon: '🏎️',
     difficulty: 'Medium',
     category: 'DS'
+  },
+  {
+    id: 'hnids',
+    title: 'Hajime No Ippo DS',
+    description: 'Play as and take on your favourite characters from Hajime No Ippo.',
+    icon: '🥊',
+    difficulty: 'Medium',
+    category: 'DS'
   }
 ];
 
