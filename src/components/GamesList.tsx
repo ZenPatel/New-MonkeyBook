@@ -83,6 +83,14 @@ const games: Game[] = [
     category: 'NES'
   },
   {
+    id: 'tekkengba',
+    title: 'Tekken Advance',
+    description: 'GBA exclusive that follows the events of Tekken 3.',
+    icon: '🥋',
+    difficulty: 'Medium',
+    category: 'GBA'
+  },
+  {
     id: 'tictactoe',
     title: 'TicTacToe',
     description: 'Get three Xs or Os in a row before the other player does!',
