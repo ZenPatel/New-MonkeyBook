@@ -69,11 +69,18 @@ const games: Game[] = [
   {
     id: 'hnids',
     title: 'Hajime No Ippo DS',
-    description: 'Play as and take on your favourite characters from Hajime No Ippo.',
+    description: 'Play as and take on your favourite characters from Hajime No Ippo!',
     icon: '🥊',
     difficulty: 'Medium',
     category: 'DS'
-  }
+  },
+  {
+    id: 'narutonc1',
+    title: 'Naruto Ninja Council',
+    description: 'The first game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Easy',
+    category: 'GBA'
 ];
 
 export const GamesList = () => {
