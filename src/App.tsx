@@ -18,7 +18,6 @@ import { ChatRoomPage } from "./pages/ChatRoomPage";
 import { SuperMarioBrosPage } from "./pages/SuperMarioBrosPage";
 import { OcarinaPage } from "./pages/OcarinaPage";
 import { PunchOutPage } from "./pages/PunchOutPage";
-import { Tekken3Page } from "./pages/Tekken3Page";
 
 function App() {
   return (
@@ -44,7 +43,6 @@ function App() {
           <Route path="/games/mario" element={<SuperMarioBrosPage />} />
           <Route path="/games/ocarina" element={<OcarinaPage />} />
           <Route path="/games/punchout" element={<PunchOutPage />} />
-          <Route path="/games/tekken3" element={<Tekken3Page />} />
         </Routes>
       </div>
     </div>
