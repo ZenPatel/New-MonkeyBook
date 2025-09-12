@@ -247,20 +247,20 @@ export const CommunityDisplay = ({ communityId }: Props) => {
               <span className="font-medium text-sm sm:text-base">Community Moderation</span>
             </div>
             <p className="text-gray-300 text-xs sm:text-sm mt-1">
-              As the community creator, you can remove posts from this community. Removed posts won’t be deleted but will no longer appear here.
+              As the community creator, you can remove posts from this community. Removed posts won't be deleted but will no longer appear here.
             </p>
           </div>
         )}
       </div>
 
-      {/* Posts Section */}
+      {/* Posts Section - Now matches PostList layout */}
       <div>
         <h3 className="text-xl sm:text-2xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-yellow-300 to-pink-700 bg-clip-text text-transparent leading-tight pb-1">
           Community Posts
         </h3>
         
         {posts && posts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="flex flex-wrap gap-6 justify-center">
             {posts.map((post) => (
               <div key={post.id} className="relative">
                 <PostItem post={post} />
@@ -268,7 +268,7 @@ export const CommunityDisplay = ({ communityId }: Props) => {
                   <button
                     onClick={() => handleRemovePost(post.id, post.title)}
                     disabled={removingPostId === post.id}
-                    className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 shadow-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 shadow-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-20"
                     title="Remove post from community"
                   >
                     {removingPostId === post.id ? (
