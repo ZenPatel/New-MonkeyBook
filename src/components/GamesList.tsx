@@ -57,6 +57,14 @@ const games: Game[] = [
     icon: '🥊',
     difficulty: 'Hard',
     category: 'NES'
+  },
+  {
+    id: 'mariokartds',
+    title: 'Mario Kart DS',
+    description: 'The hit mario racing game for the Nintendo DS from 2005.',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'DS'
   }
 ];
 
