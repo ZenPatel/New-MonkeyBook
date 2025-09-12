@@ -20,6 +20,7 @@ import { OcarinaPage } from "./pages/OcarinaPage";
 import { PunchOutPage } from "./pages/PunchOutPage";
 import { MarioKartDSPage } from "./pages/MarioKartDSPage";
 import { HNIDSPage } from "./pages/HNIDSPage";
+import { NarutoNinjaCouncilPage } from "./pages/NarutoNinjaCouncilPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/games/punchout" element={<PunchOutPage />} />
           <Route path="games/mariokartds" element={<MarioKartDSPage />} />
           <Route path="games/hnids" element={<HNIDSPage />} />
+          <Route path="games/narutonc1" element={<NarutoNinjaCouncilPage />} />
         </Routes>
       </div>
     </div>
