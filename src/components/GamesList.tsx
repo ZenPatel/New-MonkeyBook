@@ -81,6 +81,14 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Easy',
     category: 'GBA'
+  },
+  {
+    id: 'narutonc2',
+    title: 'Naruto Ninja Council 2',
+    description: 'The second game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Easy',
+    category: 'GBA'
   }
 ];
 
