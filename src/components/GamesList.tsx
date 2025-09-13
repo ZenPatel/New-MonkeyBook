@@ -61,7 +61,7 @@ const games: Game[] = [
   {
     id: 'soulsilver',
     title: 'Pokemon - SoulSilver',
-    description: '',
+    description: 'The 2009 remake of Pokemon Silver for the GameBoy Color from 1999.',
     icon: '◓',
     difficulty: 'Easy',
     category: 'DS'
