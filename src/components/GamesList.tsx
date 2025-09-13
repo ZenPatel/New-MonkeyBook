@@ -91,6 +91,14 @@ const games: Game[] = [
     category: 'NES'
   },
   {
+    id: 'mariods',
+    title: 'Super Mario Bros DS',
+    description: 'Complete over 80 levels across 8 worlds to save Princess Peach!',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'DS'
+  },
+  {
     id: 'tekkengba',
     title: 'Tekken Advance',
     description: 'GBA exclusive that follows the events of Tekken 3.',
