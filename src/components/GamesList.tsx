@@ -59,6 +59,14 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
+    id: 'soulsilver',
+    title: 'Pokemon - SoulSilver',
+    description: '',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pong',
     title: 'Pong',
     description: 'A clone of the classic 1972 Atari table tennis simulator.',
