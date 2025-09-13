@@ -83,6 +83,14 @@ const games: Game[] = [
     category: 'JS'
   },
   {
+    id: 'sonic',
+    title: 'Sonic',
+    description: 'Made in 1991 for the Sega Mega Drive and the first game in the icon Sonic series.',
+    icon: '🦔',
+    difficulty: 'Medium',
+    category: 'Mega Drive'
+  },
+  {
     id: 'mario',
     title: 'Super Mario Bros',
     description: 'The OG platformer made for the NES in 1985.',
