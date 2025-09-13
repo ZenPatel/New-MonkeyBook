@@ -28,6 +28,10 @@ import { MarioDSPage } from "./pages/MarioDSPage";
 import { SonicPage } from "./pages/SonicPage";
 import { Fifa95Page } from "./pages/Fifa95Page";
 import { PvZPage } from "./pages/PvZPage";
+import { Mario2JAPage } from "./pages/Mario2JAPage";
+import { Mario2USAPage } from "./pages/Mario2USAPage";
+import { Mario3Page } from "./pages/Mario3Page";
+import { DrMarioPage } from "./pages/DrMarioPage";
 
 function App() {
   return (
@@ -63,6 +67,10 @@ function App() {
           <Route path="games/sonic" element={<SonicPage />} />
           <Route path="games/fifa95" element={<Fifa95Page />} />
           <Route path="games/pvz" element={<PvZPage />} />
+          <Route path="games/mario2ja" element={<Mario2JAPage />} />
+          <Route path="games/mario2usa" element={<Mario2USAPage />} />
+          <Route path="games/mario3" element={<Mario3Page />} />
+          <Route path="games/drmario" element={<DrMarioPage />} />
         </Routes>
       </div>
     </div>

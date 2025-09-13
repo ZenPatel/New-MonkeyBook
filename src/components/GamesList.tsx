@@ -11,6 +11,14 @@ interface Game {
 
 const games: Game[] = [
   {
+    id: 'drmario',
+    title: 'Dr Mario',
+    description: 'A Mario spinoff game that is a falling block puzzle like tetris.',
+    icon: '💊',
+    difficulty: 'Medium',
+    category: 'NES'
+  },
+  {
     id: 'fifa95',
     title: 'FIFA 95',
     description: 'The first game in the iconic FIFA series to feature both clubs and countries.',
@@ -110,6 +118,30 @@ const games: Game[] = [
     id: 'mario',
     title: 'Super Mario Bros',
     description: 'The OG platformer made for the NES in 1985.',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'NES'
+  },
+  {
+    id: 'mario2ja',
+    title: 'Super Mario Bros 2 JA',
+    description: 'The Japanese version of Mario 2 which provides a challenging platform experience.',
+    icon: '🍄',
+    difficulty: 'Hard',
+    category: 'NES'
+  },
+  {
+    id: 'mario2usa',
+    title: 'Super Mario Bros 2 USA',
+    description: 'The American Mario 2 that provides a unique platform experience.',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'NES'
+  },
+  {
+    id: 'mario3',
+    title: 'Super Mario Bros 3',
+    description: 'The third release in the Mario series features several new mechanics and powerups.',
     icon: '🍄',
     difficulty: 'Medium',
     category: 'NES'
