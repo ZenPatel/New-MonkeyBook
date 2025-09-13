@@ -26,6 +26,8 @@ import { TekkenGBAPage } from "./pages/TekkenGBAPage";
 import { MajorasMaskPage } from "./pages/MajorasMaskPage";
 import { MarioDSPage } from "./pages/MarioDSPage";
 import { SonicPage } from "./pages/SonicPage";
+import { Fifa95Page } from "./pages/Fifa95Page";
+import { PvZPage } from "./pages/PvZPage";
 
 function App() {
   return (
@@ -59,6 +61,8 @@ function App() {
           <Route path="games/majorasmask" element={<MajorasMaskPage />} />
           <Route path="games/mariods" element={<MarioDSPage />} />
           <Route path="games/sonic" element={<SonicPage />} />
+          <Route path="games/fifa95" element={<Fifa95Page />} />
+          <Route path="games/pvz" element={<PvZPage />} />
         </Routes>
       </div>
     </div>

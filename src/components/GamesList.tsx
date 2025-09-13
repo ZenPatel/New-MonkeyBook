@@ -11,6 +11,14 @@ interface Game {
 
 const games: Game[] = [
   {
+    id: 'fifa95',
+    title: 'FIFA 95',
+    description: 'The first game in the iconic FIFA series to feature both clubs and countries.',
+    icon: '⚽',
+    difficulty: 'Easy',
+    category: 'Mega Drive'
+  },
+  {
     id: 'hnids',
     title: 'Hajime No Ippo DS',
     description: 'Play as and take on your favourite characters from Hajime No Ippo!',
@@ -57,6 +65,14 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Easy',
     category: 'GBA'
+  },
+  {
+    id: 'pvz',
+    title: 'Plants vs Zombies',
+    description: 'Use plants as your defense against zombies invading your home!',
+    icon: '🧟',
+    difficulty: 'Easy',
+    category: 'DS'
   },
   {
     id: 'pong',
