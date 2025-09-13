@@ -23,6 +23,7 @@ import { HNIDSPage } from "./pages/HNIDSPage";
 import { NarutoNinjaCouncilPage } from "./pages/NarutoNinjaCouncilPage";
 import { NarutoNinjaCouncil2Page } from "./pages/NarutoNinjaCouncil2Page";
 import { TekkenGBAPage } from "./pages/TekkenGBAPage";
+import { MajorasMaskPage } from "./pages/MajorasMaskPage";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path="games/narutonc1" element={<NarutoNinjaCouncilPage />} />
           <Route path="games/narutonc2" element={<NarutoNinjaCouncil2Page />} />
           <Route path="games/tekkengba" element={<TekkenGBAPage />} />
+          <Route path="games/majorasmask" element={<MajorasMaskPage />} />
         </Routes>
       </div>
     </div>

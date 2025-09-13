@@ -19,6 +19,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'majorasmask',
+    title: 'LoZ Majoras Mask',
+    description: 'Continue Links adventure in Termina as he tries to stop the moon from falling in 3 days!',
+    icon: '👹',
+    difficulty: 'Medium',
+    category: 'N64'
+  },
+  {
     id: 'ocarina',
     title: 'LoZ Ocarina of Time',
     description: 'The first release in the 3D Legend of Zelda series.',
