@@ -195,6 +195,30 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'supermariokart',
+    title: 'Super Mario Kart',
+    description: 'The first mario kart game and it has 4 cups and 20 tracks.',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'SNES'
+  },
+  {
+    id: 'mariorpg',
+    title: 'Super Mario RPG',
+    description: 'Play as Mario and defeat the Smithy gang in the first Mario RPG game.',
+    icon: '🍄',
+    difficulty: 'Easy',
+    category: 'SNES'
+  },
+  {
+    id: 'marioworld',
+    title: 'Super Mario World',
+    description: 'Use Yoshi and numerous other new features to save Princess Peach again!',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'SNES'
+  },
+  {
     id: 'tekkengba',
     title: 'Tekken Advance',
     description: 'GBA exclusive that follows the events of Tekken 3.',

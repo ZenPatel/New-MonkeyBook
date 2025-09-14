@@ -37,6 +37,9 @@ import { LoZPage } from "./pages/LoZPage";
 import { DonkeyKongCountryPage } from "./pages/DonkeyKongCountryPage";
 import { DonkeyKongCountryPage2 } from "./pages/DonkeyKongCountry2Page";
 import { DonkeyKongCountryPage3 } from "./pages/DonkeyKongCountry3Page";
+import { MarioWorldPage } from "./pages/MarioWorldPage";
+import { SuperMarioKartPage } from "./pages/SuperMarioKartPage";
+import { MarioRPGPage } from "./pages/MarioRPGPage";
 
 function App() {
   return (
@@ -81,6 +84,9 @@ function App() {
           <Route path="games/dk1" element={<DonkeyKongCountryPage />} />
           <Route path="games/dk2" element={<DonkeyKongCountryPage2 />} />
           <Route path="games/dk3" element={<DonkeyKongCountryPage3 />} />
+          <Route path="games/marioworld" element={<MarioWorldPage />} />
+          <Route path="games/supermariokart" element={<SuperMarioKartPage />} />
+          <Route path="games/mariorpg" element={<MarioRPGPage />} />
         </Routes>
       </div>
     </div>
