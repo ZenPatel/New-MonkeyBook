@@ -83,6 +83,14 @@ const games: Game[] = [
     category: 'N64'
   },
   {
+    id: 'mariokart64',
+    title: 'Mario Kart 64',
+    description: 'The second game in the Mario Kart series released for the N64 in 1996.',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'N64'
+  },
+  {
     id: 'mariokartds',
     title: 'Mario Kart DS',
     description: 'The hit mario racing game for the Nintendo DS from 2005.',
@@ -187,6 +195,14 @@ const games: Game[] = [
     category: 'NES'
   },
   {
+    id: 'mario64',
+    title: 'Super Mario Bros 64',
+    description: 'The first mario game to feature 3D gameplay and a open-world.',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'N64'
+  },
+  {
     id: 'mariods',
     title: 'Super Mario Bros DS',
     description: 'Complete over 80 levels across 8 worlds to save Princess Peach!',
@@ -207,7 +223,7 @@ const games: Game[] = [
     title: 'Super Mario RPG',
     description: 'Play as Mario and defeat the Smithy gang in the first Mario RPG game.',
     icon: '🍄',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
     category: 'SNES'
   },
   {

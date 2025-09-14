@@ -40,6 +40,8 @@ import { DonkeyKongCountryPage3 } from "./pages/DonkeyKongCountry3Page";
 import { MarioWorldPage } from "./pages/MarioWorldPage";
 import { SuperMarioKartPage } from "./pages/SuperMarioKartPage";
 import { MarioRPGPage } from "./pages/MarioRPGPage";
+import { MarioKart64Page } from "./pages/MarioKart64Page";
+import { Mario64Page } from "./pages/Mario64Page";
 
 function App() {
   return (
@@ -87,6 +89,8 @@ function App() {
           <Route path="games/marioworld" element={<MarioWorldPage />} />
           <Route path="games/supermariokart" element={<SuperMarioKartPage />} />
           <Route path="games/mariorpg" element={<MarioRPGPage />} />
+          <Route path="games/mariokart64" element={<MarioKart64Page />} />
+          <Route path="games/mario64" element={<Mario64Page />} />
         </Routes>
       </div>
     </div>
