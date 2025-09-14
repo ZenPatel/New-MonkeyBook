@@ -11,6 +11,30 @@ interface Game {
 
 const games: Game[] = [
   {
+    id: 'dk1',
+    title: 'Donkey Kong Country',
+    description: 'This is Monkey Patel and Sabbombs favourite game for a reason!',
+    icon: '🍌',
+    difficulty: 'Medium',
+    category: 'SNES'
+  },
+  {
+    id: 'dk2',
+    title: 'Donkey Kong Country 2',
+    description: 'The second game in the DKC series where you play as Diddy and a woman monkey to save DK.',
+    icon: '🍌',
+    difficulty: 'Medium',
+    category: 'SNES'
+  },
+  {
+    id: 'dk3',
+    title: 'Donkey Kong Country 3',
+    description: 'Play as disabled monkeys (woman and intellectually challenged) in this monkey adventure!',
+    icon: '🍌',
+    difficulty: 'Medium',
+    category: 'SNES'
+  },
+  {
     id: 'drmario',
     title: 'Dr Mario',
     description: 'A Mario spinoff game that is a falling block puzzle like tetris.',

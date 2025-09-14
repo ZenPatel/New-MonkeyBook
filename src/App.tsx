@@ -34,6 +34,9 @@ import { Mario3Page } from "./pages/Mario3Page";
 import { DrMarioPage } from "./pages/DrMarioPage";
 import { PacManPage } from "./pages/PacManPage";
 import { LoZPage } from "./pages/LoZPage";
+import { DonkeyKongCountryPage } from "./pages/DonkeyKongCountryPage";
+import { DonkeyKongCountryPage2 } from "./pages/DonkeyKongCountry2Page";
+import { DonkeyKongCountryPage3 } from "./pages/DonkeyKongCountry3Page";
 
 function App() {
   return (
@@ -75,6 +78,9 @@ function App() {
           <Route path="games/drmario" element={<DrMarioPage />} />
           <Route path="games/pacman" element={<PacManPage />} />
           <Route path="games/loz" element={<LoZPage />} />
+          <Route path="games/dk1" element={<DonkeyKongCountryPage />} />
+          <Route path="games/dk2" element={<DonkeyKongCountryPage2 />} />
+          <Route path="games/dk3" element={<DonkeyKongCountryPage3 />} />
         </Routes>
       </div>
     </div>
