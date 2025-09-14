@@ -42,6 +42,7 @@ import { SuperMarioKartPage } from "./pages/SuperMarioKartPage";
 import { MarioRPGPage } from "./pages/MarioRPGPage";
 import { MarioKart64Page } from "./pages/MarioKart64Page";
 import { Mario64Page } from "./pages/Mario64Page";
+import { WarioLandPage } from "./pages/WarioLandPage";
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
           <Route path="games/mariorpg" element={<MarioRPGPage />} />
           <Route path="games/mariokart64" element={<MarioKart64Page />} />
           <Route path="games/mario64" element={<Mario64Page />} />
+          <Route path="games/warioland" element={<WarioLandPage />} />
         </Routes>
       </div>
     </div>

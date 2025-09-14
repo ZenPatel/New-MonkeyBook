@@ -250,6 +250,14 @@ const games: Game[] = [
     difficulty: 'Easy',
     category: 'JS'
   },
+  {
+    id: 'warioland',
+    title: 'Wario Land',
+    description: 'Play as a Jew Mario on the critically acclaimed virtual boy!',
+    icon: '💰',
+    difficulty: 'Easy',
+    category: 'Virtual Boy'
+  }
 ];
 
 export const GamesList = () => {
