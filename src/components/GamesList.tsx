@@ -35,6 +35,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'LoZ',
+    title: 'LoZ',
+    description: 'Released in 1986, this was the first game in the iconic Legend of Zelda Series.',
+    icon: '🗡',
+    difficulty: 'Hard',
+    category: 'NES'
+  },
+  {
     id: 'majorasmask',
     title: 'LoZ Majoras Mask',
     description: 'Continue Links adventure in Termina as he tries to stop the moon from falling in 3 days!',
@@ -73,6 +81,14 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Easy',
     category: 'GBA'
+  },
+  {
+    id: 'pacman',
+    title: 'Pac-Man',
+    description: 'The classic maze game where you must eat all the dots while avoiding the ghosts!',
+    icon: 'ᱝ',
+    difficulty: 'Medium',
+    category: 'NES'
   },
   {
     id: 'pvz',
