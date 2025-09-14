@@ -21,7 +21,7 @@ const games: Game[] = [
   {
     id: 'dk2',
     title: 'Donkey Kong Country 2',
-    description: 'The second game in the DKC series where you play as Diddy and a woman monkey to save DK.',
+    description: 'The adventure of Diddy to diddle and save DK!',
     icon: '🍌',
     difficulty: 'Medium',
     category: 'SNES'
@@ -29,7 +29,7 @@ const games: Game[] = [
   {
     id: 'dk3',
     title: 'Donkey Kong Country 3',
-    description: 'Play as disabled monkeys (woman and intellectually challenged) in this monkey adventure!',
+    description: 'Play as disabled monkeys (girl and mentally challenged) in this monkey adventure!',
     icon: '🍌',
     difficulty: 'Medium',
     category: 'SNES'
