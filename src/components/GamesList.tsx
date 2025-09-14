@@ -157,7 +157,7 @@ const games: Game[] = [
   {
     id: 'sonic',
     title: 'Sonic',
-    description: 'Made in 1991 for the Sega Mega Drive and the first game in the icon Sonic series.',
+    description: 'Made in 1991 for the Sega Mega Drive and the first game in the iconic Sonic series.',
     icon: '🦔',
     difficulty: 'Medium',
     category: 'Mega Drive'
