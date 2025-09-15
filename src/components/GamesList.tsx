@@ -11,6 +11,14 @@ interface Game {
 
 const games: Game[] = [
   {
+    id: 'conker',
+    title: 'Conkers Bad Fur Day',
+    description: 'Play as a alcoholic squirrel in his journey to return home to his gf!',
+    icon: '🐿️',
+    difficulty: 'Medium',
+    category: 'N64'
+  },
+  {
     id: 'dk1',
     title: 'Donkey Kong Country',
     description: 'This is Monkey Patel and Sabbombs favourite game for a reason!',
