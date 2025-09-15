@@ -107,6 +107,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'mktrilogy',
+    title: 'Mortal Kombat Trilogy',
+    description: 'An updated compilation of the first three games in the mortal kombat series.',
+    icon: '🐉',
+    difficulty: 'Hard',
+    category: 'N64'
+  },
+  {
     id: 'narutonc1',
     title: 'Naruto Ninja Council',
     description: 'The first game in the Ninja Council series following the adventures of Naruto Uzumaki.',
