@@ -147,11 +147,27 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'pokemonblue',
+    title: 'Pokemon Blue',
+    description: 'Explore Kanto and become the Indigo league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GB'
+  },
+  {
+    id: 'pokemonred',
+    title: 'Pokemon Red',
+    description: 'Explore Kanto and become the Indigo league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GB'
+  },
+  {
     id: 'pokemonstadium',
     title: 'Pokemon Stadium',
     description: 'A 3D battle arena game where you use pokemon to battle in various game modes!',
     icon: '◓',
-    difficulty: 'Hard',
+    difficulty: 'Medium',
     category: 'N64'
   },
   {
@@ -159,8 +175,16 @@ const games: Game[] = [
     title: 'Pokemon Stadium 2',
     description: 'The second Pokemon Stadium game which added in features from the gen 2 games.',
     icon: '◓',
-    difficulty: 'Hard',
+    difficulty: 'Medium',
     category: 'N64'
+  },
+  {
+    id: 'pokemonyellow',
+    title: 'Pokemon Yellow',
+    description: 'Explore Kanto and become the Indigo league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GB'
   },
   {
     id: 'pong',
