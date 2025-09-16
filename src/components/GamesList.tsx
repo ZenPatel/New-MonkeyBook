@@ -157,7 +157,7 @@ const games: Game[] = [
   {
     id: 'pokemonstadium2',
     title: 'Pokemon Stadium 2',
-    description: 'The second Pokemon Stadium game which added in features from the generation 2 games.',
+    description: 'The second Pokemon Stadium game which added in features from the gen 2 games.',
     icon: '◓',
     difficulty: 'Hard',
     category: 'N64'
