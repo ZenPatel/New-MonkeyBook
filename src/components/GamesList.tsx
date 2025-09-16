@@ -147,6 +147,22 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'pokemonstadium',
+    title: 'Pokemon Stadium',
+    description: 'A 3D battle arena game where you use pokemon to battle in various game modes!',
+    icon: '◓',
+    difficulty: 'Hard',
+    category: 'N64'
+  },
+  {
+    id: 'pokemonstadium2',
+    title: 'Pokemon Stadium 2',
+    description: 'The second Pokemon Stadium game which added in features from the generation 2 games.',
+    icon: '◓',
+    difficulty: 'Hard',
+    category: 'N64'
+  },
+  {
     id: 'pong',
     title: 'Pong',
     description: 'A clone of the classic 1972 Atari table tennis simulator.',
