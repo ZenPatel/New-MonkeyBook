@@ -157,7 +157,7 @@ const games: Game[] = [
   {
     id: 'pokemoncrystal',
     title: 'Pokemon Crystal',
-    description: 'Explore Kanto and become the Indigo league champion!',
+    description: 'Explore Johto and become the Johto league champion!',
     icon: '◓',
     difficulty: 'Easy',
     category: 'GBC'
