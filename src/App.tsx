@@ -112,7 +112,7 @@ function App() {
           <Route path="games/pokemonyellow" element={<PokemonYellowPage />} />
           <Route path="games/sonic2" element={<Sonic2Page />} />
           <Route path="games/sonic3" element={<Sonic3Page />} />
-          <Route path="games/sonic3" element={<SonicAndKnucklesPage />} />
+          <Route path="games/sonicandknuckles" element={<SonicAndKnucklesPage />} />
         </Routes>
       </div>
     </div>
