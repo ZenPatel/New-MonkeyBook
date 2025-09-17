@@ -50,6 +50,9 @@ import { PokemonStadium2Page } from "./pages/PokemonStadium2Page";
 import { PokemonRedPage } from "./pages/PokemonRedPage";
 import { PokemonBluePage } from "./pages/PokemonBluePage";
 import { PokemonYellowPage } from "./pages/PokemonYellowPage";
+import { Sonic2Page } from "./pages/Sonic2Page";
+import { Sonic3Page } from "./pages/Sonic3Page";
+import { SonicAndKnucklesPage } from "./pages/SonicAndKnucklesPage";
 
 function App() {
   return (
@@ -107,6 +110,9 @@ function App() {
           <Route path="games/pokemonred" element={<PokemonRedPage />} />
           <Route path="games/pokemonblue" element={<PokemonBluePage />} />
           <Route path="games/pokemonyellow" element={<PokemonYellowPage />} />
+          <Route path="games/sonic2" element={<Sonic2Page />} />
+          <Route path="games/sonic3" element={<Sonic3Page />} />
+          <Route path="games/sonic3" element={<SonicAndKnucklesPage />} />
         </Routes>
       </div>
     </div>

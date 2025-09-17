@@ -219,6 +219,30 @@ const games: Game[] = [
     category: 'Mega Drive'
   },
   {
+    id: 'sonic2',
+    title: 'Sonic 2',
+    description: 'Made in 1992 for the Sega Mega Drive and the second game in the iconic Sonic series.',
+    icon: '🦔',
+    difficulty: 'Medium',
+    category: 'Mega Drive'
+  },
+  {
+    id: 'sonic3',
+    title: 'Sonic 3',
+    description: 'Made in 1994 for the Sega Mega Drive and the third game in the iconic Sonic series.',
+    icon: '🦔',
+    difficulty: 'Medium',
+    category: 'Mega Drive'
+  },
+  {
+    id: 'sonicandknuckles',
+    title: 'Sonic and Knuckles',
+    description: 'Play as Sonic or Knuckles in their quest to save Angel Island!',
+    icon: '🦔',
+    difficulty: 'Medium',
+    category: 'Mega Drive'
+  },
+  {
     id: 'mario',
     title: 'Super Mario Bros',
     description: 'The OG platformer made for the NES in 1985.',
