@@ -155,12 +155,36 @@ const games: Game[] = [
     category: 'GB'
   },
   {
+    id: 'pokemoncrystal',
+    title: 'Pokemon Crystal',
+    description: 'This is the ',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBC'
+  },
+  {
+    id: 'pokemongold',
+    title: 'Pokemon Gold',
+    description: 'Explore Johto and become the Johto league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBC'
+  },
+  {
     id: 'pokemonred',
     title: 'Pokemon Red',
     description: 'Explore Kanto and become the Indigo league champion!',
     icon: '◓',
     difficulty: 'Easy',
     category: 'GB'
+  },
+  {
+    id: 'pokemonsilver',
+    title: 'Pokemon Silver',
+    description: 'Explore Johto and become the Johto league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBC'
   },
   {
     id: 'pokemonstadium',
