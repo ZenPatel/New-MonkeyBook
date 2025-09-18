@@ -195,6 +195,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'narutovssasuke',
+    title: 'Naruto vs Sasuke',
+    description: 'The fifth game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Medium',
+    category: 'DS'
+  },
+  {
     id: 'pacman',
     title: 'Pac-Man',
     description: 'The classic maze game where you must eat all the dots while avoiding the ghosts!',
