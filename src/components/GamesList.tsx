@@ -96,7 +96,7 @@ const games: Game[] = [
     description: 'Time travel with Mario and Luigi in search of Princess Peach!',
     icon: '🍄',
     difficulty: 'Easy',
-    category: 'GBA'
+    category: 'DS'
   },
   {
     id: 'marioandluigiss',
@@ -193,6 +193,14 @@ const games: Game[] = [
     icon: '◓',
     difficulty: 'Easy',
     category: 'GBC'
+  },
+  {
+    id: 'pokemondiamond',
+    title: 'Pokemon Diamond',
+    description: 'Explore Sinnoh and become the Sinnoh league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
   },
   {
     id: 'pokemonemerald',

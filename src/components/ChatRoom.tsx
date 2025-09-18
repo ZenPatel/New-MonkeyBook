@@ -172,9 +172,9 @@ export const ChatRoom = () => {
             <div className="max-w-4xl mx-auto">
                 <div className="bg-gray-900/50 border border-white/10 rounded-lg p-8 text-center">
                     <MessageCircle size={48} className="mx-auto mb-4 text-gray-400" />
-                    <h3 className="text-xl font-semibold text-white mb-2">Join the Chat</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">Join in on the rap</h3>
                     <p className="text-gray-400 mb-4">
-                        Please log in to participate in the chat room.
+                        Please log in to do brutal rap.
                     </p>
                     <a
                         href="/login"

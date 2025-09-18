@@ -67,6 +67,7 @@ import { MarioAndLuigiSSPage } from "./pages/MarioAndLuigiSS";
 import { PokemonMDRRTPage } from "./pages/PokemonMDRRTPage";
 import { MarioPartyDSPage } from "./pages/MarioPartyDSPage";
 import { MarioAndLuigiPiTPage } from "./pages/MarioAndLuigiPiTPage";
+import { PokemonDiamondPage } from "./pages/PokemonDiamondPage";
 
 function App() {
   return (
@@ -141,6 +142,7 @@ function App() {
           <Route path="games/pokemonmdrrt" element={<PokemonMDRRTPage />} />
           <Route path="games/mariopartyds" element={<MarioPartyDSPage />} />
           <Route path="games/marioandluigipit" element={<MarioAndLuigiPiTPage />} />
+          <Route path="games/pokemondiamond" element={<PokemonDiamondPage />} />
         </Routes>
       </div>
     </div>
