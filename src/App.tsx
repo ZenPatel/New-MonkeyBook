@@ -60,6 +60,8 @@ import { PokemonRubyPage } from "./pages/PokemonRubyPage";
 import { PokemonSapphirePage } from "./pages/PokemonSapphirePage";
 import { PokemonEmeraldPage } from "./pages/PokemonEmeraldPage";
 import { PokemonGreenPage } from "./pages/PokemonGreenPage";
+import { PokemonLeafGreenPage } from "./pages/PokemonLeafGreenPage";
+import { PokemonFireRedPage } from "./pages/PokemonFireRedPage";
 
 function App() {
   return (
@@ -127,6 +129,8 @@ function App() {
           <Route path="games/pokemonsapphire" element={<PokemonSapphirePage />} />
           <Route path="games/pokemonemerald" element={<PokemonEmeraldPage />} />
           <Route path="games/pokemongreen" element={<PokemonGreenPage />} />
+          <Route path="games/pokemonleafgreen" element={<PokemonLeafGreenPage />} />
+          <Route path="games/pokemonfirered" element={<PokemonFireRedPage />} />
         </Routes>
       </div>
     </div>

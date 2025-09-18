@@ -171,6 +171,14 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
+    id: 'pokemonfirered',
+    title: 'Pokemon FireRed',
+    description: 'Re-explore Kanto in the first generation remake for the GBA!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
     id: 'pokemongold',
     title: 'Pokemon Gold',
     description: 'Explore Johto and become the Johto league champion!',
@@ -185,6 +193,14 @@ const games: Game[] = [
     icon: '◓',
     difficulty: 'Easy',
     category: 'GB'
+  },
+  {
+    id: 'pokemonleafgreen',
+    title: 'Pokemon LeafGreen',
+    description: 'Re-explore Kanto in the first generation remake for the GBA!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
   },
   {
     id: 'pokemonred',
