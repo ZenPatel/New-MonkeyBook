@@ -163,7 +163,7 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
-    id: 'narutonc2',
+    id: 'narutonc3',
     title: 'Naruto Ninja Council 3',
     description: 'The third game in the Ninja Council series following the adventures of Naruto Uzumaki.',
     icon: '🍥',
