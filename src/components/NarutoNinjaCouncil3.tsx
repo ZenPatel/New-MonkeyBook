@@ -11,7 +11,7 @@ const NarutoNinjaCouncil3: React.FC = () => {
       }}
     >
       <iframe
-        src="/narutonc2.html"
+        src="/narutonc3.html"
         style={{ width: "800px", height: "600px", border: "none" }}
         title="Naruto Ninja Council 3"
       />
