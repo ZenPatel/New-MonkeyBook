@@ -91,6 +91,14 @@ const games: Game[] = [
     category: 'N64'
   },
   {
+    id: 'marioandluigiss',
+    title: 'Mario & Luigi SS',
+    description: 'A light hearted RPG that follows the adventures of Mario & Luigi.',
+    icon: '🍄',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
     id: 'mariokart64',
     title: 'Mario Kart 64',
     description: 'The second game in the Mario Kart series released for the N64 in 1996.',
@@ -105,6 +113,14 @@ const games: Game[] = [
     icon: '🏎️',
     difficulty: 'Medium',
     category: 'DS'
+  },
+  {
+    id: 'mariokartsupercircuit',
+    title: 'Mario Kart Super Circuit',
+    description: 'The hit mario racing game for the Game Boy Advance from 2001.',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'GBA'
   },
   {
     id: 'mktrilogy',
@@ -198,6 +214,14 @@ const games: Game[] = [
     id: 'pokemonleafgreen',
     title: 'Pokemon LeafGreen',
     description: 'Re-explore Kanto in the first generation remake for the GBA!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
+    id: 'pokemonmdrrt',
+    title: 'Pokemon MDRRT',
+    description: 'The first game in the Pokemon Mystery Dungeon series.',
     icon: '◓',
     difficulty: 'Easy',
     category: 'GBA'
@@ -315,6 +339,14 @@ const games: Game[] = [
     category: 'Mega Drive'
   },
   {
+    id: 'mario64',
+    title: 'Super Mario 64',
+    description: 'The first mario game to feature 3D gameplay and a open-world.',
+    icon: '🍄',
+    difficulty: 'Medium',
+    category: 'N64'
+  },
+  {
     id: 'mario',
     title: 'Super Mario Bros',
     description: 'The OG platformer made for the NES in 1985.',
@@ -345,14 +377,6 @@ const games: Game[] = [
     icon: '🍄',
     difficulty: 'Medium',
     category: 'NES'
-  },
-  {
-    id: 'mario64',
-    title: 'Super Mario Bros 64',
-    description: 'The first mario game to feature 3D gameplay and a open-world.',
-    icon: '🍄',
-    difficulty: 'Medium',
-    category: 'N64'
   },
   {
     id: 'mariods',

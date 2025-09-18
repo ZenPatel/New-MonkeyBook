@@ -62,6 +62,9 @@ import { PokemonEmeraldPage } from "./pages/PokemonEmeraldPage";
 import { PokemonGreenPage } from "./pages/PokemonGreenPage";
 import { PokemonLeafGreenPage } from "./pages/PokemonLeafGreenPage";
 import { PokemonFireRedPage } from "./pages/PokemonFireRedPage";
+import { MarioKartSuperCircuitPage } from "./pages/MarioKartSuperCircuitPage";
+import { MarioAndLuigiSSPage } from "./pages/MarioAndLuigiSS";
+import { PokemonMDRRTPage } from "./pages/PokemonMDRRTPage";
 
 function App() {
   return (
@@ -131,6 +134,9 @@ function App() {
           <Route path="games/pokemongreen" element={<PokemonGreenPage />} />
           <Route path="games/pokemonleafgreen" element={<PokemonLeafGreenPage />} />
           <Route path="games/pokemonfirered" element={<PokemonFireRedPage />} />
+          <Route path="games/mariokartsupercircuit" element={<MarioKartSuperCircuitPage />} />
+          <Route path="games/marioandluigiss" element={<MarioAndLuigiSSPage />} />
+          <Route path="games/pokemonmdrrt" element={<PokemonMDRRTPage />} />
         </Routes>
       </div>
     </div>
