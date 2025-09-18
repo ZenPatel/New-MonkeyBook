@@ -91,6 +91,14 @@ const games: Game[] = [
     category: 'N64'
   },
   {
+    id: 'marioandluigipit',
+    title: 'Mario & Luigi PiT',
+    description: 'Time travel with Mario and Luigi in search of Princess Peach!',
+    icon: '🍄',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
     id: 'marioandluigiss',
     title: 'Mario & Luigi SS',
     description: 'A light hearted RPG that follows the adventures of Mario & Luigi.',
@@ -121,6 +129,14 @@ const games: Game[] = [
     icon: '🏎️',
     difficulty: 'Medium',
     category: 'GBA'
+  },
+  {
+    id: 'mariopartyds',
+    title: 'Mario Party DS',
+    description: 'Play as Mario characters in a board game featuring various mini games!',
+    icon: '🎉',
+    difficulty: 'Easy',
+    category: 'DS'
   },
   {
     id: 'mktrilogy',

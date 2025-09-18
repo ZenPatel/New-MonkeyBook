@@ -65,6 +65,8 @@ import { PokemonFireRedPage } from "./pages/PokemonFireRedPage";
 import { MarioKartSuperCircuitPage } from "./pages/MarioKartSuperCircuitPage";
 import { MarioAndLuigiSSPage } from "./pages/MarioAndLuigiSS";
 import { PokemonMDRRTPage } from "./pages/PokemonMDRRTPage";
+import { MarioPartyDSPage } from "./pages/MarioPartyDSPage";
+import { MarioAndLuigiPiTPage } from "./pages/MarioAndLuigiPiTPage";
 
 function App() {
   return (
@@ -137,6 +139,8 @@ function App() {
           <Route path="games/mariokartsupercircuit" element={<MarioKartSuperCircuitPage />} />
           <Route path="games/marioandluigiss" element={<MarioAndLuigiSSPage />} />
           <Route path="games/pokemonmdrrt" element={<PokemonMDRRTPage />} />
+          <Route path="games/mariopartyds" element={<MarioPartyDSPage />} />
+          <Route path="games/marioandluigipit" element={<MarioAndLuigiPiTPage />} />
         </Routes>
       </div>
     </div>
