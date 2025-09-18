@@ -251,6 +251,14 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
+    id: 'pokemonpearl',
+    title: 'Pokemon Pearl',
+    description: 'Explore Sinnoh and become the Sinnoh league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pokemonred',
     title: 'Pokemon Red',
     description: 'Explore Kanto and become the Indigo league champion!',
