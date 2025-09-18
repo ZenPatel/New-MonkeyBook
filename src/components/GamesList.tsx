@@ -179,6 +179,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'narutopotn',
+    title: 'Naruto PotN',
+    description: 'The first game in the Path of the Ninja series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Medium',
+    category: 'DS'
+  },
+  {
     id: 'pacman',
     title: 'Pac-Man',
     description: 'The classic maze game where you must eat all the dots while avoiding the ghosts!',
