@@ -13,6 +13,8 @@ interface ChatMessage {
     created_at: string;
 }
 
+// Random comment
+
 const fetchMessages = async (): Promise<ChatMessage[]> => {
     const { data, error } = await supabase
         .from("chat_messages")
