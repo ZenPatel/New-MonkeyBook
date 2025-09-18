@@ -251,6 +251,22 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
+    id: 'pokemonmdbrt',
+    title: 'Pokemon MDBRT',
+    description: 'Similar to red rescue team but utilizes dual screens on the DS.',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
+    id: 'pokemonmdbrt',
+    title: 'Pokemon MDED',
+    description: 'Sequal to RRT and BRT and it adds in generation 4 pokemon.',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pokemonmdrrt',
     title: 'Pokemon MDRRT',
     description: 'The first game in the Pokemon Mystery Dungeon series.',
