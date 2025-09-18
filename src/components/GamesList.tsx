@@ -259,8 +259,16 @@ const games: Game[] = [
     category: 'DS'
   },
   {
-    id: 'pokemonmdbrt',
+    id: 'pokemonmded',
     title: 'Pokemon MDED',
+    description: 'Sequal to RRT and BRT and it adds in generation 4 pokemon.',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
+    id: 'pokemonmdet',
+    title: 'Pokemon MDET',
     description: 'Sequal to RRT and BRT and it adds in generation 4 pokemon.',
     icon: '◓',
     difficulty: 'Easy',

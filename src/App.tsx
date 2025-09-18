@@ -72,6 +72,7 @@ import { PokemonPearlPage } from "./pages/PokemonPearlPage";
 import { NarutoNinjaCouncil3Page } from "./pages/NarutoNinjaCouncil3Page";
 import { PokemonMDBRTPage } from "./pages/PokemonMDBRTPage";
 import { PokemonMDEDPage } from "./pages/PokemonMDEDPage";
+import { PokemonMDETPage } from "./pages/PokemonMDETPage";
 
 function App() {
   return (
@@ -151,6 +152,7 @@ function App() {
           <Route path="games/narutonc3" element={<NarutoNinjaCouncil3Page />} />
           <Route path="games/pokemonmdbrt" element={<PokemonMDBRTPage />} />
           <Route path="games/pokemonmded" element={<PokemonMDEDPage />} />
+          <Route path="games/pokemonmdet" element={<PokemonMDETPage />} />
         </Routes>
       </div>
     </div>
