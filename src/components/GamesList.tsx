@@ -171,6 +171,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'narutonc4',
+    title: 'Naruto Ninja Council 4',
+    description: 'The fourth game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pacman',
     title: 'Pac-Man',
     description: 'The classic maze game where you must eat all the dots while avoiding the ghosts!',
@@ -357,7 +365,7 @@ const games: Game[] = [
   {
     id: 'punchout',
     title: 'Punch Out',
-    description: 'The original punch out game released in 1984 featuring Mike Tyson.',
+    description: 'The original punch out game released in 1987 featuring Mike Tyson.',
     icon: '🥊',
     difficulty: 'Hard',
     category: 'NES'
@@ -473,6 +481,14 @@ const games: Game[] = [
     icon: '🍄',
     difficulty: 'Medium',
     category: 'SNES'
+  },
+  {
+    id: 'supersmashbros',
+    title: 'Super Smash Bros',
+    description: 'Fight as characters from Mario and other franchises!',
+    icon: '💥',
+    difficulty: 'Easy',
+    category: 'N64'
   },
   {
     id: 'tekkengba',
