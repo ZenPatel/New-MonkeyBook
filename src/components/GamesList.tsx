@@ -181,7 +181,7 @@ const games: Game[] = [
   {
     id: 'narutopotn',
     title: 'Naruto PotN',
-    description: 'The first game in the Path of the Ninja series following the adventures of Naruto Uzumaki.',
+    description: 'The first game in the PotN series following the adventures of Naruto Uzumaki.',
     icon: '🍥',
     difficulty: 'Medium',
     category: 'DS'
@@ -189,15 +189,23 @@ const games: Game[] = [
   {
     id: 'narutopotn2',
     title: 'Naruto PotN 2',
-    description: 'The second game in the Path of the Ninja series following the adventures of Naruto Uzumaki.',
+    description: 'The second game in the PotN series following the adventures of Naruto Uzumaki.',
     icon: '🍥',
     difficulty: 'Medium',
     category: 'DS'
   },
   {
+    id: 'narutoshinobirumble',
+    title: 'Naruto Shinobi Rumble',
+    description: 'The fifth game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    icon: '🍥',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'narutovssasuke',
     title: 'Naruto vs Sasuke',
-    description: 'The fifth game in the Ninja Council series following the adventures of Naruto Uzumaki.',
+    description: 'The sixth game in the Ninja Council series following the adventures of Naruto Uzumaki.',
     icon: '🍥',
     difficulty: 'Medium',
     category: 'DS'

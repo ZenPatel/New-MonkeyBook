@@ -78,6 +78,7 @@ import { NarutoNinjaCouncil4Page } from "./pages/NarutoNinjaCouncil4Page";
 import { NarutoPotNPage } from "./pages/NarutoPotNPage";
 import { NarutoPotN2Page } from "./pages/NarutoPotN2Page";
 import { NarutoVsSasukePage } from "./pages/NarutoVsSasukePage";
+import { NarutoShinobiRumblePage } from "./pages/NarutoShinobiRumblePage";
 
 function App() {
   return (
@@ -163,6 +164,7 @@ function App() {
           <Route path="games/narutopotn" element={<NarutoPotNPage />} />
           <Route path="games/narutopotn2" element={<NarutoPotN2Page />} />
           <Route path="games/narutovssasuke" element={<NarutoVsSasukePage />} />
+          <Route path="games/narutoshinobirumble" element={<NarutoShinobiRumblePage />} />
         </Routes>
       </div>
     </div>
