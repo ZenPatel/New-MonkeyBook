@@ -163,6 +163,14 @@ const games: Game[] = [
     category: 'GBC'
   },
   {
+    id: 'pokemonemerald',
+    title: 'Pokemon Emerald',
+    description: 'Explore Hoenn and become the Hoenn league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
     id: 'pokemongold',
     title: 'Pokemon Gold',
     description: 'Explore Johto and become the Johto league champion!',
@@ -171,12 +179,36 @@ const games: Game[] = [
     category: 'GBC'
   },
   {
+    id: 'pokemongreen',
+    title: 'Pokemon Green',
+    description: 'Explore Kanto and become the Indigo league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GB'
+  },
+  {
     id: 'pokemonred',
     title: 'Pokemon Red',
     description: 'Explore Kanto and become the Indigo league champion!',
     icon: '◓',
     difficulty: 'Easy',
     category: 'GB'
+  },
+  {
+    id: 'pokemonruby',
+    title: 'Pokemon Ruby',
+    description: 'Explore Hoenn and become the Hoenn league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
+  },
+  {
+    id: 'pokemonsapphire',
+    title: 'Pokemon Sapphire',
+    description: 'Explore Hoenn and become the Hoenn league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'GBA'
   },
   {
     id: 'pokemonsilver',
