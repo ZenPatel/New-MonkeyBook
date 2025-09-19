@@ -79,6 +79,7 @@ import { NarutoPotNPage } from "./pages/NarutoPotNPage";
 import { NarutoPotN2Page } from "./pages/NarutoPotN2Page";
 import { NarutoVsSasukePage } from "./pages/NarutoVsSasukePage";
 import { NarutoShinobiRumblePage } from "./pages/NarutoShinobiRumblePage";
+import { HNIChampionRoadPage } from "./pages/HNIChampionRoadPage";
 
 function App() {
   return (
@@ -165,6 +166,7 @@ function App() {
           <Route path="games/narutopotn2" element={<NarutoPotN2Page />} />
           <Route path="games/narutovssasuke" element={<NarutoVsSasukePage />} />
           <Route path="games/narutoshinobirumble" element={<NarutoShinobiRumblePage />} />
+          <Route path="shows/hnichampionroad" element={<HNIChampionRoadPage />} />
         </Routes>
       </div>
     </div>
