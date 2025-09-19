@@ -168,25 +168,26 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   const bufferedPercentage = duration ? (buffered / duration) * 100 : 0;
 
   return (
-    <div 
-      className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
-      style={{ width, height }}
-      onMouseEnter={() => setShowControls(true)}
-      onMouseLeave={() => setShowControls(false)}
-    >
-      {/* Video Element */}
-      <video
-        ref={videoRef}
-        className="w-full h-full object-contain"
-        src={src}
-        poster={poster}
-        autoPlay={autoPlay}
-        loop={loop}
-        muted={muted}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onEnded={() => setIsPlaying(false)}
-      />
+    <div className="flex justify-center">
+      <div 
+        className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
+        style={{ width, height }}
+        onMouseEnter={() => setShowControls(true)}
+        onMouseLeave={() => setShowControls(false)}
+      >
+        {/* Video Element */}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-contain"
+          src={src}
+          poster={poster}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
+        />
 
       {/* Loading Overlay */}
       {duration === 0 && (
@@ -207,15 +208,15 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
         </div>
 
         {/* Center Play Button */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <button
             onClick={togglePlay}
-            className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110"
+            className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110 pointer-events-auto"
           >
             {isPlaying ? (
-              <Pause className="w-8 h-8 stroke-white" />
+              <Pause className="w-8 h-8 text-white fill-white" />
             ) : (
-              <Play className="w-8 h-8 stroke-white" />
+              <Play className="w-8 h-8 text-white fill-white" />
             )}
           </button>
         </div>
@@ -359,6 +360,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
