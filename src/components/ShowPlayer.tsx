@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipBack, SkipForward } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipBack, SkipForward, Download, PictureInPicture2 } from 'lucide-react';
 
 interface ShowPlayerProps {
   src: string;
@@ -20,7 +20,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   autoPlay = false,
   loop = false,
   muted = false,
-  width = "100%",
+  width = "75%",
   height = "400px",
   className = ""
 }) => {
@@ -36,10 +36,15 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   const [playbackRate, setPlaybackRate] = useState(1);
   const [showSettings, setShowSettings] = useState(false);
   const [buffered, setBuffered] = useState(0);
+  const [isPiPSupported, setIsPiPSupported] = useState(false);
+  const [isInPiP, setIsInPiP] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Check PiP support
+    setIsPiPSupported('pictureInPictureEnabled' in document);
 
     const updateTime = () => setCurrentTime(video.currentTime);
     const updateDuration = () => setDuration(video.duration);
@@ -49,14 +54,21 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
       }
     };
 
+    const handlePiPEnter = () => setIsInPiP(true);
+    const handlePiPLeave = () => setIsInPiP(false);
+
     video.addEventListener('timeupdate', updateTime);
     video.addEventListener('loadedmetadata', updateDuration);
     video.addEventListener('progress', updateBuffered);
+    video.addEventListener('enterpictureinpicture', handlePiPEnter);
+    video.addEventListener('leavepictureinpicture', handlePiPLeave);
 
     return () => {
       video.removeEventListener('timeupdate', updateTime);
       video.removeEventListener('loadedmetadata', updateDuration);
       video.removeEventListener('progress', updateBuffered);
+      video.removeEventListener('enterpictureinpicture', handlePiPEnter);
+      video.removeEventListener('leavepictureinpicture', handlePiPLeave);
     };
   }, []);
 
@@ -119,7 +131,30 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
     if (videoRef.current) {
       videoRef.current.playbackRate = rate;
       setPlaybackRate(rate);
-      setShowSettings(false);
+    }
+  };
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = title || 'video';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const togglePictureInPicture = async () => {
+    if (!videoRef.current || !isPiPSupported) return;
+
+    try {
+      if (isInPiP) {
+        await document.exitPictureInPicture();
+      } else {
+        await videoRef.current.requestPictureInPicture();
+      }
+    } catch (error) {
+      console.error('Failed to toggle Picture-in-Picture:', error);
     }
   };
 
@@ -178,9 +213,9 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
             className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110"
           >
             {isPlaying ? (
-              <Pause className="w-8 h-8 text-white" />
+              <Pause className="w-8 h-8 stroke-white" />
             ) : (
-              <Play className="w-8 h-8 text-white ml-1" />
+              <Play className="w-8 h-8 stroke-white" />
             )}
           </button>
         </div>
@@ -271,8 +306,9 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
                 </button>
                 
                 {showSettings && (
-                  <div className="absolute bottom-8 right-0 bg-black bg-opacity-90 rounded p-2 min-w-32">
-                    <div className="text-white text-sm mb-2">Speed</div>
+                  <div className="absolute bottom-8 right-0 bg-black bg-opacity-90 rounded p-2 min-w-36 z-10">
+                    {/* Playback Speed */}
+                    <div className="text-white text-sm mb-2 border-b border-gray-600 pb-2">Speed</div>
                     {[0.5, 0.75, 1, 1.25, 1.5, 2].map((rate) => (
                       <button
                         key={rate}
@@ -284,6 +320,30 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
                         {rate}x
                       </button>
                     ))}
+                    
+                    {/* Download Option */}
+                    <div className="border-t border-gray-600 pt-2 mt-2">
+                      <button
+                        onClick={handleDownload}
+                        className="flex items-center w-full text-left px-2 py-1 text-sm hover:bg-gray-700 rounded text-white"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Download
+                      </button>
+                    </div>
+                    
+                    {/* Picture in Picture */}
+                    {isPiPSupported && (
+                      <div className="mt-1">
+                        <button
+                          onClick={togglePictureInPicture}
+                          className="flex items-center w-full text-left px-2 py-1 text-sm hover:bg-gray-700 rounded text-white"
+                        >
+                          <PictureInPicture2 className="w-4 h-4 mr-2" />
+                          {isInPiP ? 'Exit PiP' : 'Picture in Picture'}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
