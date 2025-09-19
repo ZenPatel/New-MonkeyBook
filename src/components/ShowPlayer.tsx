@@ -229,17 +229,12 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <button
                 onClick={togglePlay}
-                className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110 pointer-events-auto flex items-center justify-center"
+                className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110 pointer-events-auto"
               >
                 {isPlaying ? (
-                  /* Pause Icon - Two rectangles */
-                  <div className="flex items-center space-x-1">
-                    <div className="w-1.5 h-8 bg-white rounded"></div>
-                    <div className="w-1.5 h-8 bg-white rounded"></div>
-                  </div>
+                  <Pause className="w-8 h-8 text-black" />
                 ) : (
-                  /* Play Icon - Triangle */
-                  <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
+                  <Play className="w-8 h-8 text-black" />
                 )}
               </button>
             </div>
