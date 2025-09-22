@@ -8,6 +8,12 @@ interface Show {
 
 const shows: Show[] = [
   {
+    id: "borat",
+    posterUrl:
+      "https://i.ebayimg.com/images/g/FGUAAOSwNPti~flg/s-l1600.webp",
+    title: "Borat",
+  },
+  {
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
@@ -18,12 +24,6 @@ const shows: Show[] = [
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/kimuravsmashibaposter.jpg",
     title: "Kimura vs Mashiba",
-  },
-  {
-    id: "borat",
-    posterUrl:
-      "https://i.ebayimg.com/images/g/FGUAAOSwNPti~flg/s-l1600.webp",
-    title: "Borat",
   },
 ];
 

@@ -83,6 +83,7 @@ import { HNIChampionRoadPage } from "./pages/HNIChampionRoadPage";
 import { KimuraVsMashibaPage } from "./pages/KimuraVsMashibaPage";
 import { BoratPage } from "./pages/BoratPage";
 import { ShowsPage } from "./pages/ShowsPage";
+import { PokemonSoulSilverPage } from "./pages/PokemonSoulSilverPage";
 
 function App() {
   return (
@@ -173,6 +174,7 @@ function App() {
           <Route path="/shows/kimuravsmashiba" element={<KimuraVsMashibaPage />} />
           <Route path="/shows/borat" element={<BoratPage />} />
           <Route path="/shows" element={<ShowsPage />} /> 
+          <Route path="/games/pokemonsoulsilver" element={<PokemonSoulSilverPage />} />
         </Routes>
       </div>
     </div>
