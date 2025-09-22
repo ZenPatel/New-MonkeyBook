@@ -30,7 +30,7 @@ const shows: Show[] = [
 export const ShowsList = () => {
   return (
     <div className="max-w-8xl mx-auto px-4 py-8">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
         {shows.map((show) => (
           <Link
             key={show.id}
@@ -41,7 +41,7 @@ export const ShowsList = () => {
               <img
                 src={show.posterUrl}
                 alt={show.title}
-                className="w-full h-auto object-cover rounded-lg transform transition duration-300 group-hover:scale-105 group-hover:brightness-75"
+                className="w-full h-full object-cover rounded-lg transform transition duration-300 group-hover:scale-105 group-hover:brightness-75"
               />
             </div>
             <p className="mt-2 text-sm font-medium text-gray-300 group-hover:text-white transition-colors truncate">
