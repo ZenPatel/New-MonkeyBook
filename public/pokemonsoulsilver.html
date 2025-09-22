@@ -27,12 +27,12 @@
                 const blobUrl = URL.createObjectURL(blob);
 
                 // Configure EmulatorJS
-                window.EJS_player = "#game";
-                window.EJS_core = "nds";
-                window.EJS_gameName = "Pokémon SoulSilver";
-                window.EJS_color = "#0064ff";
-                window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-                window.EJS_gameUrl = blobUrl;
+                EJS_player = "#game";
+                EJS_core = "nds";
+                EJS_gameName = "Pokémon SoulSilver";
+                EJS_color = "#0064ff";
+                EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+                EJS_gameUrl = blobUrl;
 
                 // Load EmulatorJS after ROM is ready
                 const script = document.createElement("script");
