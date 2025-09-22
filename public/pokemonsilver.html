@@ -1,25 +1,51 @@
-<html>
-    <head>
-        <!--HTML file auto generated using EmulatorJS codehelper-->
-        <style>
-            body, html {
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div style="width:100%;height:100%;max-width:100%">
-            <div id="game"></div>
-        </div>
-        <script>
-            EJS_player = "#game";
-            EJS_core = "gb";
-            EJS_gameName = "Pokemon Silver";
-            EJS_color = "#0064ff";
-            EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            EJS_gameUrl = "Pokemon - Silver Version (USA, Europe) (SGB Enhanced) (GB Compatible).gbc";
-        </script>
-        <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+        #game {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+
+    <script>
+        // URL of your ROM
+        const romUrl = "https://monkeybookshows.s3.us-east-2.amazonaws.com/Pokemon+-+SoulSilver+Version+(USA%2C+Australia).nds";
+
+        // Fetch ROM as ArrayBuffer
+        fetch(romUrl)
+            .then(response => response.arrayBuffer())
+            .then(buffer => {
+                const romData = new Uint8Array(buffer);
+
+                // Convert ROM to a Blob and create a temporary URL
+                const blob = new Blob([romData], { type: "application/octet-stream" });
+                const blobUrl = URL.createObjectURL(blob);
+
+                // Configure EmulatorJS
+                window.EJS_player = "#game";
+                window.EJS_core = "nds";
+                window.EJS_gameName = "Pokémon SoulSilver";
+                window.EJS_color = "#0064ff";
+                window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+                window.EJS_gameUrl = blobUrl;
+
+                // Load EmulatorJS after ROM is ready
+                const script = document.createElement("script");
+                script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+                document.body.appendChild(script);
+            })
+            .catch(err => console.error('Failed to fetch ROM:', err));
+    </script>
+</body>
 </html>
