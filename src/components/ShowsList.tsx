@@ -10,13 +10,13 @@ const shows: Show[] = [
   {
     id: "hnichampionroad",
     posterUrl:
-      "https://static.wikia.nocookie.net/ippo/images/4/4c/Hajime-no-Ippo-Champion-Road.jpg/revision/latest?cb=20140323182546",
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
     title: "Hajime No Ippo Champion Road",
   },
   {
     id: "kimuravsmashiba",
     posterUrl:
-      "https://static.wikia.nocookie.net/ippo/images/c/cd/Execution_Anime.png/revision/latest?cb=20191123232844",
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/kimuravsmashibaposter.jpg",
     title: "Kimura vs Mashiba",
   },
   {
