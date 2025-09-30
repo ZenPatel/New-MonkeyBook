@@ -14,6 +14,12 @@ const shows: Show[] = [
     title: "Borat",
   },
   {
+    id: "borat2",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/borat2cover.webp",
+    title: "Borat 2"
+  },
+  {
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
