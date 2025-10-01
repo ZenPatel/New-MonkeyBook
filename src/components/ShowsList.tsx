@@ -20,6 +20,18 @@ const shows: Show[] = [
     title: "Borat 2"
   },
   {
+    id: "friday",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Friday+Cover.jpg",
+    title: "Friday"
+  },
+  {
+    id: "fullmetaljacket",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Full+Metal+Jacket+Poster.jpg",
+    title: "Full Metal Jacket"
+  },
+  {
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
@@ -31,6 +43,12 @@ const shows: Show[] = [
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/kimuravsmashibaposter.jpg",
     title: "Kimura vs Mashiba",
   },
+  {
+    id: "nextfriday",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Next+Friday+Cover.jpg",
+    title: "Next Friday"
+  }
 ];
 
 export const ShowsList = () => {
