@@ -8,6 +8,18 @@ interface Show {
 
 const shows: Show[] = [
   {
+    id: "aminecraftmovie",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/A+Minecraft+Movie+Poster.jpg",
+    title: "A Minecraft Movie"
+  },
+  {
+    id: "berserk",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Berserk+Cover.jpg",
+    title: "Berserk 1997"
+  },
+  {
     id: "borat",
     posterUrl:
       "https://i.ebayimg.com/images/g/FGUAAOSwNPti~flg/s-l1600.webp",
@@ -24,6 +36,12 @@ const shows: Show[] = [
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Friday+Cover.jpg",
     title: "Friday"
+  },
+  {
+    id: "fridayafternext",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Friday+After+Next+Cover.jpg",
+    title: "Friday After Next"
   },
   {
     id: "fullmetaljacket",

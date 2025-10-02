@@ -88,6 +88,9 @@ import { Borat2Page } from "./pages/Borat2Page";
 import { FullMetalJacketPage } from "./pages/FullMetalJacketPage";
 import { FridayPage } from "./pages/FridayPage";
 import { NextFridayPage } from "./pages/NextFridayPage";
+import { FridayAfterNextPage } from "./pages/FridayAfterNextPage";
+import { AMinecraftMoviePage } from "./pages/AMinecraftMoviePage";
+import { BerserkPage } from "./pages/BerserkPage";
 
 function App() {
   return (
@@ -183,6 +186,9 @@ function App() {
           <Route path="/shows/fullmetaljacket" element={<FullMetalJacketPage />} />
           <Route path="/shows/friday" element={<FridayPage />} />
           <Route path="/shows/nextfriday" element={<NextFridayPage />} />
+          <Route path="/shows/fridayafternext" element={<FridayAfterNextPage />} />
+          <Route path="/shows/aminecraftmovie" element={<AMinecraftMoviePage />} />
+          <Route path="/shows/berserk" element={<BerserkPage />} />
         </Routes>
       </div>
     </div>
