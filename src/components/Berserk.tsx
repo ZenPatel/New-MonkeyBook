@@ -121,7 +121,6 @@ export const BerserkShow: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-3xl font-bold text-center">{Berserk.title}</h2>
 
       {/* Season + Episode selectors */}
       <div className="flex gap-4 justify-center">
@@ -132,7 +131,7 @@ export const BerserkShow: React.FC = () => {
             setSeasonIndex(Number(e.target.value));
             setEpisodeIndex(0); // reset to first ep when season changes
           }}
-          className="p-2 border rounded"
+          className="p-2 border rounded text-black"
         >
           {Berserk.seasons.map((s, i) => (
             <option key={i} value={i}>
@@ -145,7 +144,7 @@ export const BerserkShow: React.FC = () => {
         <select
           value={episodeIndex}
           onChange={(e) => setEpisodeIndex(Number(e.target.value))}
-          className="p-2 border rounded"
+          className="p-2 border rounded text-black"
         >
           {currentSeason.episodes.map((ep, i) => (
             <option key={i} value={i}>
