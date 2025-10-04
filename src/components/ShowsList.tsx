@@ -32,6 +32,12 @@ const shows: Show[] = [
     title: "Borat 2"
   },
   {
+    id: "f1",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/f1+poster.jpg",
+    title: "F1: The Movie"
+  },
+  {
     id: "friday",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Friday+Cover.jpg",
@@ -53,13 +59,13 @@ const shows: Show[] = [
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
-    title: "Hajime No Ippo Champion Road",
+    title: "Hajime No Ippo: Champion Road",
   },
   {
-    id: "kimuravsmashiba",
+    id: "hnikimuravsmashiba",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/kimuravsmashibaposter.jpg",
-    title: "Kimura vs Mashiba",
+    title: "Hajime No Ippo: Kimura vs Mashiba",
   },
   {
     id: "nextfriday",

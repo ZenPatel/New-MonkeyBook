@@ -91,6 +91,7 @@ import { NextFridayPage } from "./pages/NextFridayPage";
 import { FridayAfterNextPage } from "./pages/FridayAfterNextPage";
 import { AMinecraftMoviePage } from "./pages/AMinecraftMoviePage";
 import { BerserkPage } from "./pages/BerserkPage";
+import { F1Page } from "./pages/F1Page";
 
 function App() {
   return (
@@ -178,7 +179,7 @@ function App() {
           <Route path="/games/narutovssasuke" element={<NarutoVsSasukePage />} />
           <Route path="/games/narutoshinobirumble" element={<NarutoShinobiRumblePage />} />
           <Route path="/shows/hnichampionroad" element={<HNIChampionRoadPage />} />
-          <Route path="/shows/kimuravsmashiba" element={<KimuraVsMashibaPage />} />
+          <Route path="/shows/hnikimuravsmashiba" element={<KimuraVsMashibaPage />} />
           <Route path="/shows/borat" element={<BoratPage />} />
           <Route path="/shows" element={<ShowsPage />} /> 
           <Route path="/games/pokemonsoulsilver" element={<PokemonSoulSilverPage />} />
@@ -189,6 +190,7 @@ function App() {
           <Route path="/shows/fridayafternext" element={<FridayAfterNextPage />} />
           <Route path="/shows/aminecraftmovie" element={<AMinecraftMoviePage />} />
           <Route path="/shows/berserk" element={<BerserkPage />} />
+          <Route path="/shows/f1" element={<F1Page />} />
         </Routes>
       </div>
     </div>
