@@ -78,6 +78,12 @@ const shows: Show[] = [
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Next+Friday+Cover.jpg",
     title: "Next Friday"
+  },
+  {
+    id: "superbad",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Superbad_Poster.png",
+    title: "Superbad"
   }
 ];
 

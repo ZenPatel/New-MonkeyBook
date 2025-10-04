@@ -357,27 +357,28 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
 
   return (
     <div className="flex justify-center">
-      <div 
-        className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
-        style={{ width, height }}
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
-        {/* Video Element */}
-        <video
-          ref={videoRef}
-          className="w-full h-full object-contain"
-          src={src}
-          poster={poster}
-          autoPlay={autoPlay}
-          loop={loop}
-          muted={muted}
-          controls={isMobile}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
-          style={{ display: isCasting ? 'none' : 'block' }}
-        />
+      <div className="flex flex-col items-center w-full">
+        <div 
+          className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
+          style={{ width, height }}
+          onMouseEnter={() => setShowControls(true)}
+          onMouseLeave={() => setShowControls(false)}
+        >
+          {/* Video Element */}
+          <video
+            ref={videoRef}
+            className="w-full h-full object-contain"
+            src={src}
+            poster={poster}
+            autoPlay={autoPlay}
+            loop={loop}
+            muted={muted}
+            controls={isMobile}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+            style={{ display: isCasting ? 'none' : 'block' }}
+          />
 
         {/* Casting Overlay */}
         {isCasting && (
@@ -580,6 +581,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
         )}
       </div>
     </div>
+  </div>
   );
 };
 
