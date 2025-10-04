@@ -396,7 +396,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
         )}
 
         {/* Controls Overlay - Only show on desktop */}
-        {(
+        {!isMobile && (
           <div 
             className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${
               showControls ? 'opacity-100' : 'opacity-0'
