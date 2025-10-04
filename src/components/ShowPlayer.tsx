@@ -357,28 +357,27 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col items-center w-full">
-        <div 
-          className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
-          style={{ width, height }}
-          onMouseEnter={() => setShowControls(true)}
-          onMouseLeave={() => setShowControls(false)}
-        >
-          {/* Video Element */}
-          <video
-            ref={videoRef}
-            className="w-full h-full object-contain"
-            src={src}
-            poster={poster}
-            autoPlay={autoPlay}
-            loop={loop}
-            muted={muted}
-            controls={isMobile}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
-            style={{ display: isCasting ? 'none' : 'block' }}
-          />
+      <div 
+        className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${className}`}
+        style={{ width, height }}
+        onMouseEnter={() => setShowControls(true)}
+        onMouseLeave={() => setShowControls(false)}
+      >
+        {/* Video Element */}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-contain"
+          src={src}
+          poster={poster}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          controls={isMobile}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
+          style={{ display: isCasting ? 'none' : 'block' }}
+        />
 
         {/* Casting Overlay */}
         {isCasting && (
@@ -397,7 +396,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
         )}
 
         {/* Controls Overlay - Only show on desktop */}
-        {!isMobile && (
+        {(
           <div 
             className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${
               showControls ? 'opacity-100' : 'opacity-0'
@@ -581,7 +580,6 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
         )}
       </div>
     </div>
-  </div>
   );
 };
 
