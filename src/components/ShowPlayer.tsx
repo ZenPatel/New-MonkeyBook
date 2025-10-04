@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipBack, SkipForward, Download, PictureInPicture2 } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, Settings, SkipBack, SkipForward, Download, PictureInPicture2, Cast } from 'lucide-react';
 
 interface ShowPlayerProps {
   src: string;
@@ -11,6 +11,15 @@ interface ShowPlayerProps {
   width?: string | number;
   height?: string | number;
   className?: string;
+}
+
+// Extend Window interface for Cast API
+declare global {
+  interface Window {
+    cast: any;
+    chrome: any;
+    __onGCastApiAvailable: (isAvailable: boolean) => void;
+  }
 }
 
 const ShowPlayer: React.FC<ShowPlayerProps> = ({
@@ -39,6 +48,127 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   const [isPiPSupported, setIsPiPSupported] = useState(false);
   const [isInPiP, setIsInPiP] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  
+  // Chromecast states
+  const [isCastAvailable, setIsCastAvailable] = useState(false);
+  const [isCasting, setIsCasting] = useState(false);
+  const [castSession, setCastSession] = useState<any>(null);
+
+  // Initialize Chromecast
+  useEffect(() => {
+    const initializeCast = () => {
+      if (window.cast && window.cast.framework) {
+        const castContext = window.cast.framework.CastContext.getInstance();
+        
+        castContext.setOptions({
+          receiverApplicationId: window.chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+          autoJoinPolicy: window.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+        });
+
+        setIsCastAvailable(true);
+
+        // Listen for cast state changes
+        castContext.addEventListener(
+          window.cast.framework.CastContextEventType.SESSION_STATE_CHANGED,
+          (event: any) => {
+            switch (event.sessionState) {
+              case window.cast.framework.SessionState.SESSION_STARTED:
+              case window.cast.framework.SessionState.SESSION_RESUMED:
+                const session = castContext.getCurrentSession();
+                setCastSession(session);
+                setIsCasting(true);
+                loadMediaOnCast(session);
+                break;
+              case window.cast.framework.SessionState.SESSION_ENDED:
+                setCastSession(null);
+                setIsCasting(false);
+                break;
+            }
+          }
+        );
+      }
+    };
+
+    // Wait for Cast API to be available
+    window.__onGCastApiAvailable = (isAvailable: boolean) => {
+      if (isAvailable) {
+        initializeCast();
+      }
+    };
+
+    // Check if already loaded
+    if (window.cast && window.cast.framework) {
+      initializeCast();
+    }
+  }, []);
+
+  // Load media on Chromecast
+  const loadMediaOnCast = (session: any) => {
+    if (!session) return;
+
+    const mediaInfo = new window.chrome.cast.media.MediaInfo(src, 'video/mp4');
+    mediaInfo.metadata = new window.chrome.cast.media.GenericMediaMetadata();
+    mediaInfo.metadata.title = title;
+    if (poster) {
+      mediaInfo.metadata.images = [new window.chrome.cast.Image(poster)];
+    }
+
+    const request = new window.chrome.cast.media.LoadRequest(mediaInfo);
+    request.currentTime = currentTime;
+    request.autoplay = isPlaying;
+
+    session.loadMedia(request).then(
+      () => {
+        console.log('Media loaded on Chromecast');
+        // Pause local video when casting
+        if (videoRef.current) {
+          videoRef.current.pause();
+        }
+      },
+      (error: any) => {
+        console.error('Error loading media on Chromecast:', error);
+      }
+    );
+  };
+
+  // Toggle Chromecast
+  const toggleCast = () => {
+    if (!isCastAvailable) return;
+
+    const castContext = window.cast.framework.CastContext.getInstance();
+    
+    if (isCasting) {
+      castContext.endCurrentSession(true);
+    } else {
+      castContext.requestSession().then(
+        () => {
+          console.log('Cast session started');
+        },
+        (error: any) => {
+          console.error('Error starting cast session:', error);
+        }
+      );
+    }
+  };
+
+  // Sync cast player with local controls
+  useEffect(() => {
+    if (!castSession) return;
+
+    const playerController = castSession.getMediaSession();
+    if (!playerController) return;
+
+    const updateCastTime = () => {
+      const currentTime = playerController.getEstimatedTime();
+      const duration = playerController.media?.duration || 0;
+      setCurrentTime(currentTime);
+      setDuration(duration);
+      setIsPlaying(playerController.playerState === 'PLAYING');
+    };
+
+    const interval = setInterval(updateCastTime, 1000);
+    return () => clearInterval(interval);
+  }, [castSession]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -89,6 +219,19 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   }, []);
 
   const togglePlay = () => {
+    if (isCasting && castSession) {
+      const media = castSession.getMediaSession();
+      if (media) {
+        if (isPlaying) {
+          media.pause();
+        } else {
+          media.play();
+        }
+        setIsPlaying(!isPlaying);
+      }
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -103,33 +246,62 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
-    if (videoRef.current) {
+    
+    if (isCasting && castSession) {
+      const media = castSession.getMediaSession();
+      if (media) {
+        media.setVolume(newVolume);
+      }
+    } else if (videoRef.current) {
       videoRef.current.volume = newVolume;
     }
+    
     setIsMuted(newVolume === 0);
   };
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+    const newMutedState = !isMuted;
+    setIsMuted(newMutedState);
+    
+    if (isCasting && castSession) {
+      const media = castSession.getMediaSession();
+      if (media) {
+        media.setVolume(newMutedState ? 0 : volume);
+      }
+    } else if (videoRef.current) {
+      videoRef.current.muted = newMutedState;
     }
   };
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!progressRef.current || !videoRef.current) return;
+    if (!progressRef.current) return;
     
     const rect = progressRef.current.getBoundingClientRect();
     const pos = (e.clientX - rect.left) / rect.width;
     const newTime = pos * duration;
     
-    videoRef.current.currentTime = newTime;
+    if (isCasting && castSession) {
+      const media = castSession.getMediaSession();
+      if (media) {
+        media.seek(newTime);
+      }
+    } else if (videoRef.current) {
+      videoRef.current.currentTime = newTime;
+    }
+    
     setCurrentTime(newTime);
   };
 
   const skip = (seconds: number) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime += seconds;
+    const newTime = currentTime + seconds;
+    
+    if (isCasting && castSession) {
+      const media = castSession.getMediaSession();
+      if (media) {
+        media.seek(newTime);
+      }
+    } else if (videoRef.current) {
+      videoRef.current.currentTime = newTime;
     }
   };
 
@@ -204,10 +376,20 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}
+          style={{ display: isCasting ? 'none' : 'block' }}
         />
 
+        {/* Casting Overlay */}
+        {isCasting && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black">
+            <Cast className="w-24 h-24 text-blue-500 mb-4 animate-pulse" />
+            <p className="text-white text-xl mb-2">Casting to TV</p>
+            <p className="text-gray-400">{title}</p>
+          </div>
+        )}
+
         {/* Loading Overlay - Only show on desktop */}
-        {duration === 0 && !isMobile && (
+        {duration === 0 && !isMobile && !isCasting && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
           </div>
@@ -221,23 +403,38 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
             }`}
           >
             {/* Title Bar */}
-            <div className="absolute top-0 left-0 right-0 p-4">
+            <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
               <h3 className="text-white text-lg font-semibold truncate">{title}</h3>
+              
+              {/* Cast Button */}
+              {isCastAvailable && (
+                <button
+                  onClick={toggleCast}
+                  className={`${
+                    isCasting ? 'text-blue-500' : 'text-white'
+                  } hover:text-blue-400 transition-colors`}
+                  title={isCasting ? 'Stop Casting' : 'Cast to TV'}
+                >
+                  <Cast className="w-6 h-6" />
+                </button>
+              )}
             </div>
 
             {/* Center Play Button */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <button
-                onClick={togglePlay}
-                className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110 pointer-events-auto"
-              >
-                {isPlaying ? (
-                  <Pause className="w-8 h-8 text-black" />
-                ) : (
-                  <Play className="w-8 h-8 text-black" />
-                )}
-              </button>
-            </div>
+            {!isCasting && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <button
+                  onClick={togglePlay}
+                  className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all duration-200 transform hover:scale-110 pointer-events-auto"
+                >
+                  {isPlaying ? (
+                    <Pause className="w-8 h-8 text-black" />
+                  ) : (
+                    <Play className="w-8 h-8 text-black" />
+                  )}
+                </button>
+              </div>
+            )}
 
             {/* Bottom Controls */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -352,7 +549,7 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
                         </div>
                         
                         {/* Picture in Picture */}
-                        {isPiPSupported && (
+                        {isPiPSupported && !isCasting && (
                           <div className="mt-1">
                             <button
                               onClick={togglePictureInPicture}
@@ -368,12 +565,14 @@ const ShowPlayer: React.FC<ShowPlayerProps> = ({
                   </div>
 
                   {/* Fullscreen Button */}
-                  <button
-                    onClick={toggleFullscreen}
-                    className="text-white hover:text-gray-300 transition-colors"
-                  >
-                    <Maximize className="w-5 h-5" />
-                  </button>
+                  {!isCasting && (
+                    <button
+                      onClick={toggleFullscreen}
+                      className="text-white hover:text-gray-300 transition-colors"
+                    >
+                      <Maximize className="w-5 h-5" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

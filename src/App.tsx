@@ -92,6 +92,7 @@ import { FridayAfterNextPage } from "./pages/FridayAfterNextPage";
 import { AMinecraftMoviePage } from "./pages/AMinecraftMoviePage";
 import { BerserkPage } from "./pages/BerserkPage";
 import { F1Page } from "./pages/F1Page";
+import { FNAFMoviePage } from "./pages/FNAFMoviePage";
 
 function App() {
   return (
@@ -191,6 +192,7 @@ function App() {
           <Route path="/shows/aminecraftmovie" element={<AMinecraftMoviePage />} />
           <Route path="/shows/berserk" element={<BerserkPage />} />
           <Route path="/shows/f1" element={<F1Page />} />
+          <Route path="/shows/fnafmovie" element={<FNAFMoviePage />} />
         </Routes>
       </div>
     </div>

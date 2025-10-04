@@ -38,6 +38,12 @@ const shows: Show[] = [
     title: "F1: The Movie"
   },
   {
+    id: "fnafmovie",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Fnaf_Movie_Poster.webp",
+    title: "FNAF Movie"
+  },
+  {
     id: "friday",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Friday+Cover.jpg",
