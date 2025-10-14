@@ -98,6 +98,15 @@ import { Windows98Page } from "./pages/Windows98Page";
 import { VMsListPage } from "./pages/VMsListPage";
 import { MacOSPage } from "./pages/MacOSPage";
 import { DSLPage } from "./pages/DSLPage";
+import { Windows96Page } from "./pages/Windows96Page";
+import { Windows93Page } from "./pages/Windows93Page";
+import { Windows2000Page } from "./pages/Windows2000Page";
+import { Windows1Page } from "./pages/Windows1Page";
+import { System1Page } from "./pages/System1Page";
+import { MacOS8Page } from "./pages/MacOS8Page";
+import { MacOS9Page } from "./pages/MacOS9Page";
+import { FreeGEMPage } from "./pages/FreeGEMPage";
+import { Chokanji4Page } from "./pages/Chokanji4Page";
 
 function App() {
   return (
@@ -203,6 +212,15 @@ function App() {
           <Route path="/vms/windows98" element={<Windows98Page />} />
           <Route path="/vms/macos" element={<MacOSPage />} />
           <Route path="/vms/dsl" element={<DSLPage />} />
+          <Route path="/vms/windows96" element={<Windows96Page />} />
+          <Route path="/vms/windows93" element={<Windows93Page />} />
+          <Route path="/vms/windows2000" element={<Windows2000Page />} />
+          <Route path="/vms/windows1" element={<Windows1Page />} />
+          <Route path="/vms/system1" element={<System1Page />} />
+          <Route path="/vms/macos8" element={<MacOS8Page />} />
+          <Route path="/vms/macos9" element={<MacOS9Page />} />
+          <Route path="/vms/freegem" element={<FreeGEMPage />} />
+          <Route path="/vms/chokanji4" element={<Chokanji4Page />} />
         </Routes>
       </div>
     </div>
