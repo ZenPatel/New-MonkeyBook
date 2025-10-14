@@ -1,16 +1,26 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
-export const VMsList = () => {
-    return (
-        <div className="space-y-4">
-            <div className="border border-white/10 p-4 sm:p-6 rounded-lg hover:-translate-y-1 transition transform bg-gray-900/30"> 
-                <Link
-                  to="/vms/windows98"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Windows 98
-                </Link>
-            </div>
+const vms = [
+  { name: "Windows 98", path: "/vms/windows98" },
+];
+
+export const VMsList = () => (
+  <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white px-4">
+    <div className="grid gap-4 w-full max-w-md">
+      {vms.map((vm) => (
+        <div
+          key={vm.path}
+          className="border border-white/10 p-6 rounded-lg bg-gray-900/40 backdrop-blur-sm 
+                     hover:-translate-y-1 hover:border-white/20 transition-transform duration-300"
+        >
+          <Link
+            to={vm.path}
+            className="block text-center text-lg font-medium text-gray-400 hover:text-white transition-colors"
+          >
+            {vm.name}
+          </Link>
         </div>
-    )
-}
+      ))}
+    </div>
+  </div>
+);
