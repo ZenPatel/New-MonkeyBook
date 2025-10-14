@@ -9,7 +9,7 @@ export const VMsList = () => {
     { name: "MacOS", path: "/vms/macos"},
     { name: "MacOS 8", path: "/vms/macos8"},
     { name: "MacOS 9", path: "/vms/macos9"},
-    { name: "Windows 2000", path: "/vms/windows1" },
+    { name: "Windows 1", path: "/vms/windows1" },
     { name: "Windows 2000", path: "/vms/windows2000" },
     { name: "Windows 93", path: "/vms/windows93" },
     { name: "Windows 96", path: "/vms/windows96" },
