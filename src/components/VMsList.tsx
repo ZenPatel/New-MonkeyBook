@@ -2,6 +2,8 @@ import { Link } from "react-router";
 
 export const VMsList = () => {
   const vms = [
+    { name: "DSL", path: "/vms/dsl"},
+    { name: "MacOS", path: "/vms/macos"},
     { name: "Windows 98", path: "/vms/windows98" },
   ];
 
@@ -14,7 +16,7 @@ export const VMsList = () => {
         >
           <Link
             to={vm.path}
-            className="block text-lg font-medium text-gray-300 hover:text-white transition-colors tracking-wide text-center"
+            className="block text-lg sm:text-2xl font-bold text-white hover:text-yellow-300 transition-colors mb-2 text-center"
           >
             {vm.name}
           </Link>

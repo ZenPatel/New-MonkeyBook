@@ -96,6 +96,8 @@ import { FNAFMoviePage } from "./pages/FNAFMoviePage";
 import { SuperbadPage } from "./pages/SuperbadPage";
 import { Windows98Page } from "./pages/Windows98Page";
 import { VMsListPage } from "./pages/VMsListPage";
+import { MacOSPage } from "./pages/MacOSPage";
+import { DSLPage } from "./pages/DSLPage";
 
 function App() {
   return (
@@ -199,6 +201,8 @@ function App() {
           <Route path="/shows/superbad" element={<SuperbadPage />} />
           <Route path="/vms" element={<VMsListPage />} />
           <Route path="/vms/windows98" element={<Windows98Page />} />
+          <Route path="/vms/macos" element={<MacOSPage />} />
+          <Route path="/vms/dsl" element={<DSLPage />} />
         </Routes>
       </div>
     </div>
