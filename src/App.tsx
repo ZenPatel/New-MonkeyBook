@@ -94,6 +94,8 @@ import { BerserkPage } from "./pages/BerserkPage";
 import { F1Page } from "./pages/F1Page";
 import { FNAFMoviePage } from "./pages/FNAFMoviePage";
 import { SuperbadPage } from "./pages/SuperbadPage";
+import { Windows98Page } from "./pages/Windows98Page";
+import { VMsListPage } from "./pages/VMsListPage";
 
 function App() {
   return (
@@ -195,6 +197,8 @@ function App() {
           <Route path="/shows/f1" element={<F1Page />} />
           <Route path="/shows/fnafmovie" element={<FNAFMoviePage />} />
           <Route path="/shows/superbad" element={<SuperbadPage />} />
+          <Route path="/vms" element={<VMsListPage />} />
+          <Route path="/vms/windows98" element={<Windows98Page />} />
         </Routes>
       </div>
     </div>

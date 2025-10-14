@@ -66,6 +66,12 @@ export const Navbar = () => {
                          >
                           Shows
                          </Link>
+                         <Link
+                           to="/vms"
+                           className="text-gray-300 hover:text-white transition-colors"
+                         >
+                          VMs
+                         </Link>
                     </div>
 
                     {/* Desktop Auth */}
@@ -198,6 +204,13 @@ export const Navbar = () => {
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
                     > 
                       Shows
+                    </Link>
+                    <Link 
+                      to="/vms"
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                    > 
+                      VMs
                     </Link>
                     {/* Mobile Auth */}
                     <div className="flex flex-col items-start space-y-2 mt-3">
