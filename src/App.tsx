@@ -104,6 +104,11 @@ import { Windows1Page } from "./pages/Windows1Page";
 import { FreeGEMPage } from "./pages/FreeGEMPage";
 import { Chokanji4Page } from "./pages/Chokanji4Page";
 import { Tekken3Page } from "./pages/Tekken3Page";
+import { Tekken2Page } from "./pages/Tekken2Page";
+import { TekkenPage } from "./pages/TekkenPage";
+import { Fifa2005Page } from "./pages/Fifa2005Page";
+import { HBOBoxingPage } from "./pages/HBOBoxingPage";
+import { KnockoutKings2001Page } from "./pages/KnockoutKings2001Page";
 
 function App() {
   return (
@@ -215,6 +220,11 @@ function App() {
           <Route path="/vms/freegem" element={<FreeGEMPage />} />
           <Route path="/vms/chokanji4" element={<Chokanji4Page />} />
           <Route path="/games/tekken3" element={<Tekken3Page />} />
+          <Route path="/games/tekken2" element={<Tekken2Page />} />
+          <Route path="/games/tekken" element={<TekkenPage />} />
+          <Route path="/games/fifa2005" element={<Fifa2005Page />} />
+          <Route path="/games/hboboxing" element={<HBOBoxingPage />} />
+          <Route path="/games/knockoutkings2001" element={<KnockoutKings2001Page />} />
         </Routes>
       </div>
     </div>

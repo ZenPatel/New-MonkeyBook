@@ -59,12 +59,36 @@ const games: Game[] = [
     category: 'Mega Drive'
   },
   {
+    id: 'fifa2005',
+    title: 'FIFA 2005',
+    description: 'A great player needs a great first touch. Last game released on PS1 in NA.',
+    icon: '⚽',
+    difficulty: 'Easy',
+    category: 'Mega Drive'
+  },
+  {
     id: 'hnids',
     title: 'Hajime No Ippo DS',
     description: 'Play as and take on your favourite characters from Hajime No Ippo!',
     icon: '🥊',
     difficulty: 'Medium',
     category: 'DS'
+  },
+  {
+    id: 'hboboxing',
+    title: 'HBO Boxing',
+    description: 'Relive the HBO boxing era using legends like Roy Jones and George Foreman!',
+    icon: '🥊',
+    difficulty: 'Easy',
+    category: 'PS1'
+  },
+  {
+    id: 'knockoutkings2001',
+    title: 'Knockout Kings 2001',
+    description: 'Third installment in the Knockout Kings series featuring legends like Ali and Floyd.',
+    icon: '🥊',
+    difficulty: 'Easy',
+    category: 'PS1'
   },
   {
     id: 'LoZ',
@@ -521,6 +545,22 @@ const games: Game[] = [
     icon: '💥',
     difficulty: 'Easy',
     category: 'N64'
+  },
+  {
+    id: 'tekken1',
+    title: 'Tekken 1',
+    description: 'The first entry in the Tekken series and an OG 3D fighting game.',
+    icon: '🥋',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
+    id: 'tekken2',
+    title: 'Tekken 2',
+    description: 'Compete in the second King of Iron Fist Tournament in the 1996 classic.',
+    icon: '🥋',
+    difficulty: 'Medium',
+    category: 'PS1'
   },
   {
     id: 'tekken3',
