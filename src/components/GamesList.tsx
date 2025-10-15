@@ -523,6 +523,14 @@ const games: Game[] = [
     category: 'N64'
   },
   {
+    id: 'tekken3',
+    title: 'Tekken 3',
+    description: 'The classic fighting game by Namco made in 1997 with 24 playable characters.',
+    icon: '🥋',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
     id: 'tekkengba',
     title: 'Tekken Advance',
     description: 'GBA exclusive that follows the events of Tekken 3.',

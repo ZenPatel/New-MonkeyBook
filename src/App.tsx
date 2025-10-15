@@ -73,7 +73,7 @@ import { NarutoNinjaCouncil3Page } from "./pages/NarutoNinjaCouncil3Page";
 import { PokemonMDBRTPage } from "./pages/PokemonMDBRTPage";
 import { PokemonMDEDPage } from "./pages/PokemonMDEDPage";
 import { PokemonMDETPage } from "./pages/PokemonMDETPage";
-import { SuperSmashBrosPage } from "./pages/SuperSmashBros";
+import { SuperSmashBrosPage } from "./pages/SuperSmashBrosPage";
 import { NarutoNinjaCouncil4Page } from "./pages/NarutoNinjaCouncil4Page";
 import { NarutoPotNPage } from "./pages/NarutoPotNPage";
 import { NarutoPotN2Page } from "./pages/NarutoPotN2Page";
@@ -103,6 +103,7 @@ import { Windows2000Page } from "./pages/Windows2000Page";
 import { Windows1Page } from "./pages/Windows1Page";
 import { FreeGEMPage } from "./pages/FreeGEMPage";
 import { Chokanji4Page } from "./pages/Chokanji4Page";
+import { Tekken3Page } from "./pages/Tekken3Page";
 
 function App() {
   return (
@@ -213,6 +214,7 @@ function App() {
           <Route path="/vms/windows1" element={<Windows1Page />} />
           <Route path="/vms/freegem" element={<FreeGEMPage />} />
           <Route path="/vms/chokanji4" element={<Chokanji4Page />} />
+          <Route path="/games/tekken3" element={<Tekken3Page />} />
         </Routes>
       </div>
     </div>
