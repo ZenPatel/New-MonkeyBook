@@ -62,6 +62,12 @@ const shows: Show[] = [
     title: "Full Metal Jacket"
   },
   {
+    id: "globalisationisgood",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Globalisation+is+Good+Poster.jpg",
+    title: "Globalisation is Good"
+  },
+  {
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",

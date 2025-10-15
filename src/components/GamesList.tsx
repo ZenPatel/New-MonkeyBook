@@ -547,8 +547,8 @@ const games: Game[] = [
     category: 'N64'
   },
   {
-    id: 'tekken1',
-    title: 'Tekken 1',
+    id: 'tekken',
+    title: 'Tekken',
     description: 'The first entry in the Tekken series and an OG 3D fighting game.',
     icon: '🥋',
     difficulty: 'Medium',

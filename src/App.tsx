@@ -109,6 +109,7 @@ import { TekkenPage } from "./pages/TekkenPage";
 import { Fifa2005Page } from "./pages/Fifa2005Page";
 import { HBOBoxingPage } from "./pages/HBOBoxingPage";
 import { KnockoutKings2001Page } from "./pages/KnockoutKings2001Page";
+import { GlobalisationIsGoodPage } from "./pages/GlobalisationIsGoodPage";
 
 function App() {
   return (
@@ -225,6 +226,7 @@ function App() {
           <Route path="/games/fifa2005" element={<Fifa2005Page />} />
           <Route path="/games/hboboxing" element={<HBOBoxingPage />} />
           <Route path="/games/knockoutkings2001" element={<KnockoutKings2001Page />} />
+          <Route path="/shows/globalisationisgood" element={<GlobalisationIsGoodPage />} />
         </Routes>
       </div>
     </div>
