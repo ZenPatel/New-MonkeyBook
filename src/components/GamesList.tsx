@@ -99,6 +99,38 @@ const games: Game[] = [
     category: 'PC'
   },
   {
+    id: 'fnafpizzeriasim',
+    title: 'FNAF Pizzeria Sim',
+    description: 'The sixth entry where you are in charge of developing your own resturant.',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
+  },
+  {
+    id: 'fnafsisterlocation',
+    title: 'FNAF Sister Location',
+    description: 'The fifth entry where you are at the sister location which features new characters.',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
+  },
+  {
+    id: 'fnafucn',
+    title: 'FNAF UCN',
+    description: 'In this game you can create your own horror experience with up to 50 animatronics.',
+    icon: '🍕',
+    difficulty: 'Hard',
+    category: 'PC'
+  },
+  {
+    id: 'fnafworld',
+    title: 'FNAF World',
+    description: 'This is a spin-off of the FNAF series that released in 2016.',
+    icon: '🍕',
+    difficulty: 'Easy',
+    category: 'PC'
+  },
+  {
     id: 'hnids',
     title: 'Hajime No Ippo DS',
     description: 'Play as and take on your favourite characters from Hajime No Ippo!',
@@ -193,6 +225,14 @@ const games: Game[] = [
     icon: '🎉',
     difficulty: 'Easy',
     category: 'DS'
+  },
+  {
+    id: 'minecraft',
+    title: 'Minecraft',
+    description: 'Minecraft wont add inches to your cock!  So mine it up, up, up!',
+    icon: '⛏️',
+    difficulty: 'Medium',
+    category: 'PC'
   },
   {
     id: 'mktrilogy',

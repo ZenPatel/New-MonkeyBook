@@ -114,6 +114,11 @@ import { FNAFPage } from "./pages/FNAFPage";
 import { FNAF2Page } from "./pages/FNAF2Page";
 import { FNAF3Page } from "./pages/FNAF3Page";
 import { FNAF4Page } from "./pages/FNAF4Page";
+import { FNAFWorldPage } from "./pages/FNAFWorldPage";
+import { FNAFSisterLocationPage } from "./pages/FNAFSisterLocationPage";
+import { FNAFPizzeriaSimPage } from "./pages/FNAFPizzeriaSimPage";
+import { FNAFUCNPage } from "./pages/FNAFUCNPage";
+import { MinecraftPage } from "./pages/MinecraftPage";
 
 function App() {
   return (
@@ -235,6 +240,11 @@ function App() {
           <Route path="/games/fnaf2" element={<FNAF2Page />} />
           <Route path="/games/fnaf3" element={<FNAF3Page />} />
           <Route path="/games/fnaf4" element={<FNAF4Page />} />
+          <Route path="/games/fnafworld" element={<FNAFWorldPage />} />
+          <Route path="/games/fnafsisterlocation" element={<FNAFSisterLocationPage />} />
+          <Route path="/games/fnafpizzeriasim" element={<FNAFPizzeriaSimPage />} />
+          <Route path="/games/fnafucn" element={<FNAFUCNPage />} />
+          <Route path="/games/minecraft" element={<MinecraftPage />} />
         </Routes>
       </div>
     </div>
