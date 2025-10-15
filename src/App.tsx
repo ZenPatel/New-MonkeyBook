@@ -119,6 +119,8 @@ import { FNAFSisterLocationPage } from "./pages/FNAFSisterLocationPage";
 import { FNAFPizzeriaSimPage } from "./pages/FNAFPizzeriaSimPage";
 import { FNAFUCNPage } from "./pages/FNAFUCNPage";
 import { MinecraftPage } from "./pages/MinecraftPage";
+import { FlappyBirdPage } from "./pages/FlappyBirdPage";
+import { SuperhotPage } from "./pages/SuperhotPage";
 
 function App() {
   return (
@@ -245,6 +247,8 @@ function App() {
           <Route path="/games/fnafpizzeriasim" element={<FNAFPizzeriaSimPage />} />
           <Route path="/games/fnafucn" element={<FNAFUCNPage />} />
           <Route path="/games/minecraft" element={<MinecraftPage />} />
+          <Route path="/games/flappybird" element={<FlappyBirdPage />} />
+          <Route path="/games/superhot" element={<SuperhotPage />} />
         </Routes>
       </div>
     </div>

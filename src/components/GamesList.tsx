@@ -67,6 +67,14 @@ const games: Game[] = [
     category: 'PS1'
   },
   {
+    id: 'flappybird',
+    title: 'Flappy Bird',
+    description: 'Just in case you missed the hype for the viral 2013 mobile app.',
+    icon: '🐦',
+    difficulty: 'Medium',
+    category: 'Mobile'
+  },
+  {
     id: 'fnaf',
     title: 'FNAF',
     description: 'The first entry in the iconic point and click horror series.',
@@ -545,6 +553,14 @@ const games: Game[] = [
     icon: '🍄',
     difficulty: 'Medium',
     category: 'N64'
+  },
+  {
+    id: 'superhot',
+    title: 'Superhot',
+    description: 'An FPS game in which time only moves when you do.',
+    icon: '🔫',
+    difficulty: 'Medium',
+    category: 'PC'
   },
   {
     id: 'mario',
