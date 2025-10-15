@@ -64,7 +64,39 @@ const games: Game[] = [
     description: 'A great player needs a great first touch. Last game released on PS1 in NA.',
     icon: '⚽',
     difficulty: 'Easy',
-    category: 'Mega Drive'
+    category: 'PS1'
+  },
+  {
+    id: 'fnaf',
+    title: 'FNAF',
+    description: 'The first entry in the iconic point and click horror series.',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
+  },
+  {
+    id: 'fnaf2',
+    title: 'FNAF 2',
+    description: 'The second entry which is a prequel sequel that continues to expand the lore.',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
+  },
+  {
+    id: 'fnaf3',
+    title: 'FNAF 3',
+    description: 'The third entry where you play in the new and rebuilt Freddy Fazbears Pizza.',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
+  },
+  {
+    id: 'fnaf4',
+    title: 'FNAF 4',
+    description: 'The fourth entry where you play as an abused child and die which is funny!',
+    icon: '🍕',
+    difficulty: 'Medium',
+    category: 'PC'
   },
   {
     id: 'hnids',
