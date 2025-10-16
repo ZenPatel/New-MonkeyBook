@@ -507,6 +507,14 @@ const games: Game[] = [
     category: 'NES'
   },
   {
+    id: 'rainbowsix',
+    title: 'Rainbow Six',
+    description: 'Based on the Tom Clancy novel and follows Rainbow the counterterrorist.',
+    icon: '🔫',
+    difficulty: 'Hard',
+    category: 'PS1'
+  },
+  {
     id: 'snake',
     title: 'Snake',
     description: 'Classic snake game - eat food, grow longer, avoid walls and yourself!',

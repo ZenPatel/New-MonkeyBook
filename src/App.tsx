@@ -121,6 +121,7 @@ import { FNAFUCNPage } from "./pages/FNAFUCNPage";
 import { MinecraftPage } from "./pages/MinecraftPage";
 import { FlappyBirdPage } from "./pages/FlappyBirdPage";
 import { SuperhotPage } from "./pages/SuperhotPage";
+import { RainbowSixPage } from "./pages/RainbowSixPage";
 
 function App() {
   return (
@@ -249,6 +250,7 @@ function App() {
           <Route path="/games/minecraft" element={<MinecraftPage />} />
           <Route path="/games/flappybird" element={<FlappyBirdPage />} />
           <Route path="/games/superhot" element={<SuperhotPage />} />
+          <Route path="/games/rainbowsix" element={<RainbowSixPage />} />
         </Routes>
       </div>
     </div>
