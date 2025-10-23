@@ -139,6 +139,54 @@ const games: Game[] = [
     category: 'PC'
   },
   {
+    id: 'f12001',
+    title: 'F1 2001',
+    description: 'Play as 22 different drivers across 17 unique tracks in this F1 game!',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
+    id: 'gt2',
+    title: 'Gran Turismo 2',
+    description: 'The 1999 racing simulator developed by Polyphony Digital.',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
+    id: 'gta',
+    title: 'GTA',
+    description: 'Be like Bwian: order some taco bell, act retarded, play some GTA!',
+    icon: '🏎️',
+    difficulty: 'Hard',
+    category: 'PS1'
+  },
+  {
+    id: 'gta2',
+    title: 'GTA 2',
+    description: 'Bitch Bwian back for more? Curb stomp Skywar then play GTA 2!',
+    icon: '🏎️',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
+    id: 'gtalondon1969',
+    title: 'GTA London 1969',
+    description: 'The dogs bullocks of GTA and loved by that bloody Bwian plonker!',
+    icon: '🏎️',
+    difficulty: 'Easy',
+    category: 'PS1'
+  },
+  {
+    id: 'hnips1',
+    title: 'Hajime No Ippo',
+    description: 'Immerse yourself in the ultimate Hajime No Ippo story simulator!',
+    icon: '🥊',
+    difficulty: 'Easy',
+    category: 'PS1'
+  },
+  {
     id: 'hnids',
     title: 'Hajime No Ippo DS',
     description: 'Play as and take on your favourite characters from Hajime No Ippo!',
@@ -313,6 +361,14 @@ const games: Game[] = [
     icon: '🍥',
     difficulty: 'Medium',
     category: 'DS'
+  },
+  {
+    id: 'nbalive2003',
+    title: 'NBA Live 2003',
+    description: 'Use top raps like Kobe and Karl Malone and put them all in their place!',
+    icon: '🏀',
+    difficulty: 'Medium',
+    category: 'PS1'
   },
   {
     id: 'pacman',
@@ -555,6 +611,14 @@ const games: Game[] = [
     category: 'Mega Drive'
   },
   {
+    id: 'southpark',
+    title: 'South Park',
+    description: 'Screw you guys Im going home! You will respect my authoritah!',
+    icon: '🏔️',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
     id: 'mario64',
     title: 'Super Mario 64',
     description: 'The first mario game to feature 3D gameplay and a open-world.',
@@ -681,6 +745,14 @@ const games: Game[] = [
     icon: '#',
     difficulty: 'Easy',
     category: 'JS'
+  },
+  {
+    id: 'ufc',
+    title: 'UFC',
+    description: 'Play as 22 different UFC fighters in the first ever UFC game!',
+    icon: '🥊',
+    difficulty: 'Medium',
+    category: 'PS1'
   },
   {
     id: 'warioland',

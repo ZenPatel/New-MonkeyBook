@@ -123,6 +123,15 @@ import { FlappyBirdPage } from "./pages/FlappyBirdPage";
 import { SuperhotPage } from "./pages/SuperhotPage";
 import { RainbowSixPage } from "./pages/RainbowSixPage";
 import { GTOPage } from "./pages/GTOPage";
+import { HNIPS1Page } from "./pages/HNIPS1Page";
+import { SouthParkPage } from "./pages/SouthParkPage";
+import { F12001Page } from "./pages/F12001Page";
+import { GT2Page } from "./pages/GT2Page";
+import { UFCPage } from "./pages/UFCPage";
+import { NBALive2003Page } from "./pages/NBALive2003Page";
+import { GTAPage } from "./pages/GTAPage";
+import { GTA2Page } from "./pages/GTA2Page";
+import { GTALondon1969Page } from "./pages/GTALondon1969Page";
 
 function App() {
   return (
@@ -253,6 +262,15 @@ function App() {
           <Route path="/games/superhot" element={<SuperhotPage />} />
           <Route path="/games/rainbowsix" element={<RainbowSixPage />} />
           <Route path="/shows/gto" element={<GTOPage />} />
+          <Route path="/games/hnips1" element={<HNIPS1Page />} />
+          <Route path="/games/southpark" element={<SouthParkPage />} />
+          <Route path="/games/f12001" element={<F12001Page />} />
+          <Route path="/games/gt2" element={<GT2Page />} />
+          <Route path="/games/ufc" element={<UFCPage />} />
+          <Route path="/games/nbalive2003" element={<NBALive2003Page />} />
+          <Route path="/games/gta" element={<GTAPage />} />
+          <Route path="/games/gta2" element={<GTA2Page />} />
+          <Route path="/games/gtalondon1969" element={<GTALondon1969Page />} />
         </Routes>
       </div>
     </div>

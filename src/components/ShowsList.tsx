@@ -68,6 +68,12 @@ const shows: Show[] = [
     title: "Globalisation is Good"
   },
   {
+    id: "gto",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/GTOPoster.jpg",
+    title: "Great Teacher Onizuka"
+  },
+  {
     id: "hnichampionroad",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/championroadposter.jpg",
