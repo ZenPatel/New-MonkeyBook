@@ -122,6 +122,7 @@ import { MinecraftPage } from "./pages/MinecraftPage";
 import { FlappyBirdPage } from "./pages/FlappyBirdPage";
 import { SuperhotPage } from "./pages/SuperhotPage";
 import { RainbowSixPage } from "./pages/RainbowSixPage";
+import { GTOPage } from "./pages/GTOPage";
 
 function App() {
   return (
@@ -251,6 +252,7 @@ function App() {
           <Route path="/games/flappybird" element={<FlappyBirdPage />} />
           <Route path="/games/superhot" element={<SuperhotPage />} />
           <Route path="/games/rainbowsix" element={<RainbowSixPage />} />
+          <Route path="/shows/gto" element={<GTOPage />} />
         </Routes>
       </div>
     </div>
