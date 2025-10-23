@@ -555,6 +555,14 @@ const games: Game[] = [
     category: 'JS'
   },
   {
+    id: 'proskater4',
+    title: 'Pro Skater 4',
+    description: 'The fourth installment in the Tony Hawk Pro Skater series.',
+    icon: '🛹',
+    difficulty: 'Medium',
+    category: 'PS1'
+  },
+  {
     id: 'punchout',
     title: 'Punch Out',
     description: 'The original punch out game released in 1987 featuring Mike Tyson.',
@@ -566,6 +574,14 @@ const games: Game[] = [
     id: 'rainbowsix',
     title: 'Rainbow Six',
     description: 'Based on the Tom Clancy novel and follows Rainbow the counterterrorist.',
+    icon: '🔫',
+    difficulty: 'Hard',
+    category: 'PS1'
+  },
+  {
+    id: 'rainbowsixrs',
+    title: 'Rainbow Six RS',
+    description: 'The second main line game in the Rainbow Six series released in 1999.',
     icon: '🔫',
     difficulty: 'Hard',
     category: 'PS1'
