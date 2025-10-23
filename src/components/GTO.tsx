@@ -9,7 +9,7 @@ const GTO = {
       episodes: [
         {
           title: "Episode 1 - GTO - The Legend Begins",
-          src: "https://archive.org/download/great-teacher-onizuka-dub/Great+Teacher+Onizuka/Great+Teacher+Onizuka+(Dub)+Episode+1.mp4",
+          src: "https://archive.org/download/great-teacher-onizuka-dub/Great%20Teacher%20Onizuka/Great%20Teacher%20Onizuka%20%28Dub%29%20Episode%201.mp4",
         },
       ],
     },
