@@ -11,6 +11,14 @@ interface Game {
 
 const games: Game[] = [
   {
+    id: 'blackjack',
+    title: 'Blackjack',
+    description: 'Do not go over 21 or you will have to answer to Bazlur. Freshly 20 like sombr is best.',
+    icon: '🃏',
+    difficulty: 'Medium',
+    category: 'JS'
+  },
+  {
     id: 'conker',
     title: 'Conkers Bad Fur Day',
     description: 'Play as a alcoholic squirrel in his journey to return home to his gf!',
@@ -299,6 +307,14 @@ const games: Game[] = [
     category: 'N64'
   },
   {
+    id: 'monopoly',
+    title: 'Monopoly',
+    description: 'The classic board game. Compete against your friends and drive them into bankruptcy!',
+    icon: '💵',
+    difficulty: 'Easy',
+    category: 'JS'
+  },
+  {
     id: 'narutonc1',
     title: 'Naruto Ninja Council',
     description: 'The first game in the Ninja Council series following the adventures of Naruto Uzumaki.',
@@ -585,6 +601,14 @@ const games: Game[] = [
     icon: '🔫',
     difficulty: 'Hard',
     category: 'PS1'
+  },
+  {
+    id: 'roulette',
+    title: 'Roulette',
+    description: 'Put some chips down on red and pray to Allah for he will help you win!',
+    icon: '𖥕',
+    difficulty: 'Easy',
+    category: 'JS'
   },
   {
     id: 'snake',

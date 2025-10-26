@@ -134,6 +134,9 @@ import { GTA2Page } from "./pages/GTA2Page";
 import { GTALondon1969Page } from "./pages/GTALondon1969Page";
 import { ProSkater4Page } from "./pages/ProSkater4Page";
 import { RainbowSixRogueSpearPage } from "./pages/RainbowSixRogueSpearPage";
+import { MonopolyPage } from "./pages/MonopolyPage";
+import { RoulettePage } from "./pages/RoulettePage";
+import { BlackjackPage } from "./pages/BlackjackPage";
 
 function App() {
   return (
@@ -275,6 +278,9 @@ function App() {
           <Route path="/games/gtalondon1969" element={<GTALondon1969Page />} />
           <Route path="/games/proskater4" element={<ProSkater4Page />} />
           <Route path="/games/rainbowsixrs" element={<RainbowSixRogueSpearPage />} />
+          <Route path="/games/monopoly" element={<MonopolyPage />} />
+          <Route path="/games/roulette" element={<RoulettePage />} />
+          <Route path="/games/blackjack" element={<BlackjackPage />} />
         </Routes>
       </div>
     </div>
