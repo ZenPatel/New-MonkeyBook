@@ -110,7 +110,7 @@ const shows: Show[] = [
     title: "Superbad"
   },
   {
-    id: "Turkish Star Wars",
+    id: "turkishstarwars",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Turkishstarwarsposter.jpg",
     title: "Turkish Star Wars"
