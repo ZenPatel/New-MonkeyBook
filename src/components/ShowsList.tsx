@@ -14,6 +14,12 @@ const shows: Show[] = [
     title: "A Minecraft Movie"
   },
   {
+    id: "azumangadaioh",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/iwantoeatyourpancreasposter.jpg",
+    title: "Azumanga Daioh"
+  },
+  {
     id: "berserk",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Berserk+Cover.jpg",
@@ -86,6 +92,12 @@ const shows: Show[] = [
     title: "Hajime No Ippo: Kimura vs Mashiba",
   },
   {
+    id: "iwanttoeatyourpancreas",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/iwantoeatyourpancreasposter.jpg",
+    title: "I Want to Eat Your Pancreas"
+  },
+  {
     id: "nextfriday",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Next+Friday+Cover.jpg",
@@ -96,6 +108,12 @@ const shows: Show[] = [
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Superbad_Poster.png",
     title: "Superbad"
+  },
+  {
+    id: "Turkish Star Wars",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Turkishstarwarsposter.jpg",
+    title: "Turkish Star Wars"
   }
 ];
 
