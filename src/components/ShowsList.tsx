@@ -16,7 +16,7 @@ const shows: Show[] = [
   {
     id: "azumangadaioh",
     posterUrl:
-      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/iwantoeatyourpancreasposter.jpg",
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/azumangadaiohposter.jpg",
     title: "Azumanga Daioh"
   },
   {
