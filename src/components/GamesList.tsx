@@ -467,6 +467,14 @@ const games: Game[] = [
     category: 'GBA'
   },
   {
+    id: 'pokemonheartgold',
+    title: 'Pokemon HeartGold',
+    description: 'Re-explore Johto and become the Johto league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pokemonmdbrt',
     title: 'Pokemon MDBRT',
     description: 'Similar to red rescue team but utilizes dual screens on the DS.',
@@ -507,6 +515,14 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'pokemonplatinum',
+    title: 'Pokemon Platinum',
+    description: 'Explore Sinnoh and become the Sinnoh league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pokemonred',
     title: 'Pokemon Red',
     description: 'Explore Kanto and become the Indigo league champion!',
@@ -537,6 +553,14 @@ const games: Game[] = [
     icon: '◓',
     difficulty: 'Easy',
     category: 'GBC'
+  },
+  {
+    id: 'pokemonsoulsilver',
+    title: 'Pokemon SoulSilver',
+    description: 'Re-explore Johto and become the Johto league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
   },
   {
     id: 'pokemonstadium',

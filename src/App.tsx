@@ -140,6 +140,8 @@ import { BlackjackPage } from "./pages/BlackjackPage";
 import { TurkishStarWarsPage } from "./pages/TurkishStarWarsPage";
 import { IWantToEatYourPancreasPage } from "./pages/IWantToEatYourPancreasPage";
 import { AzumangaDaiohPage } from "./pages/AzumangaDaiohPage";
+import { PokemonHeartGoldPage } from "./pages/PokemonHeartGoldPage";
+import { PokemonPlatinumPage } from "./pages/PokemonPlatinumPage";
 
 function App() {
   return (
@@ -287,6 +289,8 @@ function App() {
           <Route path="/shows/turkishstarwars" element={<TurkishStarWarsPage />} />
           <Route path="/shows/iwanttoeatyourpancreas" element={<IWantToEatYourPancreasPage />} />
           <Route path="/shows/azumangadaioh" element={<AzumangaDaiohPage />} />
+          <Route path="/games/pokemonheartgold" element={<PokemonHeartGoldPage />} />
+          <Route path="/games/pokemonplatinum" element={<PokemonPlatinumPage />} />
         </Routes>
       </div>
     </div>

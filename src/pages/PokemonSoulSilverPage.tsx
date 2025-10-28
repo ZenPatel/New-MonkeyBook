@@ -1,4 +1,4 @@
-import PokemonSoulSilver from "../components/PokemonSoulSilver";
+import { PokemonSoulSilver } from "../components/PokemonSoulSilver";
 
 export const PokemonSoulSilverPage = () => {
   return (
