@@ -142,6 +142,10 @@ import { IWantToEatYourPancreasPage } from "./pages/IWantToEatYourPancreasPage";
 import { AzumangaDaiohPage } from "./pages/AzumangaDaiohPage";
 import { PokemonHeartGoldPage } from "./pages/PokemonHeartGoldPage";
 import { PokemonPlatinumPage } from "./pages/PokemonPlatinumPage";
+import { PokemonWhitePage } from "./pages/PokemonWhitePage";
+import { PokemonBlackPage } from "./pages/PokemonBlackPage";
+import { PokemonBlack2Page } from "./pages/PokemonBlack2Page";
+import { PokemonWhite2Page } from "./pages/PokemonWhite2Page";
 
 function App() {
   return (
@@ -291,6 +295,10 @@ function App() {
           <Route path="/shows/azumangadaioh" element={<AzumangaDaiohPage />} />
           <Route path="/games/pokemonheartgold" element={<PokemonHeartGoldPage />} />
           <Route path="/games/pokemonplatinum" element={<PokemonPlatinumPage />} />
+          <Route path="/games/pokemonwhite" element={<PokemonWhitePage />} />
+          <Route path="/games/pokemonblack" element={<PokemonBlackPage />} />
+          <Route path="/games/pokemonblack2" element={<PokemonBlack2Page />} />
+          <Route path="/games/pokemonwhite2" element={<PokemonWhite2Page />} />
         </Routes>
       </div>
     </div>

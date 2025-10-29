@@ -403,6 +403,22 @@ const games: Game[] = [
     category: 'DS'
   },
   {
+    id: 'pokemonblack',
+    title: 'Pokemon Black',
+    description: 'Explore Unova and become the Unova league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
+    id: 'pokemonblack2',
+    title: 'Pokemon Black 2',
+    description: 'Explore Unova and become the Unova league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
     id: 'pokemonblue',
     title: 'Pokemon Blue',
     description: 'Explore Kanto and become the Indigo league champion!',
@@ -577,6 +593,22 @@ const games: Game[] = [
     icon: '◓',
     difficulty: 'Medium',
     category: 'N64'
+  },
+  {
+    id: 'pokemonwhite',
+    title: 'Pokemon White',
+    description: 'Explore Unova and become the Unova league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
+  },
+  {
+    id: 'pokemonwhite2',
+    title: 'Pokemon White 2',
+    description: 'Explore Unova and become the Unova league champion!',
+    icon: '◓',
+    difficulty: 'Easy',
+    category: 'DS'
   },
   {
     id: 'pokemonyellow',
