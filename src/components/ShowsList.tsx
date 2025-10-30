@@ -110,6 +110,12 @@ const shows: Show[] = [
     title: "Superbad"
   },
   {
+    id: "boondocks",
+    posterUrl: 
+      "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8630648_b_v10_ab.jpg",
+    title: "The Boondocks"
+  },
+  {
     id: "turkishstarwars",
     posterUrl:
       "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/Turkishstarwarsposter.jpg",
