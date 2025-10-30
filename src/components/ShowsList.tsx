@@ -26,6 +26,12 @@ const shows: Show[] = [
     title: "Berserk 1997"
   },
   {
+    id: "bluelock",
+    posterUrl:
+      "https://monkeybookshows.s3.us-east-2.amazonaws.com/Posters/BLPoster.jpg",
+    title: "Blue Lock"
+  },
+  {
     id: "borat",
     posterUrl:
       "https://i.ebayimg.com/images/g/FGUAAOSwNPti~flg/s-l1600.webp",

@@ -147,6 +147,7 @@ import { PokemonBlackPage } from "./pages/PokemonBlackPage";
 import { PokemonBlack2Page } from "./pages/PokemonBlack2Page";
 import { PokemonWhite2Page } from "./pages/PokemonWhite2Page";
 import { BoondocksPage } from "./pages/BoondocksPage";
+import { BlueLockPage } from "./pages/BlueLockPage";
 
 function App() {
   return (
@@ -301,6 +302,7 @@ function App() {
           <Route path="/games/pokemonblack2" element={<PokemonBlack2Page />} />
           <Route path="/games/pokemonwhite2" element={<PokemonWhite2Page />} />
           <Route path="/shows/boondocks" element={<BoondocksPage />} />
+          <Route path="/shows/bluelock" element={<BlueLockPage />} />
         </Routes>
       </div>
     </div>
