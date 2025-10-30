@@ -67,6 +67,103 @@ const BlueLock = {
           title: "Episode 15 - Devour",
           src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E15-Devour.mp4"
         },
+        {
+          title: "Episode 16 - Tri-Fusion",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E16-Tri-Fusion.mp4",
+        },
+        {
+          title: "Episode 17 - Donkey",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E17-Donkey.mp4",
+        },
+        {
+          title: "Episode 18 - The Stage for the Lead",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E18-The+Stage+for+the+Lead.mp4",
+        },
+        {
+          title: "Episode 19 - Dancing Boy",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E19-Dancing+Boy.mp4",
+        },
+        {
+          title: "Episode 20 - Super Link-Up Play",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E20-Super+Link-Up+Play.mp4",
+        },
+        {
+          title: "Episode 21 - I'm Not There",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E21-I'm+Not+There.mp4",
+        },
+        {
+          title: "Episode 22 - Voice",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E22-Voice.mp4",
+        },
+        {
+          title: "Episode 23 - Luck",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E23-Luck.mp4",
+        },
+        {
+          title: "Episode 24 - The Time Has Come",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season1/S01E24-The+Time+Has+Come.mp4",
+        },
+      ],
+    },
+    {
+      season: 2,
+      episodes: [
+        {
+          title: "Episode 1 - Tryouts",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E01+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B0BE1606D%5D.mp4",
+        },
+        {
+          title: "Episode 2 - The Assassin and the Ninja",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E02+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B488F431A%5D.mp4"
+        },
+        {
+          title: "Episode 3 - The World You Feel",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E03+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BD806DD49%5D.mp4"
+        },
+        {
+          title: "Episode 4 - Chameleon",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E04+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BF5006300%5D.mp4"
+        },
+        {
+          title: "Episode 5 - Flow",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E05+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B4C9E2A67%5D.mp4"
+        },
+        {
+          title: "Episode 6 - The Big Stage",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E06+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BA815F01C%5D.mp4"
+        },
+        {
+          title: "Episode 7 - Itoshi Sae",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E07+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BBB4F75E6%5D.mp4"
+        },
+        {
+          title: "Episode 8 - Blue Genes",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E08+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B406ABDA4%5D.mp4"
+        },
+        {
+          title: "Episode 9 - Night Snow",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E09+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B7BBC2973%5D.mp4"
+        },
+        {
+          title: "Episode 10 - The Subs Take to the Stage",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E10+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BA946FD0D%5D.mp4"
+        },
+        {
+          title: "Episode 11 - What You Taught Us",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E11+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B48652D69%5D.mp4"
+        },
+        {
+          title: "Episode 12 - Flowers",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E12+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B41763277%5D.mp4"
+        },
+        {
+          title: "Episode 13 - Not Alone",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E13+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5B82F8D7F2%5D.mp4"
+        },
+        {
+          title: "Episode 14 - Last Attack",
+          src: "https://monkeybookshows.s3.us-east-2.amazonaws.com/blue+lock/Season2/%5BYameii%5D+BLUE+LOCK+-+S02E14+%5BEnglish+Dub%5D+%5BCR+WEB-DL+1080p%5D+%5BBE363563%5D.mp4"
+        },
       ],
     },
   ],
